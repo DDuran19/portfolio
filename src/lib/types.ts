@@ -43,7 +43,7 @@ export interface Skill extends Omit<Item, 'shortDescription'> {
 }
 
 export interface Project extends Item {
-	links: Array<Link>;
+	links: Array<Link & { icon?: string }>;
 	color: string;
 	period: {
 		from: Date;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import UIcon from '../Icon/UIcon.svelte';
-
+	export let icon: string | undefined = undefined;
 	export let label: string;
 	export let to: string;
 </script>
@@ -13,7 +13,7 @@
 	rel="noreferrer"
 	data-help={label}
 >
-	<UIcon icon="i-carbon-link" classes="text-[var(--secondary-text)]" />
+	<UIcon icon={icon ?? 'i-carbon-link'} classes="text-[var(--secondary-text)]" />
 </a>
 
 <style lang="scss">

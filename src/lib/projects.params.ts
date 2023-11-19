@@ -11,10 +11,15 @@ const MY_PROJECTS: Array<Project> = [
 		shortDescription:
 			'It features an intuitive minimalist UI backed with SQL database under the hood. This is a solo project which is coded using Python.',
 		links: [
-			{ to: 'https://github.com/DDuran19/MolleyBolley', label: 'GitHub', newTab: true },
+			{
+				to: 'https://github.com/DDuran19/MolleyBolley',
+				label: 'GitHub',
+				newTab: true,
+				icon: 'i-carbon-logo-github'
+			},
 			{ to: 'https://dduran19.github.io/MolleyBolley/', label: 'More info', newTab: true }
 		],
-		logo: Assets.Unknown,
+		logo: Assets.Python,
 		name: 'Molley Bolley',
 		period: {
 			from: new Date('2023-05-30'),

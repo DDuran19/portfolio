@@ -34,7 +34,7 @@
 		<CardTitle title={project.name} />
 		<div class="row">
 			{#each project.links as link}
-				<CardLink label={link.label ?? ''} to={link.to} />
+				<CardLink label={link.label ?? ''} to={link.to} icon={link.icon} />
 			{/each}
 		</div>
 	</div>
