@@ -83,11 +83,11 @@
 		position: sticky;
 		top: 0px;
 		z-index: 10;
-		padding: 10px;
+		padding: 5px;
 		@media screen and (max-width: 550px) {
 			position: fixed;
 			top: unset;
-			bottom: 0;
+			bottom: 10px;
 			width: 100%;
 			padding: 0%;
 		}

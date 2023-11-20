@@ -89,7 +89,7 @@
 		--rot-y: 0;
 
 		background:
-			linear-gradient(90deg, var(--main) 0%, var(--main) 60%, var(--main-60) 100%),
+			linear-gradient(90deg, var(--main) 0%, var(--main) 30%, var(--main-60) 100%),
 			no-repeat right 40% / 40% var(--bg-img);
 
 		&-bg-img {
