@@ -47,7 +47,7 @@ export const HOME: HomePageParams = {
 	name: 'Denver James',
 	lastName: 'Duran',
 	description:
-		'Software Developer skilled in Python, JavaScript, CSS, HTML, and SQL. Proven track record on delivering impactful web solutions, including start-up web apps and full-stack development projects. Effective communicator and analytical thinker, with a background in teaching and mentoring. Strong leadership and teamwork capabilities.',
+		'Software Developer skilled in Python, Typescript, JavaScript, CSS, HTML, etc. Proven track record on delivering impactful web solutions, including start-up web apps and full-stack development projects. Effective communicator and analytical thinker, with a background in teaching and mentoring. Strong leadership and teamwork capabilities.',
 	links: [
 		{ platform: Platform.GitHub, link: 'https://github.com/DDuran19' },
 		{

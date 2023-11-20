@@ -45,7 +45,7 @@
 			href="mailto:inquiries@denvie.online?subject=Inquiry&body=Good day!%0A%0AI saw your portfolio on https://denvie.online, and I would like to "
 			role="button"
 			target="_blank"
-			class="md:mx-0 mx-auto w-[fit-content] bg-sky-500 hover:bg-sky-600 hover:text-white text-black font-bold uppercase no-underline px-4 py-2 rounded"
+			class="md:mx-0 mx-auto w-[fit-content] bg-[var(--cta)] hover:bg-[var(--cta-hover)] hover:text-white text-black font-600 uppercase no-underline px-4 py-2 rounded"
 			>Get in touch</a
 		>
 	</div>
