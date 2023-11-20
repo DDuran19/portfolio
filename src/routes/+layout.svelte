@@ -12,7 +12,7 @@
 	onMount(() => onHydrated());
 </script>
 
-<div class={`body contents ${$theme ? 'theme-dark' : 'theme-light'}`}>
+<div class={`body contents ${$theme ? 'theme-dark' : 'theme-light'} overflow-hidden`}>
 	<NavMenu />
 	{#key currentPage}
 		<div class="content container" in:fly={{ x: 200, duration: 400, easing: quadInOut }}>
