@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-	--dark-0: #000;
+	--dark: #202124;
+	--dark-0: #202124;
 	--dark-1: #1e1e1e;
 	--dark-2: #2e2e2e;
 	--dark-3: #3e3e3e;
@@ -61,10 +62,10 @@ body {
 		right;
 }
 
-:root[data-theme='dark'] {
+:root[data-theme="dark"] {
 	color-scheme: dark;
 
-	--main: var(--dark-0);
+	--main: var(--dark);
 	--main-hover: var(--dark-1);
 	--secondary: var(--dark-1);
 	--secondary-hover: var(--dark-2);
