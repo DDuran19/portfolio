@@ -14,7 +14,6 @@
 	];
 
 	$: currentPage = $page.url.pathname;
-	$: active = items.find((item) => item.to === currentPage);
 </script>
 
 <div class="nav-menu">
@@ -32,7 +31,7 @@
 			{#each items as item}
 				<a
 					href={`${base}${item.to}`}
-					class="relative nav-menu-item !text-[var(--secondary-text)] {item.to === active?.to
+					class="relative nav-menu-item !text-[var(--secondary-text)] {item.to === currentPage
 						? 'currentPage'
 						: ''}"
 				>
