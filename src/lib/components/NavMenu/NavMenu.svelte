@@ -35,7 +35,7 @@
 						? 'currentPage'
 						: ''}"
 				>
-					<UIcon icon={item.icon} classes="text-1.3em" />
+					<UIcon icon={item.icon} classes="text-1.5em md:text-1.3em " />
 					<span class="nav-menu-item-label">{item.title}</span>
 				</a>
 			{/each}
@@ -45,16 +45,16 @@
 				href={`${base}/search`}
 				class="text-inherit col-center self-stretch px-2 hover:bg-[color:var(--main-hover)]"
 			>
-				<UIcon icon="i-carbon-search" />
+				<UIcon icon="i-carbon-search" classes="text-1.5em md:text-1.3em " />
 			</a>
 			<button
 				class="bg-transparent text-1em border-none cursor-pointer hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)] px-2"
 				on:click={() => toggleTheme()}
 			>
 				{#if $theme}
-					<UIcon icon="i-carbon-moon" />
+					<UIcon icon="i-carbon-moon" classes="text-1.5em md:text-1.3em " />
 				{:else}
-					<UIcon icon="i-carbon-sun" />
+					<UIcon icon="i-carbon-sun" classes="text-1.5em md:text-1.3em " />
 				{/if}
 			</button>
 		</div>
