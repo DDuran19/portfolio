@@ -27,6 +27,10 @@
 		flex-direction: column;
 		flex: 1;
 		padding: 0px 0px;
+		@media screen and (max-width: 550px) {
+			margin-top: 10px;
+			margin-bottom: 64px;
+		}
 	}
 
 	.body {

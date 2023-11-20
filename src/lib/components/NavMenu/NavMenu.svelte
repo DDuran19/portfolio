@@ -84,6 +84,13 @@
 		top: 0px;
 		z-index: 10;
 		padding: 10px;
+		@media screen and (max-width: 550px) {
+			position: fixed;
+			top: unset;
+			bottom: 0;
+			width: 100%;
+			padding: 0%;
+		}
 		&-container {
 			background: rgba(255, 255, 255, 0);
 			border-radius: 16px;
