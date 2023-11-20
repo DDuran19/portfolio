@@ -1,5 +1,4 @@
-<h1> MolleyBolley: Salon Queueing and Sales Tracking System
-</h1>
+<h1 class="text-balance"> MolleyBolley: Salon Queueing and Sales Tracking System</h1>
 
 ![MolleyBolley](https://github.com/DDuran19/MolleyBolley/blob/main/images/business_logo.jpg?raw=true)
 
