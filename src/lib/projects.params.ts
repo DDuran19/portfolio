@@ -1,8 +1,8 @@
 import Assets from './data/assets';
 import { getSkills } from './skills.params';
 import type { Project } from './types';
-import MolleyBolley from '$lib/md/MolleyBolley.md?raw';
-
+import MolleyBolley from '$lib/md/projects/MolleyBolley.md?raw';
+import SimpleVanillaLogin from '$lib/md/projects/SimpleVanillaLogin.md?raw';
 const MY_PROJECTS: Array<Project> = [
 	{
 		slug: 'molley-bolley',
@@ -91,49 +91,52 @@ const MY_PROJECTS: Array<Project> = [
 					'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
 			}
 		]
+	},
+	{
+		slug: 'simple-vanilla-login',
+		color: '#646cff',
+		shortDescription:
+			'Created using typescript and CSS, this implements a simple authentication mechanism using sessions. Routing are created without libraries.',
+		logo: Assets.TypeScript,
+		name: 'Simple Vanilla Login',
+		period: {
+			from: new Date('2023-07-30'),
+			to: new Date('2023-08-02')
+		},
+		skills: getSkills('ts', 'css', 'html'),
+		type: 'Authentication',
+		description: SimpleVanillaLogin,
+		links: [
+			{
+				to: 'https://github.com/DDuran19/simpleVanillaLogin',
+				label: 'GitHub',
+				newTab: true,
+				icon: 'i-carbon-logo-github'
+			},
+			{
+				to: 'https://simple-vanilla-login.vercel.app/',
+				label: 'Live Demo',
+				newTab: true
+			}
+		],
+		screenshots: [
+			{
+				label: 'Login Page',
+				src: 'https://raw.githubusercontent.com/DDuran19/images/main/SimpleVanillaLogin/root.webp'
+			},
+			{
+				label: 'Register Page',
+				src: 'https://raw.githubusercontent.com/DDuran19/images/main/SimpleVanillaLogin/register.webp'
+			},
+			{
+				label: 'User Details Page',
+				src: 'https://raw.githubusercontent.com/DDuran19/images/main/SimpleVanillaLogin/user-details.webp'
+			},
+			{
+				label: 'Not Found/ Unauthorized Page',
+				src: 'https://raw.githubusercontent.com/DDuran19/images/main/SimpleVanillaLogin/not-found-not-allowed.webp'
+			}
+		]
 	}
 ];
-// ,
-// 	{
-// 		slug: 'slick-portfolio-svelte',
-// 		color: '#ff3e00',
-// 		description:
-// 			'A Vercel-like developer portfolio website template made with Typescript and SvelteKit.',
-// 		shortDescription:
-// 			'A Vercel-like developer portfolio website template made with Typescript and SvelteKit.',
-// 		links: [{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'GitHub' }],
-// 		logo: Assets.Svelte,
-// 		name: 'Slick Portfolio',
-// 		period: {
-// 			from: new Date()
-// 		},
-// 		skills: getSkills('svelte', 'ts', 'tailwind', 'sass'),
-// 		type: 'Website Template',
-// 		screenshots: [
-// 			{
-// 				label: 'screen 1',
-// 				src: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60'
-// 			},
-// 			{
-// 				label: '2',
-// 				src: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60'
-// 			},
-// 			{
-// 				label: '3',
-// 				src: 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-// 			},
-// 			{
-// 				label: '4',
-// 				src: 'https://images.unsplash.com/photo-1542903660-eedba2cda473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-// 			},
-// 			{
-// 				label: '5',
-// 				src: 'https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-// 			},
-// 			{
-// 				label: '6',
-// 				src: 'https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-// 			}
-// 		]
-// 	}
 export default MY_PROJECTS;

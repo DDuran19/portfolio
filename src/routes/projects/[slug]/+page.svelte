@@ -21,12 +21,6 @@
 	const screenshots = data.project?.screenshots ?? [];
 
 	$: computedTitle = data.project ? `${data.project.name} - ${title}` : title;
-
-	function handleImageHover(event: MouseEvent, newSrc: string) {
-		const img = event.target as HTMLImageElement;
-		img.srcset = newSrc;
-		console.log(img);
-	}
 </script>
 
 <TabTitle title={computedTitle} />
@@ -95,12 +89,6 @@
 					<div
 						class="px-10px grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 m-t-10"
 					>
-						<!-- {#each screenshots as item}
-							<div class="col-center gap-3 overflow-hidden w-100% h-100% rounded-10px">
-								<img class="aspect-video w-100%" src={item.src} alt={item.label} />
-								<p class="text-[var(--tertiary-text)] font-300">{item.label}</p>
-							</div>
-						{/each} -->
 						{#each screenshots as item}
 							<ImagePreview {item} />
 						{/each}

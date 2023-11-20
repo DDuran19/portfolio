@@ -1,5 +1,4 @@
 <script lang="ts">
-	let isHovered = false;
 	export let item: {
 		label: string;
 		src: string;
