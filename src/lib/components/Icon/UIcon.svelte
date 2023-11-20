@@ -5,3 +5,4 @@
 </script>
 
 <i class={`${icon} ${classes}`} />
+<!-- <i class="i-carbon-logo-github"></i> -->

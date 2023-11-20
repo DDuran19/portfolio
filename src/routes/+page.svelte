@@ -25,7 +25,7 @@
 	class="col self-center flex-1 md:flex-row md:slef-stretch justify-center lg:justify-between items-center p-y-0px p-x-10px"
 >
 	<div class="md:flex-1 gap-10px">
-		<MainTitle classes="md:text-left ">{name} {lastName},</MainTitle>
+		<MainTitle classes="md:text-left ">{name} {lastName}</MainTitle>
 		<p class="text-[var(--tertiary-text)] text-center md:text-left text-[1.2em] font-extralight">
 			{description}
 		</p>
@@ -41,6 +41,13 @@
 				</a>
 			{/each}
 		</div>
+		<a
+			href="mailto:inquiries@denvie.online?subject=Inquiry&body=Good day!%0A%0AI saw your portfolio on https://denvie.online, and I would like to "
+			role="button"
+			target="_blank"
+			class="bg-sky-500 hover:bg-sky-600 hover:text-white text-black font-bold uppercase no-underline px-4 py-2 rounded"
+			>Get in touch</a
+		>
 	</div>
 	<Carrousel items={skills ?? MY_SKILLS} />
 </div>

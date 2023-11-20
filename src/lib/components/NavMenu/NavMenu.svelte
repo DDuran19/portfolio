@@ -5,17 +5,6 @@
 	import { base } from '$app/paths';
 	import UIcon from '../Icon/UIcon.svelte';
 
-	// import { page } from '$app/stores';
-	// let currentRoute = '/';
-
-	// $: {
-	// 	if ($page) {
-	// 		currentRoute = $page.url.pathname;
-
-	// 		// console.log(currentRoute);
-	// 	}
-	// }
-
 	const items = [
 		{ title: NavBar.skills, to: '/skills', icon: 'i-carbon-software-resource-cluster' },
 		{ title: NavBar.personal, to: '/projects', icon: 'i-carbon-cube' },
@@ -31,9 +20,9 @@
 			class="nav-menu-left decoration-none flex flex-row items-center cursor-pointer px-4 text-[var(--secondary-text)] self-stretch hover:bg-[color:var(--main-hover)]"
 		>
 			<UIcon icon="i-carbon-code" classes="text-2em" />
-			<span class="ml-2 text-md font-bold hidden md:inline">{HOME.name} {HOME.lastName}</span>
+			<span class="ml-2 text-md font-bold hidden md:inline">Denvie</span>
 		</a>
-		<div class="flex flex-row flex-1 self-center justify-center">
+		<div class="flex flex-row flex-1 self-center justify-center nav-menu-container">
 			{#each items as item}
 				<a href={`${base}${item.to}`} class="nav-menu-item !text-[var(--secondary-text)]">
 					<UIcon icon={item.icon} classes="text-1.3em" />
@@ -65,14 +54,22 @@
 <style lang="scss">
 	.nav-menu {
 		display: flex;
+		height: 64px;
 		justify-content: center;
 		position: sticky;
 		top: 0px;
 		z-index: 10;
-		padding: 0px 10px;
-		border-bottom: 1px solid var(--secondary);
-		background-color: var(--main);
-
+		padding: 10px;
+		// border-bottom: 1px solid var(--secondary);
+		// background-color: var(--main);
+		&-container {
+			background: rgba(255, 255, 255, 0);
+			border-radius: 16px;
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			backdrop-filter: blur(9.7px);
+			-webkit-backdrop-filter: blur(9.7px);
+			border: 1px solid rgba(255, 255, 255, 0.12);
+		}
 		&-item {
 			text-decoration: none;
 			font-weight: 400;
