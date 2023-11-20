@@ -1,7 +1,9 @@
 <h1> MolleyBolley: Salon Queueing and Sales Tracking System
 </h1>
 
-**MolleyBolley** is a user-friendly and efficient software application designed to streamline customer service operations. It empowers businesses to effectively manage customer queues, assign employees to customers, track service data, and generate insightful reports.
+![MolleyBolley](https://github.com/DDuran19/MolleyBolley/blob/main/images/business_logo.jpg?raw=true)
+
+**MolleyBolley** is a beauty salon that has asked for a user-friendly and efficient software application designed to streamline customer service operations. The final product empowered them to effectively manage customer queues, assign employees to customers, track service data, and generate insightful reports.
 
 <h2>Table of Contents</h2>
 
