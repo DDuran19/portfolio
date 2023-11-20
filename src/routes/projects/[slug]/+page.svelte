@@ -12,6 +12,7 @@
 	import Banner from '$lib/components/Banner/Banner.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import CardDivider from '$lib/components/Card/CardDivider.svelte';
+	import ImagePreview from '$lib/components/Image/ImagePreview.svelte';
 
 	export let data: { project?: Project };
 
@@ -20,6 +21,12 @@
 	const screenshots = data.project?.screenshots ?? [];
 
 	$: computedTitle = data.project ? `${data.project.name} - ${title}` : title;
+
+	function handleImageHover(event: MouseEvent, newSrc: string) {
+		const img = event.target as HTMLImageElement;
+		img.srcset = newSrc;
+		console.log(img);
+	}
 </script>
 
 <TabTitle title={computedTitle} />
@@ -43,9 +50,9 @@
 					</div>
 					<div class="row-center flex-wrap text-[0.9em] text-[var(--tertiary-text)] m-b-2">
 						{#each data.project.links as item}
-							<Chip href={item.to}>
+							<Chip href={item.to} target="_blank">
 								<div class="row-center gap-2">
-									<UIcon icon="i-carbon-link" />
+									<UIcon icon={item.icon ?? 'i-carbon-link'} />
 									<span>{item.label}</span>
 								</div>
 							</Chip>
@@ -88,11 +95,14 @@
 					<div
 						class="px-10px grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 m-t-10"
 					>
-						{#each screenshots as item}
+						<!-- {#each screenshots as item}
 							<div class="col-center gap-3 overflow-hidden w-100% h-100% rounded-10px">
 								<img class="aspect-video w-100%" src={item.src} alt={item.label} />
 								<p class="text-[var(--tertiary-text)] font-300">{item.label}</p>
 							</div>
+						{/each} -->
+						{#each screenshots as item}
+							<ImagePreview {item} />
 						{/each}
 					</div>
 				{:else}
@@ -105,3 +115,9 @@
 		</div>
 	{/if}
 </div>
+
+<style lang="scss">
+	.gif {
+		background-image: url();
+	}
+</style>

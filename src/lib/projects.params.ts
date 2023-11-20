@@ -26,7 +26,71 @@ const MY_PROJECTS: Array<Project> = [
 			to: new Date('2023-08-01')
 		},
 		skills: getSkills('python', 'html'),
-		type: 'Salon Queueing and Sales Tracking System'
+		type: 'Salon Queueing and Sales Tracking System',
+		screenshots: [
+			{
+				label: 'Login component',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/1.png?raw=true'
+			},
+			{
+				label: 'Main screen',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
+			},
+			{
+				label: 'Add customer',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/4.gif?raw=true',
+				static:
+					'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
+			},
+			{
+				label: 'Assign customer to an employee',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/5.gif?raw=true',
+				static:
+					'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
+			},
+			{
+				label: 'Mark employee as free',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/6.gif?raw=true',
+				static:
+					'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
+			},
+			{
+				label: 'Settings panel (standard view)',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/7.gif?raw=true',
+				static:
+					'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
+			},
+			{
+				label: 'Simple Analysis',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Data_Analysis/1.gif?raw=true',
+				static:
+					'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
+			},
+			{
+				label: 'Data Extraction',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Data_Analysis/2.gif?raw=true',
+				static:
+					'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
+			},
+			{
+				label: 'Employee management - Changing password',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Admin_Panel/1.gif?raw=true',
+				static:
+					'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
+			},
+			{
+				label: 'Employee management - Add new employee',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Admin_Panel/2.gif?raw=true',
+				static:
+					'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
+			},
+			{
+				label: 'Employee management - Delete employee',
+				src: 'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Admin_Panel/3.gif?raw=true',
+				static:
+					'https://github.com/DDuran19/MolleyBolley/blob/main/images/how_to_use/Getting_Started/2.png?raw=true'
+			}
+		]
 	}
 ];
 // ,

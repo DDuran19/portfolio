@@ -162,7 +162,7 @@ body {
 
 	color: var(--tertiary-text);
 	overflow-y: auto !important;
-
+	
 	code[class*='language-'],
 	pre[class*='language-'] {
 		overflow-x: auto;
@@ -228,6 +228,7 @@ body {
 	& h3 {
 		color: var(--text);
 		margin-bottom: 0.45em;
+		margin-top: 1.5rem
 	}
 
 	& h1 {
@@ -301,3 +302,29 @@ html[data-theme='dark'] .nav-menu  .nav-menu-container {
 	background: rgba(0, 0, 0, 0.5);
 	box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
 }
+
+div[data-image-preview-container] {
+	cursor: pointer;
+	[data-image-static] {
+	  display: block;
+	  opacity: 1;
+	  transition: opacity 0.3s ease;
+	}
+	[data-image-src] {
+		display: none;
+		opacity: 0;
+	}
+  
+	&:hover {
+	  [data-image-src] {
+	  display: block;
+		opacity: 1;
+	  }
+  
+	  [data-image-static] {
+	  display: none;
+		opacity: 0;
+	}
+	}
+}
+  
