@@ -115,9 +115,3 @@
 		</div>
 	{/if}
 </div>
-
-<style lang="scss">
-	.gif {
-		background-image: url();
-	}
-</style>
