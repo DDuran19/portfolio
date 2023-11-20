@@ -4,13 +4,21 @@
 	import '$lib/index.scss';
 	import { onHydrated, theme } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
+	import { page } from '$app/stores';
+	import { quadInOut } from 'svelte/easing';
+	$: currentPage = $page.url.pathname;
 
 	onMount(() => onHydrated());
 </script>
 
 <div class={`body contents ${$theme ? 'theme-dark' : 'theme-light'}`}>
 	<NavMenu />
-	<div class="content container"><slot /></div>
+	{#key currentPage}
+		<div class="content container" in:fly={{ x: 200, duration: 400, easing: quadInOut }}>
+			<slot />
+		</div>
+	{/key}
 </div>
 
 <style lang="scss">
