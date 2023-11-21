@@ -19,7 +19,11 @@
 	const { title } = PROJECTS;
 
 	const screenshots = data.project?.screenshots ?? [];
-
+	let onGridView: boolean;
+	$: onGridView = true;
+	function toggleGridView() {
+		onGridView = !onGridView;
+	}
 	$: computedTitle = data.project ? `${data.project.name} - ${title}` : title;
 </script>
 
@@ -86,8 +90,33 @@
 					<CardDivider />
 				</div>
 				{#if screenshots.length > 0}
+					<div class="hidden sm:flex items-center gap-4 pl-4">
+						Views:
+						<div>
+							<button
+								class="bg-transparent border-none p-0 m-0 cursor-pointer"
+								on:click={toggleGridView}
+							>
+								<UIcon
+									icon="i-carbon-grid"
+									classes="text-1.5rem {onGridView ? ' text-[var(--cta)]' : ''}"
+								/>
+							</button>
+							<button
+								class="bg-transparent border-none p-0 m-0 cursor-pointer"
+								on:click={toggleGridView}
+							>
+								<UIcon
+									icon="i-carbon-center-square"
+									classes="text-1.5rem {!onGridView ? ' text-[var(--cta)]' : ''}"
+								/>
+							</button>
+						</div>
+					</div>
 					<div
-						class="px-10px grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 m-t-10"
+						class={onGridView
+							? 'px-10px grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 m-t-10'
+							: 'px-10px gap-5 m-t-10'}
 					>
 						{#each screenshots as item}
 							<ImagePreview {item} />
