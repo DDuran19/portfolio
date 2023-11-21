@@ -7,6 +7,7 @@
 	import { fly } from 'svelte/transition';
 	import { page } from '$app/stores';
 	import { quadInOut } from 'svelte/easing';
+	import ScrollToTop from '$lib/components/Floaters/ScrollToTop.svelte';
 	$: currentPage = $page.url.pathname;
 
 	onMount(() => onHydrated());
@@ -19,6 +20,7 @@
 			<slot />
 		</div>
 	{/key}
+	<ScrollToTop />
 </div>
 
 <style lang="scss">

@@ -46,13 +46,14 @@
 	--dark-0-60: rgba(0, 0, 0, 0.4);
 	--light-0-60: rgba(255, 255, 255, 0.4);
 
-	// fonts
 	--text-f: 'Inter';
 	--title-f: 'Inter';
 
 	overflow-y: scroll;
 }
-
+html {
+	scroll-behavior: smooth;
+}
 body {
 	margin: 0px;
 }

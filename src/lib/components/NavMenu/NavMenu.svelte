@@ -16,7 +16,7 @@
 	$: currentPage = $page.url.pathname;
 </script>
 
-<div class="nav-menu">
+<div class="nav-menu" id="nav-menu">
 	<nav class="container grid grid-cols-[1fr_0.5fr_2fr_0.5fr_1fr] w-full text-sm">
 		<a
 			href={`${base}/`}
