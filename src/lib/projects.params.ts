@@ -3,6 +3,7 @@ import { getSkills } from './skills.params';
 import type { Project } from './types';
 import MolleyBolley from '$lib/md/projects/MolleyBolley.md?raw';
 import SimpleVanillaLogin from '$lib/md/projects/SimpleVanillaLogin.md?raw';
+import Instaprint from '$lib/md/projects/Instaprint.md?raw';
 const MY_PROJECTS: Array<Project> = [
 	{
 		slug: 'molley-bolley',
@@ -136,6 +137,26 @@ const MY_PROJECTS: Array<Project> = [
 				label: 'Not Found/ Unauthorized Page',
 				src: 'https://raw.githubusercontent.com/DDuran19/images/main/SimpleVanillaLogin/not-found-not-allowed.webp'
 			}
+		]
+	},
+	{
+		name: 'Instaprint',
+		slug: 'instaprint',
+		logo: Assets.instaprint,
+		links: [],
+		color: '#ffffff',
+		type: 'Android native app',
+		period: {
+			from: new Date('2023-08-30'),
+			to: new Date('2023-09-01')
+		},
+		description: Instaprint,
+		shortDescription:
+			'Allows my POS webapp to directly print the receipt without any confirmation.',
+		skills: getSkills('kotlin', 'android'),
+		screenshots: [
+			{ src: '/logos/instaprint_printing.png', label: 'Printing screen' },
+			{ src: '/logos/instaprint_main.png', label: 'Main screen when open on menu' }
 		]
 	}
 ];

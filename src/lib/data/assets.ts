@@ -9,6 +9,8 @@ const a = (light: string, dark?: string): Asset =>
 
 const Assets = {
 	CpoOutlets: a('cpo-outlets.png'),
+	instaprint: a('instaprint.png'),
+	instaprintPrinting: a('instaprint_printing.png'),
 	AWS: a('aws.svg'),
 	Bootstrap: a('bootstrap.svg'),
 	C: a('c.svg'),

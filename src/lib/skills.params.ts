@@ -67,6 +67,21 @@ const MY_SKILLS = [
 			'I am highly proficient in React, a widely-used library for creating user interfaces. I can efficiently develop complex UIs and manage state in React applications.',
 		logo: Assets.ReactJs,
 		name: 'React Js'
+	}),
+	s({
+		slug: 'nodejs',
+		color: 'green',
+		description: 'I have experience with Node.js, a server-side JavaScript runtime.',
+		logo: Assets.NodeJs,
+		name: 'Node Js'
+	}),
+	s({
+		slug: 'android',
+		color: 'green',
+		description:
+			'I have minimal experience with Android development. I used kotlin once on my instaprint app which is a complementary app to enable fast printing for my webapp',
+		logo: Assets.Android,
+		name: 'Android'
 	})
 ];
 
