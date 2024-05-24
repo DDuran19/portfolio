@@ -15,7 +15,7 @@ Traditional POS printing often involves:
 
 ## Solution
 
-Instaprint bridges the gap between the web app and the printer, offering a seamless and automated printing solution. Under the hood, this mobile app uses this [library]().
+Instaprint bridges the gap between the web app and the printer, offering a seamless and automated printing solution. Under the hood, this mobile app uses this [library](https://github.com/DantSu/ESCPOS-ThermalPrinter-Android).
 
 ## Features
 
