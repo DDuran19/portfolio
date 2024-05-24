@@ -7,7 +7,7 @@ Instaprint is a lightweight Android app specifically designed to streamline rece
 
 ## Problem
 
-Traditional POS printing often involves:
+Traditional POS webapp printing often involves:
 
 * Manual confirmation prompts in the browser for every print request.
 * Reliance on additional printing apps, adding complexity and potential points of failure.
