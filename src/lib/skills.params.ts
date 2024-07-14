@@ -9,12 +9,12 @@ export type ArrayElementType<ArrayType extends readonly unknown[]> =
 
 const MY_SKILLS = [
 	s({
-		slug: 'svelte',
+		slug: 'sveltekit',
 		color: 'orange',
 		description:
-			'I have extensive experience with Svelte, a modern JavaScript framework known for its efficiency in building web applications.',
+			'With a year of experience in SvelteKit, I have developed complex applications such as a comprehensive POS system. My expertise includes building modern, high-performance web apps with a focus on scalability and maintainability.',
 		logo: Assets.Svelte,
-		name: 'Svelte'
+		name: 'SvelteKit'
 	}),
 	s({
 		slug: 'ts',
@@ -82,6 +82,30 @@ const MY_SKILLS = [
 			'I have minimal experience with Android development. I used kotlin once on my instaprint app which is a complementary app to enable fast printing for my webapp',
 		logo: Assets.Android,
 		name: 'Android'
+	}),
+	s({
+		slug: 'daisyui',
+		color: '#ff66cc', // Adjust color as needed
+		description:
+			'I have experience using DaisyUI for styling SvelteKit applications, creating modern and consistent user interfaces with ease.',
+		logo: Assets.DaisyUI,
+		name: 'DaisyUI'
+	}),
+	s({
+		slug: 'cloudflare',
+		color: '#f38020', // Adjust color as needed
+		description:
+			'I have utilized Cloudflare Workers for handling serverless functions, enhancing performance and scalability of web applications.',
+		logo: Assets.Cloudflare, // Replace with the actual asset reference
+		name: 'Cloudflare'
+	}),
+	s({
+		slug: 'pwa',
+		color: '#5a0fc8', // Adjust color as needed
+		description:
+			'I have configured Progressive Web Apps (PWAs) for seamless installation on both iOS and Android devices, improving accessibility and user experience.',
+		logo: Assets.PWA, // Replace with the actual asset reference
+		name: 'PWA'
 	})
 ];
 

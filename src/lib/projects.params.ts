@@ -4,6 +4,7 @@ import type { Project } from './types';
 import MolleyBolley from '$lib/md/projects/MolleyBolley.md?raw';
 import SimpleVanillaLogin from '$lib/md/projects/SimpleVanillaLogin.md?raw';
 import Instaprint from '$lib/md/projects/Instaprint.md?raw';
+import CafezinhoPOS from '$lib/md/projects/413CafezinhoPOS.md?raw';
 const MY_PROJECTS: Array<Project> = [
 	{
 		slug: 'molley-bolley',
@@ -157,6 +158,79 @@ const MY_PROJECTS: Array<Project> = [
 		screenshots: [
 			{ src: '/logos/instaprint_printing.png', label: 'Printing screen' },
 			{ src: '/logos/instaprint_main.png', label: 'Main screen when open on menu' }
+		]
+	},
+	{
+		name: '413 Cafezinho POS',
+		slug: '413-cafezinho-pos',
+		logo: Assets.cafezinhoPOS,
+		links: [],
+		color: '#000000',
+		type: 'Sveltekit Web App',
+		period: {
+			from: new Date('2024-01-06')
+		},
+		description: CafezinhoPOS,
+		shortDescription:
+			'A POS system designed for 413 Cafezinho, featuring mobile-first design, real-time order management, and detailed reporting.',
+		skills: getSkills('svelte', 'ts', 'css', 'tailwind', 'cloudflare', 'pwa'),
+		screenshots: [
+			{
+				src: '/images/projects/denvie.online/landing-page.png',
+				label: 'Landing Page'
+			},
+			{
+				src: '/images/projects/denvie.online/cart-1.png',
+				label: 'Customer Cart 1'
+			},
+			{
+				src: '/images/projects/denvie.online/cart-2.png',
+				label: 'Customer Cart 2'
+			},
+			{
+				src: '/images/projects/denvie.online/payment-instructions.png',
+				label: 'Payment Instructions'
+			},
+			{
+				src: '/images/projects/denvie.online/product-order-screen.png',
+				label: 'Product Details Page (SAMPLE ONLY - Update mode)'
+			},
+			{
+				src: '/images/projects/denvie.online/product-order-screen-new.png',
+				label: 'Product Details Page (SAMPLE ONLY - Add new product to cart mode)'
+			},
+			{
+				src: '/images/projects/denvie.online/empty-cart.png',
+				label: 'Empty Cart'
+			},
+			{
+				src: '/images/projects/denvie.online/reports.png',
+				label: 'Reporting Feature (SAMPLE ONLY)'
+			},
+			{
+				src: '/images/projects/denvie.online/POS-main-interface.png',
+				label: 'POS Main Interface (PRODUCTS ARE SAMPLE ONLY)'
+			},
+			{
+				src: '/images/projects/denvie.online/order-details.png',
+				label: 'Order Details (SAMPLE ONLY)'
+			},
+			{
+				src: '/images/projects/denvie.online/cancel-approval-screen.png',
+				label: 'Cancel Approval Feature'
+			},
+			{
+				src: '/images/projects/denvie.online/admin-dashboard-manage-product-category.png',
+				label: 'Product category management'
+			},
+			{
+				src: '/images/projects/denvie.online/admin-dashboard-manage-own-account.png',
+				label: 'User account management'
+			},
+			{
+				src: '/images/projects/denvie.online/admin-dashboard-manage-employee-account.png',
+				label: 'Employee account management'
+			}
 		]
 	}
 ];
