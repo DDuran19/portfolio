@@ -173,7 +173,7 @@ const MY_PROJECTS: Array<Project> = [
 		description: CafezinhoPOS,
 		shortDescription:
 			'A POS system designed for 413 Cafezinho, featuring mobile-first design, real-time order management, and detailed reporting.',
-		skills: getSkills('svelte', 'ts', 'css', 'tailwind', 'cloudflare', 'pwa'),
+		skills: getSkills('sveltekit', 'ts', 'css', 'tailwind', 'cloudflare', 'pwa'),
 		screenshots: [
 			{
 				src: '/images/projects/denvie.online/landing-page.png',
