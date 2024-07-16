@@ -47,7 +47,7 @@ export const HOME: HomePageParams = {
 	name: 'Denver James',
 	lastName: 'Duran',
 	description:
-		'Software Developer skilled in Python, Typescript, JavaScript, CSS, HTML, etc. Proven track record on delivering impactful web solutions, including start-up web apps and full-stack development projects. Effective communicator and analytical thinker, with a background in teaching and mentoring. Strong leadership and teamwork capabilities.',
+		'Sveltekit fullstack software developer based on the Philippines, only accepting remote work. Able to provide custom solutions to your specific digital problems. Send me an email at <span class="badge">denver02.james14@gmail.com</span>',
 	links: [
 		{ platform: Platform.GitHub, link: 'https://github.com/DDuran19' },
 		{
