@@ -1,29 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 :root {
 	--dark: #202124;
 	--dark-0: #202124;
-	--dark-1: #1e1e1e;
-	--dark-2: #2e2e2e;
-	--dark-3: #3e3e3e;
-	--dark-4: #4e4e4e;
+	--dark-1: #1a1a1a;
+	--dark-2: #2b2b2b;
+	--dark-3: #3c3c3c;
+	--dark-4: #4d4d4d;
 	--dark-5: #5e5e5e;
-	--dark-6: #6e6e6e;
-	--dark-7: #7e7e7e;
-	--dark-8: #8e8e8e;
+	--dark-6: #6f6f6f;
+	--dark-7: #808080;
+	--dark-8: #919191;
 
-	--light: #fdfdfd;
-	--light-0: #fff;
-	--light-1: #e1e1e1;
-	--light-2: #d1d1d1;
-	--light-3: #c1c1c1;
-	--light-4: #b1b1b1;
-	--light-5: #a1a1a1;
-	--light-6: #919191;
-	--light-7: #818181;
-	--light-8: #717171;
+	--light: #fafafa;
+	--light-0: #ffffff;
+	--light-1: #e4e4e4;
+	--light-2: #d4d4d4;
+	--light-3: #c4c4c4;
+	--light-4: #b4b4b4;
+	--light-5: #a4a4a4;
+	--light-6: #949494;
+	--light-7: #848484;
+	--light-8: #747474;
 
 	--code-keyword-light: #bd2864;
 	--code-keyword-dark: #bd2864;
@@ -46,8 +47,8 @@
 	--dark-0-60: rgba(0, 0, 0, 0.4);
 	--light-0-60: rgba(255, 255, 255, 0.4);
 
-	--text-f: 'Inter';
-	--title-f: 'Inter';
+	--text-f: 'Montserrat', sans-serif;
+	--title-f: 'Montserrat', sans-serif;
 
 	overflow-y: scroll;
 }
