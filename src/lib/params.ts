@@ -47,7 +47,7 @@ export const HOME: HomePageParams = {
 	name: 'Denver James',
 	lastName: 'Duran',
 	description:
-		'Sveltekit fullstack software developer based on the Philippines, only accepting remote work. Able to provide custom solutions to your specific digital problems. Send me an email at <span class="badge">denver02.james14@gmail.com</span>',
+		'Sveltekit full-stack software developer based in the Philippines, only accepting remote work. Able to provide custom solutions to your specific digital problems. Send me an email at <span class="badge">denver02.james14@gmail.com</span>',
 	links: [
 		{ platform: Platform.GitHub, link: 'https://github.com/DDuran19' },
 		{
