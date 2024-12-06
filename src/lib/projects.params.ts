@@ -14,7 +14,8 @@ const MY_PROJECTS: Array<Project> = [
 		color: '#000000',
 		type: 'Sveltekit Web App',
 		period: {
-			from: new Date('2024-01-06')
+			from: new Date('2024-01-06'),
+			to: new Date('2024-05-22')
 		},
 		description: CafezinhoPOS,
 		shortDescription:
