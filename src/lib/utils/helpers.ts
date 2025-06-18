@@ -1,8 +1,10 @@
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 try {
 	dayjs.extend(duration);
+	dayjs.extend(relativeTime);
 } catch {
 	console.log('failed to extend dayjs');
 }
@@ -72,4 +74,23 @@ export function getTimeDiff(date1: Date, date2 = new Date(Date.now() + 1000 * 60
 	n = Math.trunc(n);
 
 	return `${Math.trunc(n)} ${u}${n > 1 ? 's' : ''}`;
+}
+
+export function getTimeDiffMonths(date1: Date, date2 = new Date()): string {
+	const d1 = dayjs(date1);
+	const d2 = dayjs(date2);
+
+	if (d2.isBefore(d1)) {
+		return '0 months';
+	}
+
+	const totalMonths = d2.diff(d1, 'month');
+	const years = Math.floor(totalMonths / 12);
+	const months = totalMonths % 12;
+
+	const parts = [];
+	if (years > 0) parts.push(`${years} year${years > 1 ? 's' : ''}`);
+	if (months > 0 || parts.length === 0) parts.push(`${months} month${months > 1 ? 's' : ''}`);
+
+	return parts.join(' ');
 }

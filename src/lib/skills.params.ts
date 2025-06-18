@@ -106,6 +106,22 @@ const MY_SKILLS = [
 			'I have configured Progressive Web Apps (PWAs) for seamless installation on both iOS and Android devices, improving accessibility and user experience.',
 		logo: Assets.PWA, // Replace with the actual asset reference
 		name: 'PWA'
+	}),
+	s({
+		slug: 'crm',
+		color: '#00bcd4',
+		description:
+			'I manage customer relationships and franchise leads using CRM tools and Meta inboxes. My focus is on lead nurturing, status tracking, and supporting conversion flows through chat and funnel management.',
+		logo: Assets.CRM, // Use the CRM icon you generated or named accordingly
+		name: 'CRM'
+	}),
+	s({
+		slug: 'metaads',
+		color: '#1877f2',
+		description:
+			'I run Meta Ads campaigns for multiple franchise brands. This includes ad set creation, targeting setup, budget optimization, and monitoring performance across lead generation and awareness campaigns.',
+		logo: Assets.MetaAds, // Use the ads management icon you generated or assign a proper key
+		name: 'Meta Ads Management'
 	})
 ];
 

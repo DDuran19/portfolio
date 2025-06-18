@@ -12,7 +12,7 @@
 	import Banner from '$lib/components/Banner/Banner.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import CardDivider from '$lib/components/Card/CardDivider.svelte';
-	import { getTimeDiff } from '$lib/utils';
+	import { getTimeDiffMonths } from '$lib/utils';
 
 	export let data: { experience?: Experience };
 
@@ -40,7 +40,7 @@
 						{data.experience.company} · {data.experience.location} · {data.experience.type}
 					</p>
 					<p class="font-300 text-0.9em text-[var(--tertiary-text)] m-y-2 text-center">
-						{getTimeDiff(data.experience.period.from, data.experience.period.to)}
+						{getTimeDiffMonths(data.experience.period.from, data.experience.period.to)}
 					</p>
 					<div class="w-75%">
 						<CardDivider />

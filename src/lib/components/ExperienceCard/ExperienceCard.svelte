@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Experience } from '$lib/types';
-	import { getMonthName, getTimeDiff } from '$lib/utils/helpers';
+	import { getMonthName, getTimeDiffMonths } from '$lib/utils/helpers';
 	import Card from '../Card/Card.svelte';
 	import CardLogo from '../Card/CardLogo.svelte';
 	import CardTitle from '../Card/CardTitle.svelte';
@@ -11,7 +11,7 @@
 
 	export let experience: Experience;
 
-	const months = getTimeDiff(experience.period.from, experience.period.to);
+	const months = getTimeDiffMonths(experience.period.from, experience.period.to);
 
 	const from = `${getMonthName(
 		experience.period.from.getMonth()

@@ -8,6 +8,9 @@ const a = (light: string, dark?: string): Asset =>
 	dark ? { dark: gh(dark), light: gh(light) } : gh(light);
 
 const Assets = {
+	_413: a('413logo.png'),
+	MetaAds: a('meta.png'),
+	upwork: a('upwork.png'),
 	CpoOutlets: a('cpo-outlets.png'),
 	instaprint: a('instaprint.png'),
 	instaprintPrinting: a('instaprint_printing.png'),
@@ -18,6 +21,7 @@ const Assets = {
 	Cloudflare: a('cloudflare.png'),
 	Cpp: a('cpp.svg'),
 	Celery: a('celery.svg'),
+	CRM: a('crm.png'),
 	DaisyUI: a('daisyui.png'),
 	Django: a('django.svg'),
 	FastApi: a('fastapi'),
