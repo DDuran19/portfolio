@@ -34,13 +34,14 @@ The result is a fully functional multi-vendor ecosystem, optimized for performan
 
 ## 📈 Performance-Based Growth
 
-This role began with a modest entry-level rate of **$4.00/hr**. Due to consistently high-quality output, problem-solving, and self-management, I received **automated 15% rate increases every 3 months**, growing to **$6.99/hr** within a year:
+This role began with a modest entry-level rate of **$4.00/hr**. Due to consistently high-quality output, problem-solving, and self-management, I received **automated 15% rate increases every 3 months**, growing to **$8.04/hr** within a year:
 
 - **Apr 2024:** $4.00/hr  
 - **Jul 2024:** $4.60/hr  
 - **Oct 2024:** $5.29/hr  
 - **Jan 2025:** $6.08/hr  
 - **Apr 2025:** $6.99/hr  
+- **Jul 2025:** $8.04/hr
 
 Each increase was granted without request — a direct reflection of trust and performance.
 
