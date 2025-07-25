@@ -9,6 +9,7 @@ const a = (light: string, dark?: string): Asset =>
 
 const Assets = {
 	_413: a('413logo.png'),
+	_413sereneglow: a('413sereneglow.png'),
 	MetaAds: a('meta.png'),
 	upwork: a('upwork.png'),
 	CpoOutlets: a('cpo-outlets.png'),

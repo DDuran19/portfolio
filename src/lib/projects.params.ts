@@ -5,6 +5,7 @@ import MolleyBolley from '$lib/md/projects/MolleyBolley.md?raw';
 import SimpleVanillaLogin from '$lib/md/projects/SimpleVanillaLogin.md?raw';
 import Instaprint from '$lib/md/projects/Instaprint.md?raw';
 import CafezinhoPOS from '$lib/md/projects/413CafezinhoPOS.md?raw';
+import SereneGlow from '$lib/md/projects/413SereneGlow.md?raw';
 const MY_PROJECTS: Array<Project> = [
 	{
 		name: '413 Cafezinho POS',
@@ -78,6 +79,36 @@ const MY_PROJECTS: Array<Project> = [
 				src: '/images/projects/denvie.online/admin-dashboard-manage-employee-account.png',
 				label: 'Employee account management'
 			}
+		]
+	},
+	{
+		name: '413 Serene Glow',
+		slug: '413-serene-glow',
+		logo: Assets._413sereneglow,
+		links: [{ label: 'Live Demo', to: 'https://413sereneglow.com/', newTab: true }],
+		color: '#ffffff',
+		type: 'Sveltekit Ecommerce',
+		period: {
+			from: new Date('2024-10-05'),
+			to: new Date('2024-10-28')
+		},
+		description: SereneGlow,
+		shortDescription:
+			'413 Serene Glow is a fully-responsive modern e-commerce platform built to showcase and sell premium skincare and wellness products.',
+		skills: getSkills('sveltekit', 'ts', 'css', 'tailwind', 'cloudflare', 'pwa'),
+		screenshots: [
+			{ src: '/images/projects/413sereneglow/home_banner_wide.png', label: 'Home Banner' },
+			{
+				src: '/images/projects/413sereneglow/fully_responsive_homepage.png',
+				label: 'Fully Responsive Homepage'
+			},
+			{
+				src: '/images/projects/413sereneglow/fully_responsive_products_page_with_filters.png',
+				label: 'Products Page with Filters'
+			},
+			{ src: '/images/projects/413sereneglow/products_table.png', label: 'Products Table' },
+			{ src: '/images/projects/413sereneglow/order_status_page.png', label: 'Order Status Page' },
+			{ src: '/images/projects/413sereneglow/email_worker_table.png', label: 'Email Worker Table' }
 		]
 	},
 	{
