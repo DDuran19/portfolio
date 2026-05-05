@@ -87,7 +87,7 @@ const MY_PROJECTS: Array<Project> = [
 		name: '413 Serene Glow',
 		slug: '413-serene-glow',
 		logo: Assets._413sereneglow,
-		links: [{ label: 'Live Demo', to: 'https://413sereneglow.com/', newTab: true }],
+		links: [{ label: 'Live Demo', to: 'https://serene-wz9.pages.dev/', newTab: true }],
 		color: '#ffffff',
 		type: 'Sveltekit Ecommerce',
 		period: {
