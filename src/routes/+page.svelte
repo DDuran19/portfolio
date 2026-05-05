@@ -83,6 +83,7 @@
 		}
 
 		// Select all elements with class 'badge' and add the click handler
+		// eslint-disable-next-line no-undef
 		const badges = document.querySelectorAll('.badge') as NodeListOf<HTMLElement>;
 		badges.forEach((badge) => {
 			badge.addEventListener('click', handleClick);
@@ -99,6 +100,7 @@
 	<div class="flex flex-col justify-center md:justify-start md:flex-1 gap-10px">
 		<MainTitle classes="md:text-left ">{name} {lastName}</MainTitle>
 		<p class="text-[var(--tertiary-text)] text-center md:text-left text-[1.2em] font-extralight">
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 			{@html description}
 		</p>
 		<div class="row justify-center md:justify-start p-y-15px p-x-0px gap-2">

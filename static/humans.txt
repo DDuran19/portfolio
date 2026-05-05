@@ -1,0 +1,18 @@
+/* TEAM */
+Developer: Denver James Duran
+Location: Valenzuela, Metro Manila, Philippines
+Email: denver02.james14@gmail.com
+GitHub: https://github.com/DDuran19
+Portfolio: https://denvie.online
+
+/* TECHNOLOGY */
+Frontend: SvelteKit, Svelte 5, TypeScript, TailwindCSS, DaisyUI
+Backend: Hono.js, Cloudflare Workers, Cloudflare D1
+Infrastructure: Cloudflare Pages, R2, Workers
+Tools: Drizzle ORM, Valibot, Dexie.js, sveltekit-superforms
+
+/* SITE */
+Last update: 2026-05-05
+Language: English
+Doctype: HTML5
+IDE: Visual Studio Code

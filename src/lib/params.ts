@@ -47,7 +47,7 @@ export const HOME: HomePageParams = {
 	name: 'Denver James',
 	lastName: 'Duran',
 	description:
-		'Sveltekit full-stack software developer based in the Philippines, only accepting remote work. Able to provide custom solutions to your specific digital problems. Send me an email at <span class="badge">denver02.james14@gmail.com</span>',
+		'Full-Stack Developer with a foundational background built <strong>before</strong> the AI era — and now leveraging it as a force multiplier. I architect and ship production-grade systems independently, from requirements to deployment. My pre-AI foundation means I understand <strong>why</strong> code works, not just how to generate it — so I can use AI tools strategically to maximize output while keeping costs minimal for clients. I can vibe-code when speed is the priority, but I bring the engineering discipline to know when not to. Based in the Philippines, remote only. Reach me at <span class="badge">denver02.james14@gmail.com</span>',
 	links: [
 		{ platform: Platform.GitHub, link: 'https://github.com/DDuran19' },
 		{
@@ -56,7 +56,7 @@ export const HOME: HomePageParams = {
 		},
 		{
 			platform: Platform.Email,
-			link: 'inquiries@denvie.online'
+			link: 'denver02.james14@gmail.com'
 		},
 		{
 			platform: Platform.Facebook,

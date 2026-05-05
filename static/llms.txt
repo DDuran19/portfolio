@@ -1,0 +1,132 @@
+# Denver James Duran
+**Full-Stack Developer | Franchise Manager | Digital Marketing Associate**
+
+denver02.james14@gmail.com | +63 966 978 0902 | https://denvie.online | https://github.com/DDuran19 | Valenzuela, Metro Manila, PH
+
+---
+
+## Professional Summary
+
+Full-Stack Developer with a strong foundational background built *before* the AI era — and now leveraging it as a force multiplier. I architect and ship production-grade systems (custom POS platforms, multi-tenant SaaS, edge-native APIs) independently, from requirements to deployment. My pre-AI foundation means I understand *why* code works, not just how to generate it — so I can use AI tools strategically to maximize output while keeping costs minimal for clients. I can vibe-code when speed is the priority, but I bring the engineering discipline to know when not to. Equally comfortable in franchise operations, Meta Ads, and CRM — making me a rare hybrid of technical depth and business execution.
+
+---
+
+## Skills
+
+| Category | Technologies |
+|---|---|
+| **Frontend** | SvelteKit, React, HTML/CSS, TailwindCSS, DaisyUI, shadcn-svelte |
+| **Backend** | TypeScript, Python, Node.js, Hono.js, Cloudflare Workers & D1 |
+| **Infrastructure** | Cloudflare Pages, R2, Workers, D1 (edge SQL), PocketBase, PWA |
+| **Integrations** | Stripe API, Shopify API, Commerce7 API, Google Maps API, Salesforce SFRA |
+| **Digital Marketing** | Meta Ads Manager, CRM, Franchise Sales Funnels, Meta Business Suite |
+| **Tools & Others** | Git, Jira, Canva, Dexie.js (IndexedDB), RBAC, Kotlin / Android |
+
+---
+
+## Experience
+
+### Jr. Programmer
+**KDCI Outsourcing (CPO Outlets / CPO Power Tools)** · Full-time · Oct 2023 – Present
+
+- Execute daily & weekly banner updates across high-traffic e-commerce pages (homepage, deals, departments).
+- Configure dynamic promotions and discount rules via Salesforce SFRA; perform QA regression testing.
+- Coordinate with Site Merchandising, Ops & Web Dev teams for Black Friday, Cyber Monday, and brand campaigns.
+
+---
+
+### Lead Full-Stack Developer (Freelance)
+**MMVMP via Upwork** · Remote (Australia client) · Apr 2024 – Present
+
+- Architected and built a full wine-themed multi-vendor platform from scratch using SvelteKit + Cloudflare stack.
+- Integrated Stripe, Shopify API, Commerce7 API, Maps API, and session-based authentication.
+- Grew from $4.00/hr to $8.04/hr via automated 15% quarterly raises — each earned without request.
+
+---
+
+### Franchise Manager / Digital Marketing Associate
+**413 Double D Enterprises OPC** · Part-time · Mar 2025 – Apr 2026
+
+- Managed franchise inquiries across four Facebook pages; helped close 115+ franchise deals for Double D' Brew.
+- Assisted onboarding of Grandma's Sandwich first 4 franchise stores.
+- Ran Meta Ads campaigns, weekly content planning, and created landing pages for promotions.
+
+---
+
+### Software Developer
+**413 Double D Enterprises OPC** · Part-time · Mar 2025 – Apr 2026
+
+- Built 413 Cafezinho Premium POS and Grandma's Sandwich POS — both solo, deployed on Cloudflare Workers + D1.
+- Delivered internal tooling: inventory dashboards, reporting utilities, and admin panels replacing manual workflows.
+- Implemented offline-first architecture (Dexie.js / IndexedDB) with automatic sync and zero data loss.
+
+---
+
+## Key Projects
+
+### Grandma's POS System
+`SvelteKit · TypeScript · Hono.js · Cloudflare Workers + D1`
+
+Full franchise POS and inventory management system. Offline-first (IndexedDB), multi-tenant RBAC (30+ permissions), recipe-based stock deduction, real-time order lifecycle with chat & audit logs, payment verification with image upload.
+
+🔗 https://grandma-pos.denver02-james14.workers.dev
+
+---
+
+### 413 Cafezinho Premium POS
+`SvelteKit · TypeScript · Cloudflare Workers + D1`
+
+Complete digital ecosystem for a coffee brand — custom POS, e-commerce storefront, admin dashboards, and company-wide internal tooling. Mobile-first PWA with real-time order queue.
+
+🔗 https://413cafezinho.cafe
+
+---
+
+### 413 Serene Glow
+`SvelteKit · TailwindCSS · shadcn-svelte · PocketBase · Cloudflare Pages`
+
+Fully responsive e-commerce platform for premium skincare. Custom email notification & retry system via PocketBase hooks and SMTP cron jobs.
+
+🔗 https://serene-wz9.pages.dev
+
+---
+
+### MMVMP Multi-Vendor Platform
+`SvelteKit · Cloudflare D1 / R2 / Pages · Stripe · Shopify API`
+
+Wine-themed multi-vendor marketplace with repository-service architecture, geofiltered vendor maps, subscription billing, and product/inventory sync across commerce platforms.
+
+---
+
+### MolleyBolley Salon System
+`Python · SQL`
+
+Queue management, employee assignment, service tracking, and sales data extraction for a beauty salon.
+
+🔗 https://github.com/DDuran19/MolleyBolley
+
+---
+
+### Simple Vanilla Login
+`TypeScript · CSS (no framework)`
+
+Session-based authentication with custom client-side routing — zero external libraries.
+
+🔗 https://simple-vanilla-login.vercel.app
+
+---
+
+### Instaprint
+`Kotlin · Android`
+
+Lightweight Android companion app that intercepts POS print intents via URI scheme for zero-confirmation thermal receipt printing.
+
+---
+
+## Education
+
+**B.S. Secondary Education** — Major in Physical Science
+Pamantasan ng Lungsod ng Valenzuela | 2012 – 2016
+
+**Electronics Products Assembly**
+St. Peter Velle Technical Training Center | 2018
