@@ -67,7 +67,11 @@
 	$: related = data.skill ? getRelatedProjects() : [];
 </script>
 
-<TabTitle title={computedTitle} />
+<TabTitle
+	title={computedTitle}
+	description={data.skill?.description ?? ''}
+	image={data.skill ? getAssetURL(data.skill.logo) : ''}
+/>
 
 <div class="pb-10 overflow-x-hidden col flex-1">
 	{#if data.skill === undefined}

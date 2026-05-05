@@ -21,7 +21,11 @@
 	$: computedTitle = data.experience ? `${data.experience.name} - ${title}` : title;
 </script>
 
-<TabTitle title={computedTitle} />
+<TabTitle
+	title={computedTitle}
+	description={data.experience?.shortDescription ?? ''}
+	image={data.experience ? getAssetURL(data.experience.logo) : ''}
+/>
 
 <div class="pb-10 overflow-x-hidden col flex-1">
 	{#if data.experience === undefined}

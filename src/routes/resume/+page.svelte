@@ -4,9 +4,11 @@
 	import { RESUME } from '$lib/params';
 
 	const { item, title } = RESUME;
+	const description =
+		'Download the resume of Denver Duran — Full-Stack Developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps.';
 </script>
 
-<CommonPage {title}>
+<CommonPage {title} {description}>
 	<div class="resume">
 		{#if item}
 			<a href={item} target="_blank">

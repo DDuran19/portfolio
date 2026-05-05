@@ -21,9 +21,11 @@
 
 		result = items.filter((it) => it.name.toLowerCase().includes(query));
 	};
+	const description =
+		'Technical skills of Denver Duran — SvelteKit, TypeScript, Cloudflare Workers, D1, Hono.js, TailwindCSS, and more. Full-stack and edge-native development expertise.';
 </script>
 
-<SearchPage {title} on:search={onSearch}>
+<SearchPage {title} {description} on:search={onSearch}>
 	{#if result.length === 0}
 		<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)] flex-1">
 			<UIcon icon="i-carbon-cube" classes="text-3.5em" />

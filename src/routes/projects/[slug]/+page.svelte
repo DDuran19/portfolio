@@ -27,7 +27,11 @@
 	$: computedTitle = data.project ? `${data.project.name} - ${title}` : title;
 </script>
 
-<TabTitle title={computedTitle} />
+<TabTitle
+	title={computedTitle}
+	description={data.project?.shortDescription ?? ''}
+	image={data.project ? getAssetURL(data.project.logo) : ''}
+/>
 
 <div class="pb-10 overflow-x-hidden col flex-1">
 	{#if data.project === undefined}

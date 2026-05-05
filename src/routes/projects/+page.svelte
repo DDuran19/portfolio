@@ -68,9 +68,11 @@
 			}
 		}
 	});
+	const description =
+		'Portfolio of Denver Duran — custom POS systems, multi-tenant platforms, e-commerce sites, and edge-native web apps built solo with SvelteKit and Cloudflare.';
 </script>
 
-<SearchPage {title} on:search={onSearch}>
+<SearchPage {title} {description} on:search={onSearch}>
 	<div class="projects-filters">
 		{#each filters as tech}
 			<Chip active={tech.isSelected} classes={'text-0.8em'} on:click={() => onSelected(tech.slug)}

@@ -6,6 +6,8 @@
 
 	export let title = 'Title';
 	export let search = '';
+	export let description = '';
+	export let image = '';
 
 	const dispatch = createEventDispatcher();
 
@@ -39,7 +41,7 @@
 	});
 </script>
 
-<CommonPage {title}>
+<CommonPage bind:title bind:description bind:image>
 	<div class="w-100% row">
 		<Input bind:value={search} placeholder={'Search...'} />
 	</div>

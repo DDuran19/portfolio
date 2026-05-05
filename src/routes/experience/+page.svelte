@@ -26,7 +26,11 @@
 	};
 </script>
 
-<SearchPage {title} on:search={onSearch}>
+<SearchPage
+	{title}
+	description="Full work history of Denver Duran — Jr. Programmer, Lead Full-Stack Developer, Software Developer, and Franchise Manager across multiple companies and freelance engagements."
+	on:search={onSearch}
+>
 	<div class="col items-center relative mt-10 flex-1">
 		{#if result.length === 0}
 			<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)] flex-1">
