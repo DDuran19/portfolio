@@ -3,6 +3,7 @@ import { getSkills } from './skills.params';
 import { ContractType, type Experience } from './types';
 import kdci from '$lib/md/experiences/kdci.md?raw';
 import _413doubledenterprisesopc from '$lib/md/experiences/413doubledenterprisesopc.md?raw';
+import _413doubledenterprisesopc_software from '$lib/md/experiences/413doubledenterprisesopcsoftwaredev.md?raw';
 import mmvmp from '$lib/md/experiences/mmvmp.md?raw';
 const MY_EXPERIENCES: Array<Experience> = [
 	{
@@ -46,17 +47,17 @@ const MY_EXPERIENCES: Array<Experience> = [
 		contract: ContractType.PartTime,
 		type: 'Franchise Management & Digital Marketing',
 		location: 'Philippines (Remote)',
-		period: { from: new Date('2025-03-01') },
-		skills: getSkills('MetaAds', 'crm', 'html', 'css'),
+		period: { from: new Date('2025-03-01'), to: new Date('2026-04-13') },
+		skills: getSkills('metaads', 'crm'),
 		name: 'Franchise Manager / Digital Marketing Associate',
 		color: '#fbbf24',
 		links: [
 			{
-				to: 'https://www.facebook.com/doubledbrewmain/',
-				label: "Double D' Brew Main",
+				to: 'https://www.facebook.com/413BrewSystems/',
+				label: "413 Brew Systems (former: Double D' Brew Main)",
 				newTab: true
 			},
-			{ to: 'https://www.facebook.com/2xdbrew/', label: 'Franchise Page', newTab: true },
+			{ to: 'https://www.facebook.com/doubledbrewofficial/', label: 'Franchise Page', newTab: true },
 			{
 				to: 'https://www.facebook.com/413WorldofFranchisePH2024/',
 				label: '413 World of Franchise PH',
@@ -68,9 +69,36 @@ const MY_EXPERIENCES: Array<Experience> = [
 				newTab: true
 			}
 		],
-		logo: Assets._413, // adjust if you have a specific logo asset for 413
+		logo: Assets._413,
 		shortDescription:
 			'Managing franchise inquiries and digital marketing for Double D Brew and Grandma’s Sandwich under 413 World of Franchise PH.'
+	},
+	{
+		slug: '413doubledenterprisesopc-software',
+		company: '413 Double D Enterprises OPC',
+		description: _413doubledenterprisesopc_software,
+		contract: ContractType.PartTime,
+		type: 'Software Development',
+		location: 'Philippines (Remote)',
+		period: { from: new Date('2025-03-01'), to: new Date('2026-04-13') },
+		skills: getSkills('sveltekit', 'ts', 'cloudflare', 'tailwind', 'daisyui'),
+		name: 'Software Developer',
+		color: '#fbbf24',
+		links: [
+			{
+				to: 'https://45356394-413cafezinho.denver02-james14.workers.dev/',
+				label: '413 Cafezinho Premium',
+				newTab: true
+			},
+			{
+				to: 'https://55b60a46-grandma-pos.denver02-james14.workers.dev/',
+				label: "Grandma's Sandwich POS",
+				newTab: true
+			}
+		],
+		logo: Assets._413,
+		shortDescription:
+			'Built custom POS systems and internal tooling for 413 Cafezinho and Grandma\'s Sandwich, deployed on Cloudflare Workers with D1 as the edge database.'
 	}
 ];
 // ,

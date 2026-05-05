@@ -85,7 +85,7 @@ const MY_SKILLS = [
 	}),
 	s({
 		slug: 'daisyui',
-		color: '#ff66cc', // Adjust color as needed
+		color: '#ff66cc',
 		description:
 			'I have experience using DaisyUI for styling SvelteKit applications, creating modern and consistent user interfaces with ease.',
 		logo: Assets.DaisyUI,
@@ -93,18 +93,18 @@ const MY_SKILLS = [
 	}),
 	s({
 		slug: 'cloudflare',
-		color: '#f38020', // Adjust color as needed
+		color: '#f38020',
 		description:
 			'I have utilized Cloudflare Workers for handling serverless functions, enhancing performance and scalability of web applications.',
-		logo: Assets.Cloudflare, // Replace with the actual asset reference
+		logo: Assets.Cloudflare,
 		name: 'Cloudflare'
 	}),
 	s({
 		slug: 'pwa',
-		color: '#5a0fc8', // Adjust color as needed
+		color: '#5a0fc8',
 		description:
 			'I have configured Progressive Web Apps (PWAs) for seamless installation on both iOS and Android devices, improving accessibility and user experience.',
-		logo: Assets.PWA, // Replace with the actual asset reference
+		logo: Assets.PWA,
 		name: 'PWA'
 	}),
 	s({
@@ -112,7 +112,7 @@ const MY_SKILLS = [
 		color: '#00bcd4',
 		description:
 			'I manage customer relationships and franchise leads using CRM tools and Meta inboxes. My focus is on lead nurturing, status tracking, and supporting conversion flows through chat and funnel management.',
-		logo: Assets.CRM, // Use the CRM icon you generated or named accordingly
+		logo: Assets.CRM,
 		name: 'CRM'
 	}),
 	s({
@@ -120,7 +120,7 @@ const MY_SKILLS = [
 		color: '#1877f2',
 		description:
 			'I run Meta Ads campaigns for multiple franchise brands. This includes ad set creation, targeting setup, budget optimization, and monitoring performance across lead generation and awareness campaigns.',
-		logo: Assets.MetaAds, // Use the ads management icon you generated or assign a proper key
+		logo: Assets.MetaAds,
 		name: 'Meta Ads Management'
 	})
 ];

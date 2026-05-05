@@ -47,7 +47,7 @@
 					</div>
 					<div class="row-center flex-wrap text-[0.9em] text-[var(--tertiary-text)] m-b-2">
 						{#each data.experience.links as item}
-							<Chip href={item.to}>
+							<Chip href={item.to} target={item.newTab ? '_blank' : '_self'}>
 								<div class="row-center gap-2">
 									<UIcon icon="i-carbon-link" />
 									<span>{item.label}</span>

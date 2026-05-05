@@ -10,11 +10,11 @@ As the **Franchise Manager** of **413 Double D Enterprises OPC**, I am at the fo
 I actively manage chats and lead generation across **four official Facebook pages**, handling hundreds of franchise-related inquiries daily:
 
 - [📌 Grandma's Sandwich (Grilled and Healthy)](https://www.facebook.com/profile.php?id=61562090516118)  
-- [📌 Double D' Brew / Double D' Mango Main](https://www.facebook.com/doubledbrewmain/)  
-- [📌 Double D' Brew / Double D' Mango Franchise](https://www.facebook.com/2xdbrew/)  
+- [📌 413 Brew Systems (formerly: Double D' Brew / Double D' Mango Main)](https://www.facebook.com/413BrewSystems/)  
+- [📌 Double D' Brew](https://www.facebook.com/doubledbrewofficial/)  
 - [📌 413 World of Franchise PH](https://www.facebook.com/413WorldofFranchisePH2024/)
 
-From first contact to closing, I help potential franchisees navigate their investment journey — offering detailed brand information, responding to inquiries promptly, and guiding them through the franchise process.
+From first contact to closing, I help potential franchisees navigate their investment journey - offering detailed brand information, responding to inquiries promptly, and guiding them through the franchise process.
 
 I also schedule **1-on-1 meetings** with interested leads, ensure smooth communication with decision-makers, and follow up on **franchise fee payments** to support deal closure and onboarding.
 
@@ -25,12 +25,12 @@ I also schedule **1-on-1 meetings** with interested leads, ensure smooth communi
 Our company offers several franchising opportunities, but I primarily manage and scale two flagship brands:
 
 ### 1. **Double D’ Brew / Double D’ Mango**  
-- ☕ **57+ Franchises Closed** (March to mid-June 2025)  
+- ☕ **115+ Franchises Closed** 
 - 🚀 Led end-to-end communication, follow-ups, and handoff coordination for new franchisees.  
 - 🧭 Support materials: brochures, sample ROI computations, starter package breakdowns.
 
 ### 2. **Grandma’s Sandwich (Grilled and Healthy)**  
-- 🥪 Assisted in the onboarding and coordination of the brand’s first franchise store.
+- 🥪 Assisted in the onboarding and coordination of the brand’s first 4 franchise store.
 
 ---
 
@@ -49,11 +49,9 @@ Beyond franchise communications, I am also part of the **Digital Marketing Team*
 
 - Meta Business Suite (Messenger, Ads Manager, Page Tools)  
 - Canva & Graphic Feedback Collaboration  
-- Web Builders (WordPress, Carrd, custom HTML/CSS)  
-- POS Troubleshooting & Coordination  
 - Franchise Sales Funnel Management  
 
 ---
 
 > ✨ **Impact Summary**  
-As a Franchise Manager and Digital Marketing support, I drive the visibility, sales growth, and operational support of key food brands under the 413 franchise umbrella. With over **57 franchises closed in less than 4 months**, I continue to champion our mission of **creating business opportunities** across the country.
+As a Franchise Manager and Digital Marketing support, I drive the visibility, sales growth, and operational support of key food brands under the 413 franchise umbrella. With over **115+ franchises closed**, I continue to champion our mission of **creating business opportunities** across the country.

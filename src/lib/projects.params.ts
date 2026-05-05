@@ -6,6 +6,8 @@ import SimpleVanillaLogin from '$lib/md/projects/SimpleVanillaLogin.md?raw';
 import Instaprint from '$lib/md/projects/Instaprint.md?raw';
 import CafezinhoPOS from '$lib/md/projects/413CafezinhoPOS.md?raw';
 import SereneGlow from '$lib/md/projects/413SereneGlow.md?raw';
+import GrandmasPOS from '$lib/md/projects/grandmaPOS.md?raw';
+
 const MY_PROJECTS: Array<Project> = [
 	{
 		name: '413 Cafezinho POS',
@@ -264,6 +266,48 @@ const MY_PROJECTS: Array<Project> = [
 			{ src: '/logos/instaprint_printing.png', label: 'Printing screen' },
 			{ src: '/logos/instaprint_main.png', label: 'Main screen when open on menu' }
 		]
-	}
+	}, {
+		name: "Grandma's POS System",
+		slug: 'grandmas-pos',
+		logo: Assets.GrandmaPOS,
+		links: [
+			{
+				label: 'Live Demo',
+				to: 'https://55b60a46-grandma-pos.denver02-james14.workers.dev/',
+				newTab: true
+			}
+		],
+		color: '#fbbf24',
+		type: 'SvelteKit Web App',
+		period: {
+			from: new Date('2025-10-30'),
+			to: new Date('2026-05-05')
+		},
+		description: GrandmasPOS,
+		shortDescription:
+			'A full franchise POS and inventory management system with offline-first support, multi-location stock tracking, and role-based access control — built on Cloudflare Workers and D1.',
+		skills: getSkills('sveltekit', 'ts', 'tailwind', 'cloudflare'),
+		screenshots: [
+			{ src: '/images/projects/grandma-pos/branch-selector.jpg', label: 'Branch Selector' },
+			{ src: '/images/projects/grandma-pos/orders/order-screen.jpg', label: 'POS Order Screen' },
+			{ src: '/images/projects/grandma-pos/orders/order-details-1.jpg', label: 'Order Details' },
+			{ src: '/images/projects/grandma-pos/orders/order-confirmation.jpg', label: 'Order Confirmation' },
+			{ src: '/images/projects/grandma-pos/orders/order-details-payment-screen.jpg', label: 'Payment Screen' },
+			{ src: '/images/projects/grandma-pos/orders/order-details-payment-verification-screen.jpg', label: 'Payment Verification' },
+			{ src: '/images/projects/grandma-pos/orders/order-eta-screen.jpg', label: 'Order ETA' },
+			{ src: '/images/projects/grandma-pos/orders/order-preparation-progress-after-approval.jpg', label: 'Preparation Progress' },
+			{ src: '/images/projects/grandma-pos/orders/order-pickup-confirmation.jpg', label: 'Pickup Confirmation' },
+			{ src: '/images/projects/grandma-pos/orders/order-receive-confirmation.jpg', label: 'Receive Confirmation' },
+			{ src: '/images/projects/grandma-pos/orders/order-logs.jpg', label: 'Order Logs' },
+			{ src: '/images/projects/grandma-pos/orders/order-chat.jpg', label: 'Order Chat' },
+			{ src: '/images/projects/grandma-pos/orders/order-details-2-final-changes.jpg', label: 'Order Final Changes' },
+			{ src: '/images/projects/grandma-pos/product-raw-material-management.jpg', label: 'Product & Raw Material Management' },
+			{ src: '/images/projects/grandma-pos/multi-tenant-management.jpg', label: 'Multi-Tenant Management' },
+			{ src: '/images/projects/grandma-pos/users-management.jpg', label: 'Users Management' },
+			{ src: '/images/projects/grandma-pos/users-management-details.jpg', label: 'User Details' },
+			{ src: '/images/projects/grandma-pos/role-management.jpg', label: 'Role Management' },
+			{ src: '/images/projects/grandma-pos/permissions-management.jpg', label: 'Permissions Management' }
+		]
+	},
 ];
 export default MY_PROJECTS;
