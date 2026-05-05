@@ -5,8 +5,8 @@ import MY_PROJECTS from "$lib/projects.params";
 import MY_SKILLS from "$lib/skills.params";
 
 
-export async function GET() {
-    const base = 'https://denvie.online';
+export async function GET(event) {
+    const base = event.url.origin;
 
     const staticPages = ['', '/projects', '/experience', '/skills', '/resume', '/search'];
 
