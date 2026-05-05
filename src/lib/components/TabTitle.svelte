@@ -20,7 +20,9 @@
 
 <svelte:head>
 	<title>{fullTitle}</title>
+
 	<meta name="description" content={description} />
+	<meta name="author" content="Denver James Duran" />
 
 	<!-- Open Graph -->
 	<meta property="og:title" content={fullTitle} />
