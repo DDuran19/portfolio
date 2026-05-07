@@ -45,6 +45,8 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-cloudflare": "^2.3.3",
-		"dayjs": "^1.11.10"
+		"dayjs": "^1.11.10",
+		"html2canvas": "^1.4.1",
+		"jspdf": "^4.2.1"
 	}
 }
