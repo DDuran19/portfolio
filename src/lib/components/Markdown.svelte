@@ -20,12 +20,20 @@
 
 		if (window) {
 			const parsed = marked.parse(content);
-
 			container.innerHTML = sanitizer.sanitize(parsed);
-
 			Prism.highlightAllUnder(container);
 		}
 	});
 </script>
 
 <div bind:this={container} class="markdown-container" />
+
+<style>
+	:global(.markdown-container img) {
+		max-width: 100%;
+		max-height: 480px;
+		width: auto;
+		height: auto;
+		display: block;
+	}
+</style>
