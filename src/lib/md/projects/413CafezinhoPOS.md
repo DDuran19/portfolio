@@ -1,6 +1,6 @@
 <h1 class="text-balance">413 Cafezinho - Point of Sales System</h1>
 
-This webapp is a POS specifically designed for a coffee shop named 413 Cafezinho. It contains basic functionality of a POS and automatically creates an e-commerce store alongside it. This is a work-in-progress and the customer-facing (e-commerce) side is yet to be implemented in production (but is functional). The screenshots attached are just literal snippets. You can go to [This link](https://beta.413cafezinho.cafe/) to check out the actual website.
+This webapp is a POS specifically designed for a coffee shop named 413 Cafezinho. It contains basic functionality of a POS and automatically creates an e-commerce store alongside it. This is a work-in-progress and the customer-facing (e-commerce) side is yet to be implemented in production (but is functional). The screenshots attached are just literal snippets. You can go to [This link](https://413cafezinho.denvie.online/) to check out the actual website.
 
 ## Key Features
 
