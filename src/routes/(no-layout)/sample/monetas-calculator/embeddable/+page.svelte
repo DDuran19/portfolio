@@ -255,21 +255,16 @@
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link
-		href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap"
 		rel="stylesheet"
 	/>
 </svelte:head>
 
-<!-- IFRAME GATE -->
 {#if isIframe}
 	<div class="iframe-container">
-		<!-- CALCULATOR CARD -->
 		<div class="card" bind:this={cardEl}>
-			<h2 class="widget-title">Savings Calculator</h2>
-
-			<!-- LOAN AMOUNT -->
 			<div class="field">
-				<label for="loan-amount">Loan Amount</label>
+				<label for="loan-amount">Loan Value</label>
 				<div class="input-wrap">
 					<span class="prefix">$</span>
 					<input
@@ -291,9 +286,8 @@
 				{/if}
 			</div>
 
-			<!-- LOAN TERM -->
 			<div class="field">
-				<label for="loan-term">Remaining Loan Term</label>
+				<label for="loan-term">Loan Term (year)</label>
 				<div class="input-wrap">
 					<input
 						id="loan-term"
@@ -326,21 +320,19 @@
 
 			<hr class="divider" />
 
-			<!-- RESULTS -->
 			{#if result}
 				<div class="results" aria-live="polite" aria-label="Savings results">
 					<div class="results-grid">
 						<div class="result-block full">
-							<p class="result-label">Total Estimated Savings</p>
+							<p class="result-label">Total Savings Est.</p>
 							<p class="result-value hero">{fmt(result.totalSavings)}</p>
-							<p class="result-sub">Over the life of your loan</p>
 						</div>
 						<div class="result-block">
-							<p class="result-label">Year 1 Saving</p>
+							<p class="result-label">1st Year Savings Est.</p>
 							<p class="result-value">{fmt(result.year1Saving)}</p>
 						</div>
 						<div class="result-block">
-							<p class="result-label">Monthly Saving</p>
+							<p class="result-label">Monthly Savings</p>
 							<p class="result-value">{fmt(result.monthlySaving)}</p>
 						</div>
 					</div>
@@ -392,16 +384,15 @@
 				</div>
 			{/if}
 
-			<!-- CTA -->
 			<button class="cta" aria-label="Find my exact savings" on:click={onCta}>
-				Find my exact savings →
+				Find my exact savings >
 			</button>
-			<p class="footnote">Estimates are illustrative only.</p>
 		</div>
 	</div>
 {:else}
-	<!-- Content to show if accessed directly via URL instead of iframe -->
-	<div style="font-family: 'Sora', sans-serif; color: white; text-align: center; padding: 2rem;">
+	<div
+		style="font-family: 'DM Sans', sans-serif; color: #111827; text-align: center; padding: 2rem;"
+	>
 		This widget is designed to be embedded via iframe.
 	</div>
 {/if}
@@ -417,8 +408,8 @@
 
 	/* ── Iframe Container ── */
 	.iframe-container {
-		font-family: 'Sora', sans-serif;
-		color: #e8f0f7;
+		font-family: 'DM Sans', sans-serif;
+		color: #111827; /* Dark text */
 		width: 100%;
 		display: flex;
 		justify-content: center;
@@ -426,38 +417,28 @@
 		box-sizing: border-box;
 	}
 
-	/* ── Calculator Card (COMPACT SIZE) ── */
+	/* ── Calculator Card (Light Theme) ── */
 	.card {
 		width: 100%;
-		max-width: 420px; /* Reduced from 560px */
-		background: #121b24;
-		border: 1px solid rgba(0, 201, 167, 0.18);
+		max-width: 420px;
+		background: #e8f0ee; /* Light sage/mint background from image */
 		border-radius: 16px;
-		padding: 24px; /* Reduced from 36px 32px */
-		box-shadow: 0 0 40px rgba(0, 201, 167, 0.05);
+		padding: 32px 24px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Very soft shadow */
 		box-sizing: border-box;
-	}
-
-	.widget-title {
-		margin: 0 0 20px 0;
-		font-size: 1.25rem; /* Reduced from 1.5rem */
-		font-weight: 700;
-		color: #e8f0f7;
-		text-align: center;
 	}
 
 	/* ── Fields ── */
 	.field {
-		margin-bottom: 18px; /* Reduced from 24px */
+		margin-bottom: 20px;
+		text-align: center; /* Center aligning to match the image style */
 	}
 	.field label {
 		display: block;
-		font-size: 0.7rem;
+		font-size: 0.95rem;
 		font-weight: 600;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: #7a9ab5;
-		margin-bottom: 6px;
+		color: #111827;
+		margin-bottom: 8px;
 	}
 	.input-wrap {
 		position: relative;
@@ -467,29 +448,28 @@
 	.prefix {
 		position: absolute;
 		left: 12px;
-		font-family: 'DM Mono', monospace;
 		font-size: 0.95rem;
-		color: #00c9a7;
+		color: #4b5563; /* Medium grey */
 		pointer-events: none;
 	}
 	.suffix {
 		position: absolute;
 		right: 12px;
-		font-family: 'DM Mono', monospace;
 		font-size: 0.8rem;
-		color: #7a9ab5;
+		color: #4b5563;
 		pointer-events: none;
 	}
 	.input-wrap input {
 		width: 100%;
 		box-sizing: border-box;
-		background: #1a2635;
-		border: 1.5px solid rgba(0, 201, 167, 0.18);
+		background: #ffffff; /* White input */
+		border: 1px solid #d1d5db; /* Light grey border */
 		border-radius: 10px;
-		padding: 10px 12px 10px 28px; /* Slimmer padding */
-		font-family: 'DM Mono', monospace;
-		font-size: 0.95rem; /* Reduced from 1.05rem */
-		color: #e8f0f7;
+		padding: 10px 12px 10px 28px;
+		font-family: 'DM Sans', sans-serif;
+		font-size: 0.95rem;
+		color: #111827;
+		text-align: center; /* Centered input text */
 		outline: none;
 		transition:
 			border-color 0.2s,
@@ -502,24 +482,24 @@
 	}
 	#loan-term {
 		padding-right: 36px;
-		padding-left: 12px; /* remove prefix padding for term */
+		padding-left: 12px;
 	}
 	.input-wrap input:focus {
-		border-color: #00c9a7;
-		box-shadow: 0 0 0 3px rgba(0, 201, 167, 0.15);
+		border-color: #fa825c; /* Coral focus */
+		box-shadow: 0 0 0 3px rgba(250, 130, 92, 0.15);
 	}
 	.input-wrap input.error {
-		border-color: #ff6b6b;
+		border-color: #ef4444;
 	}
 	.hint {
-		margin-top: 5px;
-		font-size: 0.7rem;
-		color: #7a9ab5;
+		margin-top: 6px;
+		font-size: 0.75rem;
+		color: #6b7280;
 	}
 	.err {
-		margin-top: 5px;
-		font-size: 0.7rem;
-		color: #ff6b6b;
+		margin-top: 6px;
+		font-size: 0.75rem;
+		color: #ef4444;
 	}
 
 	/* ── Slider ── */
@@ -527,49 +507,50 @@
 		-webkit-appearance: none;
 		width: 100%;
 		height: 4px;
-		background: #1a2635;
+		background: #d1d5db; /* Light grey track */
 		border-radius: 4px;
 		outline: none;
 		cursor: pointer;
-		margin-top: 8px;
+		margin-top: 12px;
 	}
 	.slider::-webkit-slider-thumb {
 		-webkit-appearance: none;
-		width: 16px;
-		height: 16px;
+		width: 18px;
+		height: 18px;
 		border-radius: 50%;
-		background: #00c9a7;
-		box-shadow: 0 0 0 3px rgba(0, 201, 167, 0.15);
+		background: #fa825c; /* Coral thumb */
+		box-shadow: 0 0 0 3px rgba(250, 130, 92, 0.15);
 		cursor: pointer;
 		transition: box-shadow 0.2s;
 	}
 	.slider::-webkit-slider-thumb:hover {
-		box-shadow: 0 0 0 6px rgba(0, 201, 167, 0.2);
+		box-shadow: 0 0 0 6px rgba(250, 130, 92, 0.25);
 	}
 	.slider-labels {
 		display: flex;
 		justify-content: space-between;
-		font-family: 'DM Mono', monospace;
-		font-size: 0.68rem;
-		color: #7a9ab5;
-		margin-top: 4px;
+		font-size: 0.7rem;
+		color: #6b7280;
+		margin-top: 6px;
 	}
 
 	/* ── Divider ── */
 	.divider {
 		border: none;
-		border-top: 1px solid rgba(0, 201, 167, 0.15);
-		margin: 4px 0 18px;
+		border-top: 1px solid #d1d5db;
+		margin: 12px 0 20px;
 	}
 
 	/* ── Results ── */
 	.results {
-		background: #1a2635;
-		border: 1px solid rgba(0, 201, 167, 0.18);
+		background: #ffffff;
+		border: 1px solid #e5e7eb;
 		border-radius: 12px;
-		padding: 16px; /* Reduced from 24px */
-		margin-bottom: 20px;
+		padding: 20px;
+		margin-bottom: 24px;
 		animation: fadeUp 0.35s ease both;
+		text-align: center;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 	}
 	@keyframes fadeUp {
 		from {
@@ -584,77 +565,72 @@
 	.results-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 12px; /* Reduced from 16px */
+		gap: 16px;
 	}
 	.result-block {
 		padding: 0;
 	}
 	.result-block.full {
 		grid-column: 1 / -1;
+		margin-bottom: 8px;
 	}
 	.result-label {
-		font-size: 0.68rem;
-		font-weight: 600;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: #7a9ab5;
+		font-size: 0.9rem;
+		font-weight: 700;
+		color: #111827;
 		margin-bottom: 4px;
 	}
 	.result-value {
-		font-family: 'DM Mono', monospace;
-		font-size: 1.25rem; /* Reduced from 1.5rem */
-		font-weight: 500;
-		color: #00c9a7;
-		line-height: 1.1;
+		font-family: 'DM Sans', sans-serif;
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #fa825c; /* Coral Text */
+		line-height: 1.2;
 	}
 	.result-value.hero {
-		font-size: 1.7rem; /* Reduced from clamp(...) */
-		font-weight: 700;
+		font-size: 1.8rem;
 		letter-spacing: -0.02em;
-	}
-	.result-sub {
-		font-size: 0.7rem;
-		color: #7a9ab5;
-		margin-top: 2px;
 	}
 
 	/* ── Breakdown ── */
 	.breakdown-btn {
 		display: flex;
 		align-items: center;
+		justify-content: center;
+		width: 100%;
 		gap: 6px;
 		background: none;
 		border: none;
-		color: #7a9ab5;
-		font-family: 'Sora', sans-serif;
-		font-size: 0.75rem;
+		color: #6b7280;
+		font-family: 'DM Sans', sans-serif;
+		font-size: 0.8rem;
 		cursor: pointer;
-		padding: 10px 0 0;
+		padding: 16px 0 0;
 		transition: color 0.2s;
 	}
 	.breakdown-btn:hover {
-		color: #00c9a7;
+		color: #fa825c;
 	}
 	.breakdown {
-		border-top: 1px solid rgba(0, 201, 167, 0.15);
-		margin-top: 10px;
-		padding-top: 10px;
+		border-top: 1px solid #e5e7eb;
+		margin-top: 12px;
+		padding-top: 12px;
 		display: flex;
 		flex-direction: column;
-		gap: 6px;
+		gap: 8px;
 		animation: fadeUp 0.25s ease both;
 	}
 	.brow {
 		display: flex;
 		justify-content: space-between;
-		font-size: 0.75rem;
+		font-size: 0.8rem;
 	}
 	.brow span:first-child {
-		color: #7a9ab5;
+		color: #4b5563;
 	}
 	.brow span:last-child {
-		font-family: 'DM Mono', monospace;
-		color: #e8f0f7;
+		font-weight: 600;
+		color: #111827;
 	}
 
 	/* ── CTA ── */
@@ -662,36 +638,24 @@
 		display: block;
 		box-sizing: border-box;
 		width: 100%;
-		padding: 14px; /* Slimmer padding */
-		background: #00c9a7;
-		color: #0b1117;
-		font-family: 'Sora', sans-serif;
-		font-size: 0.95rem; /* Smaller font */
-		font-weight: 700;
+		padding: 16px;
+		background: #cbf954; /* Lime green */
+		color: #111827;
+		font-family: 'DM Sans', sans-serif;
+		font-size: 1.05rem;
+		font-weight: 500;
 		border: none;
-		border-radius: 10px;
+		border-radius: 30px; /* Pill shape matching image */
 		cursor: pointer;
 		transition:
 			background 0.2s,
-			transform 0.15s,
-			box-shadow 0.2s;
-		box-shadow: 0 4px 16px rgba(0, 201, 167, 0.2);
+			transform 0.1s;
 	}
 	.cta:hover {
-		background: #00a98a;
-		transform: translateY(-1px);
-		box-shadow: 0 6px 20px rgba(0, 201, 167, 0.3);
+		background: #bdec40;
+		transform: scale(1.02);
 	}
 	.cta:active {
-		transform: translateY(0);
-	}
-
-	/* ── Footnote ── */
-	.footnote {
-		margin-top: 12px;
-		font-size: 0.68rem;
-		color: #7a9ab5;
-		text-align: center;
-		line-height: 1.4;
+		transform: scale(0.98);
 	}
 </style>
