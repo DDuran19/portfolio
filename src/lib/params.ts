@@ -17,6 +17,7 @@ export const TITLE_SUFFIX = 'Software developer';
 
 export const NavBar = {
 	home: 'Home',
+	sample: 'Samples',
 	personal: 'Projects',
 	career: 'Experiences',
 	resume: 'Resume',
