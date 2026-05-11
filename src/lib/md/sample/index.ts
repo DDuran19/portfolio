@@ -1,6 +1,7 @@
 import MonetasCalculator from "./MonetasCalculator.svelte";
 import ShippingPlatform from "./ShippingPlatform.svelte";
 import CentralizedDashboard from "./CentralizedDashboard.svelte";
+import ZiteAndBrevoApi from "./ZiteAndBrevoApi.svelte";
 
 export const sampleComponents = [
     {
@@ -20,5 +21,11 @@ export const sampleComponents = [
         slug: "centralized-dashboard",
         description: "A multi-tenant SSO prototype where a super admin can auto-login across isolated business instances, each with their own role-based access.",
         component: CentralizedDashboard
+    },
+    {
+        name: "Zite & Brevo API Integration",
+        slug: "zite-and-brevo-api",
+        description: "An order processing flow simulation with mock APIs for Brevo CRM and Zite database, showing API request payloads and responses.",
+        component: ZiteAndBrevoApi
     }
 ]
