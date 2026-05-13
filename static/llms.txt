@@ -130,3 +130,508 @@ Pamantasan ng Lungsod ng Valenzuela | 2012 – 2016
 
 **Electronics Products Assembly**
 St. Peter Velle Technical Training Center | 2018
+
+---
+## PROJECTS
+
+<!-- ============================================== -->
+<!-- File: 413CafezinhoPOS.md -->
+<!-- ============================================== -->
+
+<h1 class="text-balance">413 Cafezinho - Point of Sales System</h1>
+
+This webapp is a POS specifically designed for a coffee shop named 413 Cafezinho. It contains basic functionality of a POS and automatically creates an e-commerce store alongside it. This is a work-in-progress and the customer-facing (e-commerce) side is yet to be implemented in production (but is functional). The screenshots attached are just literal snippets. You can go to [This link](https://413cafezinho.denvie.online/) to check out the actual website.
+
+## Key Features
+
+### Customer-Facing Online Order System
+- **Mobile-First Approach**: Ensures optimal responsiveness and usability across different screen sizes, prioritizing mobile devices.
+- **Minimalistic and Clean UI**: Features are categorized for easy customer navigation and order creation.
+- **Product Recommendations**: Saves previous orders in the browser to provide accurate "Recommended Products" on subsequent visits.
+- **Progressive Web App (PWA)**: Configured for installation on both iOS and Android devices, enhancing accessibility and user experience.
+- **Real-Time Order Queue**: Directs customer orders to the queue on the POS employee-facing side for efficient processing.
+
+### Employee-Facing POS System
+
+#### Admin Dashboard
+- **Employee Management**: Manage (edit user details, roles, branch associations, branch coverage, passwords) employees you are supervising if you are a supervisor.
+- **Product Management**: CRUD operations for categories, subcategories, and products.
+
+#### Main POS Interface
+- **Modern, Intuitive UI**: Segmented into three columns:
+  1. **Order Queue**: Click on an order to open the Order Details modal for managing the order, changing its status, or reviewing it. Order cancellations require supervisor login for approval.
+  2. **Product List**: Clicking a product opens a modal to modify the product order before adding it to the cart.
+  3. **Cart**: Contains options for applying discounts and other modifications. Supports printing receipts using an external printer, with an associated Android app for this purpose.
+
+#### Reporting
+- **Comprehensive Reports**: Includes filters and a table of all products sold and orders within a specified date range.
+- **Visual Summaries**: A bar graph showing a summary of previous transactions, with hoverable columns in the table for specific field summaries.
+
+### Technical Stack
+- **SvelteKit**: For building the frontend with a focus on fast, reactive components.
+- **TypeScript**: Ensuring type safety and better maintainability.
+- **DaisyUI & TailwindCSS**: For styling, providing a modern, consistent look and feel.
+- **Cloudflare Workers**: For handling serverless functions, enhancing performance and scalability.
+- **PWA Configuration**: Allows the app to be installed on mobile devices and accessed offline.
+
+## Future Enhancements
+- **Advanced Analytics**: To provide insights into customer behavior and sales trends.
+- **Loyalty Programs**: For rewarding repeat customers and encouraging repeat business.
+
+Stay tuned for updates as we continue to enhance and expand the functionalities of 413 Cafezinho's POS system.
+
+
+<!-- ============================================== -->
+<!-- File: 413SereneGlow.md -->
+<!-- ============================================== -->
+
+# 413 Serene Glow - Wellness and Beauty E-commerce Platform
+
+**413 Serene Glow** is a modern e-commerce platform built to showcase and sell premium skincare and wellness products. The project leverages **SvelteKit**, **TailwindCSS**, **Pocketbase**, and **shadcn-svelte** to deliver a fast, elegant, and responsive user experience.
+
+---
+
+## 🚀 Features
+
+- **Frontend:** SvelteKit + TailwindCSS with **shadcn-svelte** components.
+- **Backend:** Pocketbase with custom JS hooks and email notification logic.
+- **Automated Email System:**
+  - Sends order confirmation and status update emails via SMTP.
+  - Uses a cron-based background process for retrying unsent emails.
+- **Cloudflare Pages** deployment for the frontend.
+- **PocketHost** deployment for the backend.
+- **Responsive UI** optimized for mobile and desktop.
+
+---
+
+## 📦 Tech Stack
+
+**Frontend:**
+- [SvelteKit](https://kit.svelte.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [shadcn-svelte](https://ui.shadcn.com/svelte) for customizable components.
+- [Embla Carousel](https://www.embla-carousel.com/) for product carousels.
+- [Lucide Icons](https://lucide.dev/icons/) via `lucide-svelte`.
+
+**Backend:**
+- [Pocketbase](https://pocketbase.io/) with custom **hooks** and **background cron jobs**.
+- SMTP for transactional email delivery.
+
+**Deployment:**
+- **Frontend:** Cloudflare Pages
+- **Backend:** PocketHost (Pocketbase server)
+
+---
+
+## 📬 Email Notification & Retry System
+
+The email system is powered by Pocketbase hooks and a **custom retry mechanism** implemented in `pb_hooks`.
+
+### Workflow:
+1. **Order Creation:**
+   - `main.pb.js` triggers `scheduleEmail()` for:
+     - Customer order confirmation.
+     - Admin order notification.
+2. **Order Updates:**
+   - When `status` changes, another email is queued via `scheduleEmail()`.
+3. **Retry System (Background Cron Job):**
+   - The cron job (every minute) checks the `email_notifications` collection for `status = "pending"` or `sent = false`.
+   - Emails are resent via `sendEmail()` or `sendEmails()` (for multiple recipients).
+   - Status is updated (`processing`, `completed`, `failed`).
+
+The core email functions are in `utils.js`.
+
+---
+
+## ⚙️ Development Setup
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) v18+
+- [Pocketbase CLI](https://pocketbase.io/docs/)
+- [Cloudflare Wrangler](https://developers.cloudflare.com/workers/wrangler/)
+- [shadcn-svelte CLI](https://www.shadcn-svelte.com)
+
+### Clone and Install
+```bash
+git clone https://github.com/DDuran19/serene.git
+cd serene
+npm install
+````
+
+### Run Pocketbase (local)
+
+```bash
+npm run pb
+```
+
+### Run development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 🏗️ Build & Deployment
+
+### Build the frontend
+
+```bash
+npm run build
+```
+
+### Preview build
+
+```bash
+npm run preview
+```
+
+### Deploy
+
+* **Frontend:** Deploy `build` folder to **Cloudflare Pages**.
+* **Backend:** Deploy Pocketbase instance and `pb_hooks` to **PocketHost**.
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── pocketbase/
+│   └── pb_hooks/         # Custom Pocketbase hooks
+│       ├── main.pb.js    # Email notifications + cron job
+│       └── utils.js      # Helper functions for email sending
+├── src/                  # SvelteKit source code
+├── static/               # Static assets
+├── components.json       # shadcn-svelte config
+├── package.json
+├── pb_schema.json
+├── tailwind.config.js
+└── ...
+```
+
+---
+
+## 🎨 Using shadcn-svelte
+
+**shadcn-svelte** is used for a consistent and modern UI.
+
+Add a new component:
+
+```bash
+npx shadcn-svelte add button
+```
+
+Update all components:
+
+```bash
+npx shadcn-svelte update
+```
+
+---
+
+## ✨ About 413 Serene Glow
+
+### Vision
+
+To become the leading wellness and beauty solutions provider in the Philippines, inspiring individuals to unlock their inner glow through innovative, high-performance skincare products.
+
+### Mission
+
+* Deliver affordable, effective, and safe skincare solutions.
+* Foster self-love and confidence by addressing core beauty concerns.
+* Build a community of empowered individuals through education and engagement.
+
+
+<!-- ============================================== -->
+<!-- File: Instaprint.md -->
+<!-- ============================================== -->
+
+<h1 class="text-balance">Instaprint: Effortless Receipt Printing for POS Web App</h1>
+
+
+## Introduction
+
+Instaprint is a lightweight Android app specifically designed to streamline receipt printing for my Point-of-Sale (POS) web application. It eliminates the need for manual browser confirmation and additional printing apps,  significantly improving efficiency.
+
+## Problem
+
+Traditional POS webapp printing often involves:
+
+* Manual confirmation prompts in the browser for every print request.
+* Reliance on additional printing apps, adding complexity and potential points of failure.
+* Time-consuming process that disrupts the checkout flow.
+
+## Solution
+
+Instaprint bridges the gap between the web app and the printer, offering a seamless and automated printing solution. Under the hood, this mobile app uses this [library](https://github.com/DantSu/ESCPOS-ThermalPrinter-Android).
+
+## Features
+
+* **Automatic Printing:** Instaprint automatically captures the print request from your POS web app via an Android scheme URI.
+* **Minimalistic UI:** The app features a simple layout with a single text box for manual printing (optional).
+* **Effortless Workflow:** Instaprint removes the need for manual confirmations and additional printing apps, allowing for faster and more efficient printing.
+
+## How it Works
+
+**1. POS Web App Integration:**
+
+* It is integrated to specific anchor tags (buttons) within my POS web app that utilize a specific Android scheme URI.
+
+**2. Automatic App Launch:**
+
+* Clicking the anchor tag in the POS triggers the Android intent, automatically launching the Instaprint app.
+
+**3. Automatic Exit:**
+
+* Once the printing process is complete, Instaprint automatically exits, minimizing user interaction.
+
+**4. Printing (Optional):**
+
+* The app can also be opened from the main menu it displays a text box where users can type and print those if needed.
+
+
+## Benefits
+
+* **Increased Efficiency:** Eliminate confirmation prompts and additional apps, saving valuable time.
+* **Improved User Experience:** A smoother checkout flow leads to happier customers and staff.
+* **Reduced Complexity:** Streamlined printing process with fewer steps involved.
+
+
+<!-- ============================================== -->
+<!-- File: MolleyBolley.md -->
+<!-- ============================================== -->
+
+<h1 class="text-balance"> MolleyBolley: Salon Queueing and Sales Tracking System</h1>
+
+![MolleyBolley](https://github.com/DDuran19/MolleyBolley/blob/main/images/business_logo.jpg?raw=true)
+
+**MolleyBolley** is a beauty salon that has asked for a user-friendly and efficient software application designed to streamline customer service operations. The final product empowered them to effectively manage customer queues, assign employees to customers, track service data, and generate insightful reports.
+
+<h2>Table of Contents</h2>
+
+- [Key Features](#key-features)
+  - [Customer Queue Management](#customer-queue-management)
+  - [Employee Management](#employee-management)
+  - [Service Tracking](#service-tracking)
+  - [Data Analysis](#data-analysis)
+- [Getting Started](#getting-started)
+  - [Data Analysis](#data-analysis-1)
+  - [Employee Management](#employee-management-1)
+- [Screenshots](#screenshots)
+
+## Key Features
+
+### Customer Queue Management
+
+- Seamlessly add customers to the queue and view their service requests.
+- Effortlessly assign customers to available employees, ensuring prompt service.
+
+### Employee Management
+
+- Maintain control over employee access levels and roles.
+- Easily add new employees and modify their passwords.
+- Empower administrative users to change passwords of non-admin employees.
+
+### Service Tracking
+
+- Conveniently mark customers as served upon completion of their services.
+- Keep track of the number of customers served per employee to identify top performers.
+- Generate detailed reports on sales data to analyze trends and make informed decisions.
+
+### Data Analysis
+
+- Extract sales data to an Excel file for further analysis and reporting.
+- Gain valuable insights into customer service patterns and identify areas for improvement.
+
+## Getting Started
+
+1. **Installation**: Download and install MolleyBolley following the on-screen instructions.
+
+2. **Account Creation**: Create a new account and log in using the provided credentials.
+
+3. **Screen Familiarization**: Familiarize yourself with the user-friendly screen setup, which includes the Customer Queue table, Employee List table, Customer information section, Customer assignment, employee assignment, and the advertisement section.
+
+4. **Customer Addition**: To add a customer, enter their name in the designated space and select the services they require. Click "Submit" to automatically add them to the queue.
+
+5. **Customer Assignment**: Assign customers to available employees from the employee dropdown menu and click "Assign To". This will remove the customer from the queue and add them to the "Service" column of the employee list, indicating that the employee is currently serving them. The employee's status will also change accordingly. The next customer in line will automatically become the first customer in the customer table.
+
+6. **Service Completion**: Once services are complete, select the employee from the list and choose "Mark as Free". A pop-up window will appear, prompting you to confirm all the services provided to the customer. Modify the values based on the final outcome, considering any additional services requested or canceled during the session.
+
+7. **Settings Panel**: Change your password by clicking the business logo at the top, entering your new password twice, and clicking the "Change password" button. You can also access the exit button from this window.
+
+### Data Analysis
+
+- **Quick Analysis**: For a quick overview of today's sales performance, double-click anywhere on the employee list table. This will open a pop-up table displaying the total services rendered today, along with the number of customers served per employee.
+
+- **Data Extraction**: Extract sales data to an Excel file for further analysis and reporting. Click on the appropriate descriptive button below the Analysis Panel to initiate the data extraction process. A save file dialog will appear, allowing you to choose the location to save the Excel file.
+
+### Employee Management
+
+- **Password Change**: Administrative users can change the passwords of non-admin employees by clicking on the dropdown menu, selecting the employee, entering the new password twice, and clicking on "Change Password".
+
+- **New Employee Creation**: Create new employee profiles by filling in the necessary fields with the employee's information. As an admin, you can add new employees to the system and grant them appropriate access levels.
+
+- **Employee Deletion**: As an owner, you can delete employees from the database, change admin roles, and modify their passwords. Exercise caution when performing these actions, as they are irreversible.
+
+## Screenshots
+
+- See screenshots below for actual product preview. Hover to check steps
+
+
+<!-- ============================================== -->
+<!-- File: SimpleVanillaLogin.md -->
+<!-- ============================================== -->
+
+<h1 class="text-balance">Simple vanilla login</h1>
+
+![Simple Vanilla Login](https://raw.githubusercontent.com/DDuran19/images/main/SimpleVanillaLogin/root.webp)
+
+This webapp is a simple login form that uses pure vanilla Typescript and CSS. It was originally built using Supabase, but now uses dummyjson api for the users database. The webapp includes a logo, username and password inputs, a submit button, and a link to register for an account.
+
+Route management is achieved without the need for external libraries or intricate code structures.
+
+## Key features
+
+- Simple and easy to use
+- Built with pure vanilla Typescript and CSS
+- Uses dummyjson api for the users database
+- Implements route protection thru session data.
+
+## Usage
+
+1. Familiarize yourself with the UI: The top navigation provides test links to navigate to specific sections of the page.
+
+2. Login using the provided account list: On the homepage, use the login form on the right side to access the application using the provided list of accounts.
+
+3. View account details: Upon successful login, you should be able to see the account details of the logged-in user.
+
+4. Free access to all routes: Once logged in, you can freely navigate to all routes, including the `/UserDetails` page.
+
+5. Logout and route protection: On the `/UserDetails` page, clicking the 'Sign Out' button will log you out and restrict you from accessing the `/UserDetails` page again.
+
+
+<!-- ============================================== -->
+<!-- File: grandmaPOS.md -->
+<!-- ============================================== -->
+
+# Grandma's POS System
+
+**Role:** Solo Full-Stack Developer
+**Stack:** SvelteKit · TypeScript · Hono.js · Cloudflare Workers · D1
+**Deployment:** [Cloudflare Workers](https://55b60a46-grandma-pos.denver02-james14.workers.dev/)
+
+---
+
+A bespoke Point of Sale and franchise management system built from the ground up for a fast-paced food service business. Designed to handle real-world operational complexity — multiple locations, offline environments, and a full supply chain — without any off-the-shelf POS shortcuts.
+
+---
+
+## Branch & Location Management
+
+![Branch Selector](/images/projects/grandma-pos/branch-selector.jpg)
+
+Each user session is scoped to a specific branch or location. The branch selector ensures cashiers, managers, and commissary staff all operate within their assigned context — keeping inventory, sales, and reports cleanly separated per location.
+
+---
+
+## Point of Sale & Order Processing
+
+![Order Screen](/images/projects/grandma-pos/orders/order-screen.jpg)
+
+The POS interface is built for speed in a high-volume food service environment. Orders are processed with minimal taps, and the system continues to function during internet outages — syncing automatically once connectivity is restored.
+
+### Order Workflow
+
+![Order Details](/images/projects/grandma-pos/orders/order-details-1.jpg)
+
+![Order Confirmation](/images/projects/grandma-pos/orders/order-confirmation.jpg)
+
+Each order moves through a structured lifecycle — from creation and approval through preparation, payment, and pickup — with every step tracked and logged.
+
+### Payment Handling
+
+![Payment Screen](/images/projects/grandma-pos/orders/order-details-payment-screen.jpg)
+
+![Payment Verification](/images/projects/grandma-pos/orders/order-details-payment-verification-screen.jpg)
+
+Payment verification is built directly into the order flow, with support for image uploads (proof of payment) that are queued locally and synced to Google Drive in the background.
+
+### Order Tracking & ETA
+
+![ETA Screen](/images/projects/grandma-pos/orders/order-eta-screen.jpg)
+
+![Preparation Progress](/images/projects/grandma-pos/orders/order-preparation-progress-after-approval.jpg)
+
+Orders are tracked in real time from approval through preparation and dispatch, with ETA visibility for both staff and management.
+
+### Delivery & Receiving
+
+![Pickup Confirmation](/images/projects/grandma-pos/orders/order-pickup-confirmation.jpg)
+
+![Receive Confirmation](/images/projects/grandma-pos/orders/order-receive-confirmation.jpg)
+
+Pickup and receiving confirmations close the order loop, triggering automatic stock updates across the relevant locations.
+
+### Order Logs & Communication
+
+![Order Logs](/images/projects/grandma-pos/orders/order-logs.jpg)
+
+![Order Chat](/images/projects/grandma-pos/orders/order-chat.jpg)
+
+Every order carries a full audit log and an in-system chat thread — giving staff and managers a clear, timestamped record of every action and decision.
+
+---
+
+## Product & Raw Material Management
+
+![Product & Raw Material Management](/images/projects/grandma-pos/product-raw-material-management.jpg)
+
+Products are defined with recipes that map directly to raw materials. Every sale automatically deducts the correct ingredient quantities across the supply chain — no manual stock counting required.
+
+---
+
+## Multi-Tenant Management
+
+![Multi-Tenant Management](/images/projects/grandma-pos/multi-tenant-management.jpg)
+
+The system is architected to support multiple franchise tenants under one platform. Each tenant operates independently with their own locations, users, products, and inventory — managed from a central head office view.
+
+---
+
+## User & Access Management
+
+![Users Management](/images/projects/grandma-pos/users-management.jpg)
+
+![User Details](/images/projects/grandma-pos/users-management-details.jpg)
+
+User accounts are fully managed within the system — creation, profile details, role assignment, and location access all controlled from a single admin interface.
+
+---
+
+## Role & Permission Management
+
+![Role Management](/images/projects/grandma-pos/role-management.jpg)
+
+![Permissions Management](/images/projects/grandma-pos/permissions-management.jpg)
+
+A granular RBAC system with 30+ individual permissions. Roles are fully configurable — cashiers, branch managers, commissary staff, and super admins each get exactly the access they need, nothing more.
+
+---
+
+## Technical Highlights
+
+**Offline-first architecture.** Sales are stored locally in IndexedDB via Dexie.js and replayed to the server automatically when the connection returns — no data loss, no manual intervention.
+
+**Edge-native backend.** The entire backend runs on Cloudflare Workers with D1 as the database, keeping latency low for real-time operations like stock deduction and order processing. A custom transaction wrapper handles atomicity for multi-step operations.
+
+**Internal tooling.** Beyond the POS, the system includes company-wide internal tools — inventory dashboards, stock movement reports, production order tracking, and admin panels — replacing previously manual, spreadsheet-based workflows.
+
+---
+
+## Business Impact
+
+- Eliminated manual inventory tracking across multiple locations
+- Sales continue during internet outages with zero data loss
+- Recipe-based deduction removed human error from stock management
+- Internal tooling consolidated fragmented spreadsheet workflows into a single system
