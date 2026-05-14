@@ -1,40 +1,109 @@
-<h1 class="text-balance">413 Cafezinho - Point of Sales System</h1>
+# 413 Cafezinho - Point of Sales System
 
-This webapp is a POS specifically designed for a coffee shop named 413 Cafezinho. It contains basic functionality of a POS and automatically creates an e-commerce store alongside it. This is a work-in-progress and the customer-facing (e-commerce) side is yet to be implemented in production (but is functional). The screenshots attached are just literal snippets. You can go to [This link](https://413cafezinho.denvie.online/) to check out the actual website.
+**Role:** Solo Full-Stack Developer  
+**Stack:** SvelteKit · TypeScript · DaisyUI · TailwindCSS · Cloudflare D1 · R2 · Cloudflare Workers  
+**Deployment:** [413 Cafezinho POS](https://413cafezinho.denvie.online/)
 
-## Key Features
+---
 
-### Customer-Facing Online Order System
+A Point of Sale system specifically designed for a coffee shop named 413 Cafezinho. It contains basic functionality of a POS and automatically creates an e-commerce store alongside it. This is a work in progress and the customer-facing (e-commerce) side is yet to be implemented in production (but is functional). The screenshots attached are just literal snippets. You can go to [This link](https://413cafezinho.denvie.online/) to check out the actual website.
+
+---
+
+## Customer-Facing Online Order System
+
+![Homepage](/images/projects/413cafezinho-pos/homepage.png)
+*Mobile-first homepage with hero banner, order CTA, and clean navigation.*
+
+![Featured Specials](/images/projects/413cafezinho-pos/homepage-featured.png)
+*Featured Specials section showcasing promotional items with vivid product imagery.*
+
+![Menu Page](/images/projects/413cafezinho-pos/homepage-menu.png)
+*Category-filtered menu grid with product cards and quick add-to-cart buttons.*
+
+![Product Details](/images/projects/413cafezinho-pos/product-details.png)
+*Product detail page with size variants, quantity selector, and special instructions.*
+
+![Cart & Delivery Details](/images/projects/413cafezinho-pos/cart-details.png)
+*Cart summary with item breakdown, quantity editing, and delivery form.*
+
+![Login Screen](/images/projects/413cafezinho-pos/login-screen.png)
+*Employee login screen with session feedback and auto-redirect on success.*
+
 - **Mobile-First Approach**: Ensures optimal responsiveness and usability across different screen sizes, prioritizing mobile devices.
 - **Minimalistic and Clean UI**: Features are categorized for easy customer navigation and order creation.
 - **Product Recommendations**: Saves previous orders in the browser to provide accurate "Recommended Products" on subsequent visits.
 - **Progressive Web App (PWA)**: Configured for installation on both iOS and Android devices, enhancing accessibility and user experience.
 - **Real-Time Order Queue**: Directs customer orders to the queue on the POS employee-facing side for efficient processing.
 
-### Employee-Facing POS System
+---
 
-#### Admin Dashboard
-- **Employee Management**: Manage (edit user details, roles, branch associations, branch coverage, passwords) employees you are supervising if you are a supervisor.
-- **Product Management**: CRUD operations for categories, subcategories, and products.
+## Employee-Facing POS System
 
-#### Main POS Interface
-- **Modern, Intuitive UI**: Segmented into three columns:
-  1. **Order Queue**: Click on an order to open the Order Details modal for managing the order, changing its status, or reviewing it. Order cancellations require supervisor login for approval.
-  2. **Product List**: Clicking a product opens a modal to modify the product order before adding it to the cart.
-  3. **Cart**: Contains options for applying discounts and other modifications. Supports printing receipts using an external printer, with an associated Android app for this purpose.
-   
-#### Reporting
-- **Comprehensive Reports**: Includes filters and a table of all products sold and orders within a specified date range.
-- **Visual Summaries**: A bar graph showing a summary of previous transactions, with hoverable columns in the table for specific field summaries.
+### Admin Dashboard
 
-### Technical Stack
+![Dashboard Overview](/images/projects/413cafezinho-pos/employee/dashboard.png)
+*Main dashboard showing active shift timer, shift activity feed, and key metrics.*
+
+![Dashboard Top Bar](/images/projects/413cafezinho-pos/employee/dashboard-topbar.png)
+*Top bar with branch selector and shift selector for multi-branch report viewing.*
+
+![Performance Metrics](/images/projects/413cafezinho-pos/employee/dashboard-performance-matrix.png)
+*Performance metrics: financials, top products, top categories, and recent orders.*
+
+![Quick Lookups](/images/projects/413cafezinho-pos/employee/dashboard-quick-lookups.png)
+*Recent activity feed with order list and sub-category sales rankings.*
+
+![Shift Logs](/images/projects/413cafezinho-pos/employee/dashboard-shift-logs.png)
+*Shift activity log showing cash events, expenses, breaks, and timestamps.*
+
+![EOD Report - Part 1](/images/projects/413cafezinho-pos/employee/dashboard-running-eod-report.png)
+*End-of-day report: shift info, sales breakdown by payment method and discounts.*
+
+![EOD Report - Part 2](/images/projects/413cafezinho-pos/employee/dashboard-running-eod-report-2.png)
+*EOD report continued: cash drawer movement, performance metrics, and invoice range.*
+
+### Main POS Interface
+
+![Main POS Interface](/images/projects/413cafezinho-pos/employee/pos/actual-pos.png)
+*POS interface split into order queue, product list, cart, and payment controls.*
+
+![Break Mode](/images/projects/413cafezinho-pos/employee/pos/break-mode.png)
+*Break mode overlay with live timer, cash-in-drawer field, and end break button.*
+
+![Receipt Preview](/images/projects/413cafezinho-pos/employee/receipt-preview.png)
+*Order receipt with itemized billing, VAT breakdown, and order status controls.*
+
+### Product & Inventory Management
+
+![Products Management](/images/projects/413cafezinho-pos/employee/products-management.png)
+*Products list with stock status, recipe configuration badge, and availability dots.*
+
+![Tags Management](/images/projects/413cafezinho-pos/employee/tags-management.png)
+*Tags management table with category hierarchy, product count, and CRUD actions.*
+
+![Ingredients Management](/images/projects/413cafezinho-pos/employee/Ingredients-management.png)
+*Ingredients list with unit, low-stock threshold, status filter, and edit actions.*
+
+### Documentation
+
+![In-App Guide](/images/projects/413cafezinho-pos/employee/docs.png)
+*Built-in documentation covering shift management and order workflows step by step.*
+
+---
+
+## Technical Stack
+
 - **SvelteKit**: For building the frontend with a focus on fast, reactive components.
 - **TypeScript**: Ensuring type safety and better maintainability.
 - **DaisyUI & TailwindCSS**: For styling, providing a modern, consistent look and feel.
 - **Cloudflare Workers**: For handling serverless functions, enhancing performance and scalability.
+- **Cloudflare D1**: SQLite-based edge database for structured relational data.
+- **Cloudflare R2**: Object storage for product images and media assets.
 - **PWA Configuration**: Allows the app to be installed on mobile devices and accessed offline.
 
 ## Future Enhancements
+
 - **Advanced Analytics**: To provide insights into customer behavior and sales trends.
 - **Loyalty Programs**: For rewarding repeat customers and encouraging repeat business.
 

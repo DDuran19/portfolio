@@ -26,60 +26,68 @@ const MY_PROJECTS: Array<Project> = [
 		skills: getSkills('sveltekit', 'ts', 'css', 'tailwind', 'cloudflare', 'pwa'),
 		screenshots: [
 			{
-				src: '/images/projects/denvie.online/landing-page.png',
-				label: 'Landing Page'
+				src: '/images/projects/413cafezinho-pos/login-screen.png',
+				label: 'Login Screen'
 			},
 			{
-				src: '/images/projects/denvie.online/cart-1.png',
-				label: 'Customer Cart 1'
+				src: '/images/projects/413cafezinho-pos/homepage.png',
+				label: 'Homepage'
 			},
 			{
-				src: '/images/projects/denvie.online/cart-2.png',
-				label: 'Customer Cart 2'
+				src: '/images/projects/413cafezinho-pos/homepage-featured.png',
+				label: 'Featured Products'
 			},
 			{
-				src: '/images/projects/denvie.online/payment-instructions.png',
-				label: 'Payment Instructions'
+				src: '/images/projects/413cafezinho-pos/homepage-menu.png',
+				label: 'Homepage Menu'
 			},
 			{
-				src: '/images/projects/denvie.online/product-order-screen.png',
-				label: 'Product Details Page (SAMPLE ONLY - Update mode)'
+				src: '/images/projects/413cafezinho-pos/cart-details.png',
+				label: 'Cart Details'
 			},
 			{
-				src: '/images/projects/denvie.online/product-order-screen-new.png',
-				label: 'Product Details Page (SAMPLE ONLY - Add new product to cart mode)'
+				src: '/images/projects/413cafezinho-pos/product-details.png',
+				label: 'Product Details'
 			},
 			{
-				src: '/images/projects/denvie.online/empty-cart.png',
-				label: 'Empty Cart'
+				src: '/images/projects/413cafezinho-pos/employee/dashboard.png',
+				label: 'Employee Dashboard'
 			},
 			{
-				src: '/images/projects/denvie.online/reports.png',
-				label: 'Reporting Feature (SAMPLE ONLY)'
+				src: '/images/projects/413cafezinho-pos/employee/dashboard-topbar.png',
+				label: 'Dashboard Topbar'
 			},
 			{
-				src: '/images/projects/denvie.online/POS-main-interface.png',
-				label: 'POS Main Interface (PRODUCTS ARE SAMPLE ONLY)'
+				src: '/images/projects/413cafezinho-pos/employee/dashboard-performance-matrix.png',
+				label: 'Dashboard Performance'
 			},
 			{
-				src: '/images/projects/denvie.online/order-details.png',
-				label: 'Order Details (SAMPLE ONLY)'
+				src: '/images/projects/413cafezinho-pos/employee/dashboard-quick-lookups.png',
+				label: 'Dashboard Quick Lookups'
 			},
 			{
-				src: '/images/projects/denvie.online/cancel-approval-screen.png',
-				label: 'Cancel Approval Feature'
+				src: '/images/projects/413cafezinho-pos/employee/dashboard-running-eod-report.png',
+				label: 'End of Day Report'
 			},
 			{
-				src: '/images/projects/denvie.online/admin-dashboard-manage-product-category.png',
-				label: 'Product category management'
+				src: '/images/projects/413cafezinho-pos/employee/dashboard-running-eod-report-2.png',
+				label: 'End of Day Report 2'
 			},
 			{
-				src: '/images/projects/denvie.online/admin-dashboard-manage-own-account.png',
-				label: 'User account management'
+				src: '/images/projects/413cafezinho-pos/employee/dashboard-shift-logs.png',
+				label: 'Shift Logs'
 			},
 			{
-				src: '/images/projects/denvie.online/admin-dashboard-manage-employee-account.png',
-				label: 'Employee account management'
+				src: '/images/projects/413cafezinho-pos/employee/pos/actual-pos.png',
+				label: 'POS Interface'
+			},
+			{
+				src: '/images/projects/413cafezinho-pos/employee/pos/break-mode.png',
+				label: 'Break Mode'
+			},
+			{
+				src: '/images/projects/413cafezinho-pos/employee/receipt-preview.png',
+				label: 'Receipt Preview'
 			}
 		]
 	},
