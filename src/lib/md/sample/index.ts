@@ -2,6 +2,7 @@ import MonetasCalculator from "./MonetasCalculator.svelte";
 import ShippingPlatform from "./ShippingPlatform.svelte";
 import CentralizedDashboard from "./CentralizedDashboard.svelte";
 import ZiteAndBrevoApi from "./ZiteAndBrevoApi.svelte";
+import MedicJi from "./MedicJi.svelte";
 
 export const sampleComponents = [
     {
@@ -27,5 +28,12 @@ export const sampleComponents = [
         slug: "zite-and-brevo-api",
         description: "An order processing flow simulation with mock APIs for Brevo CRM and Zite database, showing API request payloads and responses.",
         component: ZiteAndBrevoApi
-    }
+    },
+    {
+        name: "MedicJi",
+        slug: "medicji",
+        description: "A Medicare insurance agent dashboard with contact management, marketing activity logs, and calendar scheduling.",
+        component: MedicJi
+    },
+
 ]
