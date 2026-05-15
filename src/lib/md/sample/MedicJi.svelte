@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { stopPropagation } from 'svelte/legacy';
+
 	import { theme, toggleTheme } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
@@ -7,11 +9,11 @@
 		theme.set(false);
 	});
 	// ─── AUTH ────────────────────────────────────────────────────────────────────
-	let showApp = false;
-	let showLoginDialog = false;
-	let loginError = '';
-	let loginUsername = 'admin';
-	let loginPassword = 'admin123';
+	let showApp = $state(false);
+	let showLoginDialog = $state(false);
+	let loginError = $state('');
+	let loginUsername = $state('admin');
+	let loginPassword = $state('admin123');
 
 	function handleLogin() {
 		if (loginUsername === 'admin' && loginPassword === 'admin123') {
@@ -30,7 +32,7 @@
 	}
 
 	// ─── NAV ─────────────────────────────────────────────────────────────────────
-	let activeTab = 'dashboard';
+	let activeTab = $state('dashboard');
 
 	const navItems = [
 		{ id: 'dashboard', label: 'Dashboard', icon: 'i-carbon-dashboard' },
@@ -40,7 +42,7 @@
 	];
 
 	// ─── DATA ────────────────────────────────────────────────────────────────────
-	let contacts = [
+	let contacts = $state([
 		{
 			id: 1,
 			name: 'Maria Santos',
@@ -91,9 +93,9 @@
 			date: '2025-05-14',
 			notes: 'Wants Plan N info'
 		}
-	];
+	]);
 
-	let activities = [
+	let activities = $state([
 		{
 			id: 1,
 			place: "St. David's Medical Center",
@@ -130,9 +132,9 @@
 			result: 'Scheduled a lunch-and-learn for June',
 			followUp: '2025-06-05'
 		}
-	];
+	]);
 
-	let events = [
+	let events = $state([
 		{
 			id: 1,
 			title: 'Visit Memorial Hermann',
@@ -165,14 +167,14 @@
 			type: 'Hospital Visit',
 			reminder: true
 		}
-	];
+	]);
 
 	// ─── CONTACTS STATE ──────────────────────────────────────────────────────────
-	let contactSearch = '';
-	let contactStatusFilter = 'All';
-	let contactSort = 'date-desc';
-	let showContactModal = false;
-	let contactForm = {
+	let contactSearch = $state('');
+	let contactStatusFilter = $state('All');
+	let contactSort = $state('date-desc');
+	let showContactModal = $state(false);
+	let contactForm = $state({
 		name: '',
 		phone: '',
 		email: '',
@@ -180,11 +182,11 @@
 		status: 'Interested',
 		date: '',
 		notes: ''
-	};
+	});
 
 	// Contact Edit Drawer State
-	let isContactDrawerOpen = false;
-	let editingContact: any = null;
+	let isContactDrawerOpen = $state(false);
+	let editingContact: any = $state(null);
 
 	const STATUS_LIST = ['All', 'Interested', 'Follow Up', 'Enrolled', 'Not Interested'];
 	const CONTACT_SORTS = [
@@ -196,7 +198,7 @@
 	const hour = new Date().getHours();
 	const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
 
-	$: filteredContacts = (() => {
+	let filteredContacts = $derived((() => {
 		let list = contacts.filter((c) => {
 			const q = contactSearch.toLowerCase();
 			const matchQ =
@@ -212,7 +214,7 @@
 		if (contactSort === 'name-asc') list = [...list].sort((a, b) => a.name.localeCompare(b.name));
 		if (contactSort === 'name-desc') list = [...list].sort((a, b) => b.name.localeCompare(a.name));
 		return list;
-	})();
+	})());
 
 	function addContact() {
 		if (!contactForm.name.trim()) return;
@@ -255,15 +257,15 @@
 	}
 
 	// ─── MARKETING STATE ─────────────────────────────────────────────────────────
-	let mktSearch = '';
-	let mktTypeFilter = 'All';
-	let mktSort = 'date-desc';
-	let showMktModal = false;
-	let mktForm = { place: '', type: 'Hospital', contact: '', date: '', result: '', followUp: '' };
+	let mktSearch = $state('');
+	let mktTypeFilter = $state('All');
+	let mktSort = $state('date-desc');
+	let showMktModal = $state(false);
+	let mktForm = $state({ place: '', type: 'Hospital', contact: '', date: '', result: '', followUp: '' });
 
 	// Mkt Edit Drawer State
-	let isMktDrawerOpen = false;
-	let editingActivity: any = null;
+	let isMktDrawerOpen = $state(false);
+	let editingActivity: any = $state(null);
 
 	const TYPE_LIST = ['All', 'Hospital', 'Clinic', 'Public Event', 'Follow Up'];
 	const MKT_SORTS = [
@@ -272,7 +274,7 @@
 		{ value: 'place-asc', label: 'Place A→Z' }
 	];
 
-	$: filteredActivities = (() => {
+	let filteredActivities = $derived((() => {
 		let list = activities.filter((a) => {
 			const q = mktSearch.toLowerCase();
 			const matchQ = !q || a.place.toLowerCase().includes(q) || a.contact.toLowerCase().includes(q);
@@ -283,7 +285,7 @@
 		if (mktSort === 'date-asc') list = [...list].sort((a, b) => a.date.localeCompare(b.date));
 		if (mktSort === 'place-asc') list = [...list].sort((a, b) => a.place.localeCompare(b.place));
 		return list;
-	})();
+	})());
 
 	function addActivity() {
 		if (!mktForm.place.trim()) return;
@@ -318,15 +320,15 @@
 	}
 
 	// ─── CALENDAR STATE ──────────────────────────────────────────────────────────
-	let calSearch = '';
-	let calTypeFilter = 'All';
-	let calSort = 'date-asc';
-	let showCalModal = false;
-	let calForm = { title: '', date: '', time: '', type: 'Hospital Visit', reminder: false };
+	let calSearch = $state('');
+	let calTypeFilter = $state('All');
+	let calSort = $state('date-asc');
+	let showCalModal = $state(false);
+	let calForm = $state({ title: '', date: '', time: '', type: 'Hospital Visit', reminder: false });
 
 	// Event Edit Drawer State
-	let isEventDrawerOpen = false;
-	let editingEvent: any = null;
+	let isEventDrawerOpen = $state(false);
+	let editingEvent: any = $state(null);
 
 	const EVENT_TYPES = ['All', 'Hospital Visit', 'Clinic Visit', 'Public Event', 'Follow Up'];
 	const CAL_SORTS = [
@@ -337,7 +339,7 @@
 
 	const today = new Date().toISOString().split('T')[0];
 
-	$: filteredEvents = (() => {
+	let filteredEvents = $derived((() => {
 		let list = events.filter((e) => {
 			const q = calSearch.toLowerCase();
 			const matchQ = !q || e.title.toLowerCase().includes(q);
@@ -348,7 +350,7 @@
 		if (calSort === 'date-desc') list = [...list].sort((a, b) => b.date.localeCompare(a.date));
 		if (calSort === 'title-asc') list = [...list].sort((a, b) => a.title.localeCompare(b.title));
 		return list;
-	})();
+	})());
 
 	function addEvent() {
 		if (!calForm.title.trim() || !calForm.date) return;
@@ -431,9 +433,9 @@
 		return `${m} ${parseInt(parts[2], 10)}, ${parts[0]}`;
 	}
 
-	$: enrolled = contacts.filter((c) => c.status === 'Enrolled').length;
-	$: needFollowUp = contacts.filter((c) => c.status === 'Follow Up').length;
-	$: upcomingCount = events.filter((e) => e.date >= today).length;
+	let enrolled = $derived(contacts.filter((c) => c.status === 'Enrolled').length);
+	let needFollowUp = $derived(contacts.filter((c) => c.status === 'Follow Up').length);
+	let upcomingCount = $derived(events.filter((e) => e.date >= today).length);
 </script>
 
 {#if !showApp}
@@ -450,7 +452,7 @@
 				<span class="font-bold text-stone-800 tracking-tight text-lg">MedicJI</span>
 			</div>
 			<button
-				on:click={() => (showLoginDialog = true)}
+				onclick={() => (showLoginDialog = true)}
 				class="bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors cursor-pointer"
 			>
 				Agent Login
@@ -516,7 +518,7 @@
 						<p class="text-sm text-stone-400">Internal access only</p>
 					</div>
 					<button
-						on:click={() => {
+						onclick={() => {
 							showLoginDialog = false;
 							loginError = '';
 						}}
@@ -536,7 +538,7 @@
 							type="text"
 							placeholder="admin"
 							class="text-black px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
-							on:keydown={(e) => e.key === 'Enter' && handleLogin()}
+							onkeydown={(e) => e.key === 'Enter' && handleLogin()}
 						/>
 					</div>
 					<div class="flex flex-col gap-1 w-full">
@@ -548,7 +550,7 @@
 							type="password"
 							placeholder="••••••••"
 							class="text-black px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
-							on:keydown={(e) => e.key === 'Enter' && handleLogin()}
+							onkeydown={(e) => e.key === 'Enter' && handleLogin()}
 						/>
 					</div>
 					<span class="text-xs text-muted-foreground"
@@ -562,7 +564,7 @@
 				</div>
 
 				<button
-					on:click={handleLogin}
+					onclick={handleLogin}
 					class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-xl transition-colors text-sm cursor-pointer"
 				>
 					Sign In
@@ -590,7 +592,7 @@
 			<nav class="flex flex-col gap-1 p-3 flex-1">
 				{#each navItems as item}
 					<button
-						on:click={() => (activeTab = item.id)}
+						onclick={() => (activeTab = item.id)}
 						class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer w-full text-left
 			{activeTab === item.id
 							? 'bg-teal-600 text-white'
@@ -604,7 +606,7 @@
 
 			<div class="p-3 border-t border-stone-700">
 				<button
-					on:click={handleLogout}
+					onclick={handleLogout}
 					class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium bg-transparent text-stone-300 hover:text-red-400 hover:bg-stone-800 transition-colors cursor-pointer w-full text-left"
 				>
 					<span class="i-carbon-logout w-4.5 h-4.5 shrink-0"></span>
@@ -725,7 +727,7 @@
 							</p>
 						</div>
 						<button
-							on:click={() => (showContactModal = true)}
+							onclick={() => (showContactModal = true)}
 							class="bg-teal-600 hover:bg-teal-700 text-white font-medium px-5 py-2.5 rounded-lg shadow-sm flex items-center gap-2 transition-colors cursor-pointer"
 						>
 							<span class="i-carbon-add w-5 h-5"></span> Add Contact
@@ -796,7 +798,7 @@
 								{#each filteredContacts as c}
 									<tr
 										class="hover:bg-stone-50 transition-colors group cursor-pointer"
-										on:click={() => openContactDrawer(c)}
+										onclick={() => openContactDrawer(c)}
 									>
 										<td class="px-5 py-3 font-medium text-stone-800 whitespace-nowrap">{c.name}</td>
 										<td class="px-5 py-3 whitespace-nowrap">
@@ -818,7 +820,7 @@
 										>
 											<div class="flex items-center justify-end gap-2">
 												<button
-													on:click|stopPropagation={() => deleteContact(c.id)}
+													onclick={stopPropagation(() => deleteContact(c.id))}
 													class="p-1.5 text-stone-400 hover:text-red-500 hover:bg-red-50 rounded transition-colors"
 													title="Delete"
 												>
@@ -851,7 +853,7 @@
 							</p>
 						</div>
 						<button
-							on:click={() => (showMktModal = true)}
+							onclick={() => (showMktModal = true)}
 							class="bg-teal-600 hover:bg-teal-700 text-white font-medium px-5 py-2.5 rounded-lg shadow-sm flex items-center gap-2 transition-colors cursor-pointer"
 						>
 							<span class="i-carbon-add w-5 h-5"></span> Log Visit
@@ -922,7 +924,7 @@
 								{#each filteredActivities as a}
 									<tr
 										class="hover:bg-stone-50 transition-colors group cursor-pointer"
-										on:click={() => openMktDrawer(a)}
+										onclick={() => openMktDrawer(a)}
 									>
 										<td class="px-5 py-3 font-medium text-stone-800 min-w-[150px]">{a.place}</td>
 										<td class="px-5 py-3 whitespace-nowrap">
@@ -942,7 +944,7 @@
 										>
 											<div class="flex items-center justify-end gap-2">
 												<button
-													on:click|stopPropagation={() => deleteActivity(a.id)}
+													onclick={stopPropagation(() => deleteActivity(a.id))}
 													class="p-1.5 text-stone-400 hover:text-red-500 hover:bg-red-50 rounded transition-colors"
 													title="Delete"
 												>
@@ -973,7 +975,7 @@
 							<p class="text-stone-500 mt-1">{filteredEvents.length} of {events.length} shown</p>
 						</div>
 						<button
-							on:click={() => (showCalModal = true)}
+							onclick={() => (showCalModal = true)}
 							class="bg-teal-600 hover:bg-teal-700 text-white font-medium px-5 py-2.5 rounded-lg shadow-sm flex items-center gap-2 transition-colors cursor-pointer"
 						>
 							<span class="i-carbon-add w-5 h-5"></span> Add Event
@@ -1039,7 +1041,7 @@
 								{#each filteredEvents as e}
 									<tr
 										class="hover:bg-stone-50 transition-colors group cursor-pointer"
-										on:click={() => openEventDrawer(e)}
+										onclick={() => openEventDrawer(e)}
 									>
 										<td class="px-5 py-3 text-stone-700 whitespace-nowrap">
 											{fmtDate(e.date)}
@@ -1075,7 +1077,7 @@
 										>
 											<div class="flex items-center justify-end gap-2">
 												<button
-													on:click|stopPropagation={() => deleteEvent(e.id)}
+													onclick={stopPropagation(() => deleteEvent(e.id))}
 													class="p-1.5 text-stone-400 hover:text-red-500 hover:bg-red-50 rounded transition-colors"
 													title="Delete"
 												>
@@ -1105,7 +1107,7 @@
 			<div
 				transition:fade={{ duration: 200 }}
 				class="absolute inset-0 bg-stone-900/20 z-40 backdrop-blur-sm"
-				on:click={closeContactDrawer}
+				onclick={closeContactDrawer}
 			></div>
 			<div
 				class="absolute top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 flex flex-col overflow-hidden"
@@ -1115,7 +1117,7 @@
 						class="flex justify-between items-center px-6 py-5 border-b border-stone-100 shrink-0"
 					>
 						<h3 class="text-xl font-bold text-stone-800">Edit Contact</h3>
-						<button on:click={closeContactDrawer} class="text-stone-400 hover:text-stone-600">
+						<button onclick={closeContactDrawer} class="text-stone-400 hover:text-stone-600">
 							<span class="i-carbon-close text-2xl block"></span>
 						</button>
 					</div>
@@ -1188,12 +1190,12 @@
 						class="px-6 py-4 border-t border-stone-100 bg-stone-50 flex justify-end gap-3 shrink-0"
 					>
 						<button
-							on:click={closeContactDrawer}
+							onclick={closeContactDrawer}
 							class="px-5 py-2.5 text-stone-600 hover:bg-stone-200 rounded-xl transition-colors font-semibold text-sm"
 							>Cancel</button
 						>
 						<button
-							on:click={saveContactEdits}
+							onclick={saveContactEdits}
 							class="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl transition-colors font-semibold shadow-sm text-sm"
 							>Save Changes</button
 						>
@@ -1206,7 +1208,7 @@
 			<div
 				transition:fade={{ duration: 200 }}
 				class="absolute inset-0 bg-stone-900/20 z-40 backdrop-blur-sm"
-				on:click={closeMktDrawer}
+				onclick={closeMktDrawer}
 			></div>
 			<div
 				class="absolute top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 flex flex-col overflow-hidden"
@@ -1216,7 +1218,7 @@
 						class="flex justify-between items-center px-6 py-5 border-b border-stone-100 shrink-0"
 					>
 						<h3 class="text-xl font-bold text-stone-800">Edit Log Entry</h3>
-						<button on:click={closeMktDrawer} class="text-stone-400 hover:text-stone-600">
+						<button onclick={closeMktDrawer} class="text-stone-400 hover:text-stone-600">
 							<span class="i-carbon-close text-2xl block"></span>
 						</button>
 					</div>
@@ -1284,12 +1286,12 @@
 						class="px-6 py-4 border-t border-stone-100 bg-stone-50 flex justify-end gap-3 shrink-0"
 					>
 						<button
-							on:click={closeMktDrawer}
+							onclick={closeMktDrawer}
 							class="px-5 py-2.5 text-stone-600 hover:bg-stone-200 rounded-xl transition-colors font-semibold text-sm"
 							>Cancel</button
 						>
 						<button
-							on:click={saveMktEdits}
+							onclick={saveMktEdits}
 							class="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl transition-colors font-semibold shadow-sm text-sm"
 							>Save Changes</button
 						>
@@ -1302,7 +1304,7 @@
 			<div
 				transition:fade={{ duration: 200 }}
 				class="absolute inset-0 bg-stone-900/20 z-40 backdrop-blur-sm"
-				on:click={closeEventDrawer}
+				onclick={closeEventDrawer}
 			></div>
 			<div
 				class="absolute top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 flex flex-col overflow-hidden"
@@ -1312,7 +1314,7 @@
 						class="flex justify-between items-center px-6 py-5 border-b border-stone-100 shrink-0"
 					>
 						<h3 class="text-xl font-bold text-stone-800">Edit Event</h3>
-						<button on:click={closeEventDrawer} class="text-stone-400 hover:text-stone-600">
+						<button onclick={closeEventDrawer} class="text-stone-400 hover:text-stone-600">
 							<span class="i-carbon-close text-2xl block"></span>
 						</button>
 					</div>
@@ -1370,12 +1372,12 @@
 						class="px-6 py-4 border-t border-stone-100 bg-stone-50 flex justify-end gap-3 shrink-0"
 					>
 						<button
-							on:click={closeEventDrawer}
+							onclick={closeEventDrawer}
 							class="px-5 py-2.5 text-stone-600 hover:bg-stone-200 rounded-xl transition-colors font-semibold text-sm"
 							>Cancel</button
 						>
 						<button
-							on:click={saveEventEdits}
+							onclick={saveEventEdits}
 							class="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl transition-colors font-semibold shadow-sm text-sm"
 							>Save Changes</button
 						>
@@ -1394,7 +1396,7 @@
 			<div class="flex items-center justify-between px-6 py-4 border-b border-stone-100 shrink-0">
 				<h3 class="font-bold text-stone-800 text-xl">Add Contact</h3>
 				<button
-					on:click={() => (showContactModal = false)}
+					onclick={() => (showContactModal = false)}
 					class="text-stone-400 hover:text-stone-600 cursor-pointer"
 				>
 					<span class="i-carbon-close w-6 h-6 block"></span>
@@ -1470,7 +1472,7 @@
 
 			<div class="px-6 py-4 border-t border-stone-100 bg-stone-50 shrink-0">
 				<button
-					on:click={addContact}
+					onclick={addContact}
 					class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-xl transition-colors cursor-pointer shadow-sm"
 				>
 					Save Contact
@@ -1488,7 +1490,7 @@
 			<div class="flex items-center justify-between px-6 py-4 border-b border-stone-100 shrink-0">
 				<h3 class="font-bold text-stone-800 text-xl">Log Marketing Visit</h3>
 				<button
-					on:click={() => (showMktModal = false)}
+					onclick={() => (showMktModal = false)}
 					class="text-stone-400 hover:text-stone-600 cursor-pointer"
 				>
 					<span class="i-carbon-close w-6 h-6 block"></span>
@@ -1562,7 +1564,7 @@
 
 			<div class="px-6 py-4 border-t border-stone-100 bg-stone-50 shrink-0">
 				<button
-					on:click={addActivity}
+					onclick={addActivity}
 					class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-xl transition-colors cursor-pointer shadow-sm"
 				>
 					Save Activity
@@ -1580,7 +1582,7 @@
 			<div class="flex items-center justify-between px-6 py-4 border-b border-stone-100 shrink-0">
 				<h3 class="font-bold text-stone-800 text-xl">Add Event</h3>
 				<button
-					on:click={() => (showCalModal = false)}
+					onclick={() => (showCalModal = false)}
 					class="text-stone-400 hover:text-stone-600 cursor-pointer"
 				>
 					<span class="i-carbon-close w-6 h-6 block"></span>
@@ -1637,7 +1639,7 @@
 
 			<div class="px-6 py-4 border-t border-stone-100 bg-stone-50 shrink-0">
 				<button
-					on:click={addEvent}
+					onclick={addEvent}
 					class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-xl transition-colors cursor-pointer shadow-sm"
 				>
 					Save Event

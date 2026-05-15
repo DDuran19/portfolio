@@ -1,8 +1,12 @@
 <script lang="ts">
-	export let icon = '';
 
-	export let classes = '';
+	interface Props {
+		icon?: string;
+		classes?: string;
+	}
+
+	let { icon = '', classes = '' }: Props = $props();
 </script>
 
-<i class={`${icon} ${classes}`} />
+<i class={`${icon} ${classes}`}></i>
 <!-- <i class="i-carbon-logo-github"></i> -->

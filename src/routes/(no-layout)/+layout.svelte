@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { onHydrated } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
+    interface Props {
+        children?: import('svelte').Snippet;
+    }
+
+    let { children }: Props = $props();
 	onMount(() => onHydrated());
 </script>
 
@@ -53,4 +58,4 @@
 	</script>
 </svelte:head>
 
-<slot />
+{@render children?.()}

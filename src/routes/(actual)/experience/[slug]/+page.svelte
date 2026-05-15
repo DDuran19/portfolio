@@ -14,11 +14,15 @@
 	import CardDivider from '$lib/components/Card/CardDivider.svelte';
 	import { getTimeDiffMonths } from '$lib/utils';
 
-	export let data: { experience?: Experience };
+	interface Props {
+		data: { experience?: Experience };
+	}
+
+	let { data }: Props = $props();
 
 	const { title } = EXPERIENCES;
 
-	$: computedTitle = data.experience ? `${data.experience.name} - ${title}` : title;
+	let computedTitle = $derived(data.experience ? `${data.experience.name} - ${title}` : title);
 </script>
 
 <TabTitle

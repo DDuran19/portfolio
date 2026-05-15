@@ -9,7 +9,11 @@
 	import { base } from '$app/paths';
 	import UIcon from '../Icon/UIcon.svelte';
 
-	export let experience: Experience;
+	interface Props {
+		experience: Experience;
+	}
+
+	let { experience }: Props = $props();
 
 	const months = getTimeDiffMonths(experience.period.from, experience.period.to);
 

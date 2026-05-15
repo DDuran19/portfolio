@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import Chip from '$lib/components/Chip/Chip.svelte';
 	import ProjectCard from '$lib/components/ProjectCard/ProjectCard.svelte';
 	import SearchPage from '$lib/components/SearchPage.svelte';
@@ -14,12 +16,14 @@
 
 	const { items, title } = PROJECTS;
 
-	let filters: Array<SkillFilter> = MY_SKILLS.filter((it) => {
-		return items.some((project) => project.skills.some((skill) => skill.slug === it.slug));
-	});
+	let filters: Array<SkillFilter> = $state(
+		MY_SKILLS.filter((it) => {
+			return items.some((project) => project.skills.some((skill) => skill.slug === it.slug));
+		})
+	);
 
-	let search = '';
-	let displayed: Array<Project> = [];
+	let search = $state('');
+	let displayed: Array<Project> = $state([]);
 
 	const isSelected = (slug: string): boolean => {
 		return filters.some((item) => item.slug === slug && item.isSelected);
@@ -35,7 +39,7 @@
 		});
 	};
 
-	$: {
+	run(() => {
 		displayed = items.filter((project) => {
 			const isFiltered =
 				filters.every((item) => !item.isSelected) ||
@@ -49,7 +53,7 @@
 
 			return isFiltered && isSearched;
 		});
-	}
+	});
 
 	const onSearch = (e: CustomEvent<{ search: string }>) => {
 		search = e.detail.search;
@@ -75,7 +79,7 @@
 <SearchPage {title} {description} on:search={onSearch}>
 	<div class="projects-filters">
 		{#each filters as tech}
-			<Chip active={tech.isSelected} classes={'text-0.8em'} on:click={() => onSelected(tech.slug)}
+			<Chip active={tech.isSelected} classes={'text-0.8em'} onclick={() => onSelected(tech.slug)}
 				>{tech.name}</Chip
 			>
 		{/each}

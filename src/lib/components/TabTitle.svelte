@@ -1,21 +1,28 @@
 <script lang="ts">
 	import { TITLE_SUFFIX } from '$lib/params';
 	import { useTitle } from '$lib/utils/helpers';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
-	export let title: string;
-	export let description: string =
-		'Solo full-stack developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps. Custom POS systems, multi-tenant platforms, and edge-deployed applications.';
-	export let image: string = '';
+	interface Props {
+		title: string;
+		description?: string;
+		image?: string;
+	}
 
-	$: fullTitle = useTitle(title, TITLE_SUFFIX);
-	$: origin = $page.url.origin;
-	$: currentUrl = $page.url.href;
-	$: ogImage = image
-		? image.startsWith('http')
-			? image
-			: `${origin}${image}`
-		: `${origin}/og-image.png`;
+	let {
+		title = $bindable(),
+		description = $bindable(
+			'Solo full-stack developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps. Custom POS systems, multi-tenant platforms, and edge-deployed applications.'
+		),
+		image = $bindable('')
+	}: Props = $props();
+
+	let fullTitle = $derived(useTitle(title, TITLE_SUFFIX));
+	let origin = $derived(page.url.origin);
+	let currentUrl = $derived(page.url.href);
+	let ogImage = $derived(
+		image ? (image.startsWith('http') ? image : `${origin}${image}`) : `${origin}/og-image.png`
+	);
 </script>
 
 <svelte:head>

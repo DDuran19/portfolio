@@ -10,7 +10,7 @@
 
 	const { items, title } = SKILLS;
 
-	let result: Array<Skill> = items;
+	let result: Array<Skill> = $state(items);
 
 	const onSearch = (e: CustomEvent<{ search: string }>) => {
 		const query = e.detail.search;

@@ -5,10 +5,15 @@
 	import { onHydrated, theme } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { quadInOut } from 'svelte/easing';
 	import ScrollToTop from '$lib/components/Floaters/ScrollToTop.svelte';
-	$: currentPage = $page.url.pathname;
+    interface Props {
+        children?: import('svelte').Snippet;
+    }
+
+    let { children }: Props = $props();
+	let currentPage = $derived(page.url.pathname);
 
 	onMount(() => onHydrated());
 </script>
@@ -66,7 +71,7 @@
 	<NavMenu />
 	{#key currentPage}
 		<div class="content container" in:fly={{ x: 200, duration: 400, easing: quadInOut }}>
-			<slot />
+			{@render children?.()}
 		</div>
 	{/key}
 	<ScrollToTop />
