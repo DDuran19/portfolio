@@ -3,6 +3,7 @@
 	import { theme, toggleTheme } from '$lib/stores/theme';
 
 	import { base } from '$app/paths';
+
 	import UIcon from '../Icon/UIcon.svelte';
 	import { page } from '$app/state';
 

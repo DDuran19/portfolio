@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
-	import { createEventDispatcher, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import CommonPage from './CommonPage.svelte';
 	import Input from './Input/Input.svelte';
 	import { browser } from '$app/environment';
@@ -11,6 +9,7 @@
 		search?: string;
 		description?: string;
 		image?: string;
+		onSearch?: (value: string) => void;
 		children?: import('svelte').Snippet;
 	}
 
@@ -19,36 +18,27 @@
 		search = $bindable(''),
 		description = $bindable(''),
 		image = $bindable(''),
+		onSearch,
 		children
 	}: Props = $props();
 
-	const dispatch = createEventDispatcher();
-
 	let mounted = $state(false);
 
-	run(() => {
-		dispatch('search', { search: search.trim().toLowerCase() });
+	$effect(() => {
+		onSearch?.(search.trim().toLowerCase());
 	});
 
-	run(() => {
+	$effect(() => {
 		if (browser && mounted) {
-			let searchParams = new URLSearchParams(window.location.search);
-
+			const searchParams = new URLSearchParams(window.location.search);
 			searchParams.set('q', search);
-
-			const url = `${window.location.protocol}//${window.location.host}${
-				window.location.pathname
-			}?${searchParams.toString()}`;
-
-			const state = window.history.state;
-
-			window.history.replaceState(state, '', url);
+			const url = `${window.location.protocol}//${window.location.host}${window.location.pathname}?${searchParams.toString()}`;
+			window.history.replaceState(window.history.state, '', url);
 		}
 	});
 
 	onMount(() => {
-		let searchParams = new URLSearchParams(window.location.search);
-
+		const searchParams = new URLSearchParams(window.location.search);
 		search = searchParams.get('q') ?? '';
 		mounted = true;
 	});

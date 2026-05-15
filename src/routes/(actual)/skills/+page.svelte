@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Card from '$lib/components/Card/Card.svelte';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { SKILLS } from '$lib/params';
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import type { Skill } from '$lib/types';
@@ -12,9 +12,7 @@
 
 	let result: Array<Skill> = $state(items);
 
-	const onSearch = (e: CustomEvent<{ search: string }>) => {
-		const query = e.detail.search;
-
+	const onSearch = (query: string) => {
 		if (isBlank(query)) {
 			result = items;
 		}
@@ -25,7 +23,7 @@
 		'Technical skills of Denver Duran — SvelteKit, TypeScript, Cloudflare Workers, D1, Hono.js, TailwindCSS, and more. Full-stack and edge-native development expertise.';
 </script>
 
-<SearchPage {title} {description} on:search={onSearch}>
+<SearchPage {title} {description} {onSearch}>
 	{#if result.length === 0}
 		<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)] flex-1">
 			<UIcon icon="i-carbon-cube" classes="text-3.5em" />
@@ -37,7 +35,7 @@
 				<Card
 					classes={['cursor-pointer decoration-none']}
 					tiltDegree={1}
-					href={`${base}/skills/${skill.slug}`}
+					href={resolve(`/skills/${skill.slug}`)}
 					bgImg={getAssetURL(skill.logo)}
 				>
 					<p class="text-[var(--tertiary-text)]">{skill.name}</p>

@@ -2,7 +2,7 @@
 	import CardLogo from '$lib/components/Card/CardLogo.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
 
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import type { Experience } from '$lib/types';
 	import { getAssetURL } from '$lib/data/assets';
 	import { EXPERIENCES } from '$lib/params';
@@ -67,7 +67,7 @@
 						{#each data.experience.skills as item}
 							<Chip
 								classes="inline-flex flex-row items-center justify-center"
-								href={`${base}/skills/${item.slug}`}
+								href={resolve(`/skills/${item.slug}`)}
 							>
 								<CardLogo
 									src={getAssetURL(item.logo)}

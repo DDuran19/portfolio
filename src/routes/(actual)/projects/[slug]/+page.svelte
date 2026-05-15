@@ -2,7 +2,7 @@
 	import CardLogo from '$lib/components/Card/CardLogo.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
 
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import type { Project } from '$lib/types';
 	import { getAssetURL } from '$lib/data/assets';
 	import { PROJECTS } from '$lib/params';
@@ -22,9 +22,10 @@
 
 	const { title } = PROJECTS;
 
+	// svelte-ignore state_referenced_locally
 	const screenshots = data.project?.screenshots ?? [];
 	let onGridView: boolean = $state(true);
-	
+
 	function toggleGridView() {
 		onGridView = !onGridView;
 	}
@@ -68,7 +69,7 @@
 						{#each data.project.skills as item}
 							<Chip
 								classes="inline-flex flex-row items-center justify-center"
-								href={`${base}/skills/${item.slug}`}
+								href={resolve(`/skills/${item.slug}`)}
 							>
 								<CardLogo
 									src={getAssetURL(item.logo)}

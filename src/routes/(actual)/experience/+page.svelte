@@ -10,9 +10,7 @@
 
 	let result: Array<Experience> = $state([...items]);
 
-	const onSearch = (e: CustomEvent<{ search: string }>) => {
-		const query = e.detail.search;
-
+	const onSearch = (query: string) => {
 		if (isBlank(query)) {
 			result = items;
 		}
@@ -29,7 +27,7 @@
 <SearchPage
 	{title}
 	description="Full work history of Denver Duran — Jr. Programmer, Lead Full-Stack Developer, Software Developer, and Franchise Manager across multiple companies and freelance engagements."
-	on:search={onSearch}
+	{onSearch}
 >
 	<div class="col items-center relative mt-10 flex-1">
 		{#if result.length === 0}

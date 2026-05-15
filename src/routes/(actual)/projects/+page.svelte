@@ -1,11 +1,9 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import Chip from '$lib/components/Chip/Chip.svelte';
 	import ProjectCard from '$lib/components/ProjectCard/ProjectCard.svelte';
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import { PROJECTS } from '$lib/params';
-	import type { Project, Skill } from '$lib/types';
+	import type { Skill } from '$lib/types';
 	import { onMount } from 'svelte';
 	import MY_SKILLS from '$lib/skills.params';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
@@ -16,31 +14,28 @@
 
 	const { items, title } = PROJECTS;
 
-	let filters: Array<SkillFilter> = $state(
-		MY_SKILLS.filter((it) => {
-			return items.some((project) => project.skills.some((skill) => skill.slug === it.slug));
-		})
+	const description =
+		'Portfolio of Denver Duran — custom POS systems, multi-tenant platforms, e-commerce sites, and edge-native web apps built solo with SvelteKit and Cloudflare.';
+
+	let filters = $state<Array<SkillFilter>>(
+		MY_SKILLS.filter((it) =>
+			items.some((project) => project.skills.some((skill) => skill.slug === it.slug))
+		)
 	);
 
 	let search = $state('');
-	let displayed: Array<Project> = $state([]);
 
-	const isSelected = (slug: string): boolean => {
-		return filters.some((item) => item.slug === slug && item.isSelected);
-	};
+	const isSelected = (slug: string): boolean =>
+		filters.some((item) => item.slug === slug && item.isSelected);
 
 	const onSelected = (slug: string) => {
-		filters = filters.map((tech) => {
-			if (tech.slug === slug) {
-				tech.isSelected = !isSelected(slug);
-			}
-
-			return tech;
-		});
+		filters = filters.map((tech) =>
+			tech.slug === slug ? { ...tech, isSelected: !isSelected(slug) } : tech
+		);
 	};
 
-	run(() => {
-		displayed = items.filter((project) => {
+	let displayed = $derived(
+		items.filter((project) => {
 			const isFiltered =
 				filters.every((item) => !item.isSelected) ||
 				project.skills.some((tech) =>
@@ -52,36 +47,26 @@
 				project.name.trim().toLowerCase().includes(search.trim().toLowerCase());
 
 			return isFiltered && isSearched;
-		});
-	});
+		})
+	);
 
-	const onSearch = (e: CustomEvent<{ search: string }>) => {
-		search = e.detail.search;
+	const onSearch = (value: string) => {
+		search = value;
 	};
 
 	onMount(() => {
-		const query = location.search;
-
-		if (query) {
-			const queryParams = new URLSearchParams(location.search);
-
-			const item = queryParams.get('item');
-
-			if (item) {
-				search = item;
-			}
-		}
+		const queryParams = new URLSearchParams(location.search);
+		const item = queryParams.get('item');
+		if (item) search = item;
 	});
-	const description =
-		'Portfolio of Denver Duran — custom POS systems, multi-tenant platforms, e-commerce sites, and edge-native web apps built solo with SvelteKit and Cloudflare.';
 </script>
 
-<SearchPage {title} {description} on:search={onSearch}>
+<SearchPage {title} {description} {onSearch}>
 	<div class="projects-filters">
 		{#each filters as tech}
-			<Chip active={tech.isSelected} classes={'text-0.8em'} onclick={() => onSelected(tech.slug)}
-				>{tech.name}</Chip
-			>
+			<Chip active={tech.isSelected} classes={'text-0.8em'} onclick={() => onSelected(tech.slug)}>
+				{tech.name}
+			</Chip>
 		{/each}
 	</div>
 	{#if displayed.length === 0}

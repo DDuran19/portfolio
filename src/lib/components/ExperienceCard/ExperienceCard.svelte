@@ -6,7 +6,7 @@
 	import CardTitle from '../Card/CardTitle.svelte';
 	import ChipIcon from '../Chip/ChipIcon.svelte';
 	import { getAssetURL } from '$lib/data/assets';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import UIcon from '../Icon/UIcon.svelte';
 
 	interface Props {
@@ -15,11 +15,14 @@
 
 	let { experience }: Props = $props();
 
+	// svelte-ignore state_referenced_locally
 	const months = getTimeDiffMonths(experience.period.from, experience.period.to);
 
+	// svelte-ignore state_referenced_locally
 	const from = `${getMonthName(
 		experience.period.from.getMonth()
 	)} ${experience.period.from.getFullYear()}`;
+	// svelte-ignore state_referenced_locally
 	const to = experience.period.to
 		? `${getMonthName(experience.period.to.getMonth())} ${experience.period.to.getFullYear()}`
 		: 'Present';
@@ -27,7 +30,7 @@
 	const period = `${from} - ${to} · ${months}`;
 </script>
 
-<Card margin="0px 0px 20px 0px" tiltDegree={2} href={`${base}/experience/${experience.slug}`}>
+<Card margin="0px 0px 20px 0px" tiltDegree={2} href={resolve(`/experience/${experience.slug}`)}>
 	<div class="col md:flex-row items-start gap-5 md:gap-1">
 		<CardLogo src={getAssetURL(experience.logo)} alt={experience.company} size={75} />
 		<div class="col ml-0 md:ml-[20px] gap-3 w-full">
@@ -54,7 +57,7 @@
 					<ChipIcon
 						logo={getAssetURL(skill.logo)}
 						name={skill.name}
-						href={`${base}/skills/${skill.slug}`}
+						href={resolve(`/skills/${skill.slug}`)}
 					/>
 				{/each}
 			</div>

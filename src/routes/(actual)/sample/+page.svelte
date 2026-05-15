@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { sampleComponents } from '$lib/md/sample/index';
 
 	const title = 'Samples';
@@ -10,17 +10,23 @@
 
 	let search = $state('');
 
-	let displayed = $derived(sampleComponents.filter((s) => {
-		const q = search.trim().toLowerCase();
-		return q.length === 0 || s.name.toLowerCase().includes(q) || s.description.toLowerCase().includes(q);
-	}));
+	let displayed = $derived(
+		sampleComponents.filter((s) => {
+			const q = search.trim().toLowerCase();
+			return (
+				q.length === 0 ||
+				s.name.toLowerCase().includes(q) ||
+				s.description.toLowerCase().includes(q)
+			);
+		})
+	);
 
-	const onSearch = (e: CustomEvent<{ search: string }>) => {
-		search = e.detail.search;
+	const onSearch = (value: string) => {
+		search = value;
 	};
 </script>
 
-<SearchPage {title} {description} on:search={onSearch}>
+<SearchPage {title} {description} {onSearch}>
 	{#if displayed.length === 0}
 		<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)] flex-1">
 			<UIcon icon="i-carbon-cube" classes="text-3.5em" />
@@ -29,7 +35,7 @@
 	{:else}
 		<div class="samples-list mt-5">
 			{#each displayed as sample (sample.slug)}
-				<a href="{base}/sample/{sample.slug}" class="sample-card decoration-none">
+				<a href={resolve('/sample/{sample.slug}')} class="sample-card decoration-none">
 					<div class="sample-card-icon">
 						<UIcon icon="i-carbon-application" classes="text-1.5em" />
 					</div>
