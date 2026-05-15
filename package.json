@@ -48,5 +48,334 @@
 		"dayjs": "^1.11.20",
 		"html2canvas": "^1.4.1",
 		"jspdf": "^4.2.1"
+	},
+	"exports": {
+		"./package.json": "./package.json",
+		"./components/Banner/Banner.svelte": {
+			"types": "./package/components/Banner/Banner.svelte.d.ts",
+			"svelte": "./package/components/Banner/Banner.svelte",
+			"default": "./package/components/Banner/Banner.svelte"
+		},
+		"./components/Card/Card.svelte": {
+			"types": "./package/components/Card/Card.svelte.d.ts",
+			"svelte": "./package/components/Card/Card.svelte",
+			"default": "./package/components/Card/Card.svelte"
+		},
+		"./components/Card/CardDivider.svelte": {
+			"types": "./package/components/Card/CardDivider.svelte.d.ts",
+			"svelte": "./package/components/Card/CardDivider.svelte",
+			"default": "./package/components/Card/CardDivider.svelte"
+		},
+		"./components/Card/CardLink.svelte": {
+			"types": "./package/components/Card/CardLink.svelte.d.ts",
+			"svelte": "./package/components/Card/CardLink.svelte",
+			"default": "./package/components/Card/CardLink.svelte"
+		},
+		"./components/Card/CardLogo.svelte": {
+			"types": "./package/components/Card/CardLogo.svelte.d.ts",
+			"svelte": "./package/components/Card/CardLogo.svelte",
+			"default": "./package/components/Card/CardLogo.svelte"
+		},
+		"./components/Card/CardTitle.svelte": {
+			"types": "./package/components/Card/CardTitle.svelte.d.ts",
+			"svelte": "./package/components/Card/CardTitle.svelte",
+			"default": "./package/components/Card/CardTitle.svelte"
+		},
+		"./components/Carrousel/Carrousel.svelte": {
+			"types": "./package/components/Carrousel/Carrousel.svelte.d.ts",
+			"svelte": "./package/components/Carrousel/Carrousel.svelte",
+			"default": "./package/components/Carrousel/Carrousel.svelte"
+		},
+		"./components/Chip/Chip.svelte": {
+			"types": "./package/components/Chip/Chip.svelte.d.ts",
+			"svelte": "./package/components/Chip/Chip.svelte",
+			"default": "./package/components/Chip/Chip.svelte"
+		},
+		"./components/Chip/ChipIcon.svelte": {
+			"types": "./package/components/Chip/ChipIcon.svelte.d.ts",
+			"svelte": "./package/components/Chip/ChipIcon.svelte",
+			"default": "./package/components/Chip/ChipIcon.svelte"
+		},
+		"./components/CommonPage.svelte": {
+			"types": "./package/components/CommonPage.svelte.d.ts",
+			"svelte": "./package/components/CommonPage.svelte",
+			"default": "./package/components/CommonPage.svelte"
+		},
+		"./components/ExperienceCard/ExperienceCard.svelte": {
+			"types": "./package/components/ExperienceCard/ExperienceCard.svelte.d.ts",
+			"svelte": "./package/components/ExperienceCard/ExperienceCard.svelte",
+			"default": "./package/components/ExperienceCard/ExperienceCard.svelte"
+		},
+		"./components/Floaters/ScrollToTop.svelte": {
+			"types": "./package/components/Floaters/ScrollToTop.svelte.d.ts",
+			"svelte": "./package/components/Floaters/ScrollToTop.svelte",
+			"default": "./package/components/Floaters/ScrollToTop.svelte"
+		},
+		"./components/Icon/Icon.svelte": {
+			"types": "./package/components/Icon/Icon.svelte.d.ts",
+			"svelte": "./package/components/Icon/Icon.svelte",
+			"default": "./package/components/Icon/Icon.svelte"
+		},
+		"./components/Icon/Icons": {
+			"types": "./package/components/Icon/Icons.d.ts",
+			"default": "./package/components/Icon/Icons.js"
+		},
+		"./components/Icon/UIcon.svelte": {
+			"types": "./package/components/Icon/UIcon.svelte.d.ts",
+			"svelte": "./package/components/Icon/UIcon.svelte",
+			"default": "./package/components/Icon/UIcon.svelte"
+		},
+		"./components/Image/ImagePreview.svelte": {
+			"types": "./package/components/Image/ImagePreview.svelte.d.ts",
+			"svelte": "./package/components/Image/ImagePreview.svelte",
+			"default": "./package/components/Image/ImagePreview.svelte"
+		},
+		"./components/Input/Input.svelte": {
+			"types": "./package/components/Input/Input.svelte.d.ts",
+			"svelte": "./package/components/Input/Input.svelte",
+			"default": "./package/components/Input/Input.svelte"
+		},
+		"./components/MainTitle/MainTitle.svelte": {
+			"types": "./package/components/MainTitle/MainTitle.svelte.d.ts",
+			"svelte": "./package/components/MainTitle/MainTitle.svelte",
+			"default": "./package/components/MainTitle/MainTitle.svelte"
+		},
+		"./components/Markdown.svelte": {
+			"types": "./package/components/Markdown.svelte.d.ts",
+			"svelte": "./package/components/Markdown.svelte",
+			"default": "./package/components/Markdown.svelte"
+		},
+		"./components/NavMenu/NavMenu.svelte": {
+			"types": "./package/components/NavMenu/NavMenu.svelte.d.ts",
+			"svelte": "./package/components/NavMenu/NavMenu.svelte",
+			"default": "./package/components/NavMenu/NavMenu.svelte"
+		},
+		"./components/ProjectCard/ProjectCard.svelte": {
+			"types": "./package/components/ProjectCard/ProjectCard.svelte.d.ts",
+			"svelte": "./package/components/ProjectCard/ProjectCard.svelte",
+			"default": "./package/components/ProjectCard/ProjectCard.svelte"
+		},
+		"./components/SearchPage.svelte": {
+			"types": "./package/components/SearchPage.svelte.d.ts",
+			"svelte": "./package/components/SearchPage.svelte",
+			"default": "./package/components/SearchPage.svelte"
+		},
+		"./components/TabTitle.svelte": {
+			"types": "./package/components/TabTitle.svelte.d.ts",
+			"svelte": "./package/components/TabTitle.svelte",
+			"default": "./package/components/TabTitle.svelte"
+		},
+		"./data/assets": {
+			"types": "./package/data/assets.d.ts",
+			"default": "./package/data/assets.js"
+		},
+		"./experiences.params": {
+			"types": "./package/experiences.params.d.ts",
+			"default": "./package/experiences.params.js"
+		},
+		"./index.scss": "./package/index.scss",
+		".": {
+			"types": "./package/index.d.ts",
+			"svelte": "./package/index.js",
+			"default": "./package/index.js"
+		},
+		"./md/denver-james-duran-resume.pdf": "./package/md/denver-james-duran-resume.pdf",
+		"./md/experiences/413doubledenterprisesopc.md": "./package/md/experiences/413doubledenterprisesopc.md",
+		"./md/experiences/413doubledenterprisesopcsoftwaredev.md": "./package/md/experiences/413doubledenterprisesopcsoftwaredev.md",
+		"./md/experiences/kdci.md": "./package/md/experiences/kdci.md",
+		"./md/experiences/mmvmp.md": "./package/md/experiences/mmvmp.md",
+		"./md/projects/413CafezinhoPOS-image-descriptions.md": "./package/md/projects/413CafezinhoPOS-image-descriptions.md",
+		"./md/projects/413CafezinhoPOS.md": "./package/md/projects/413CafezinhoPOS.md",
+		"./md/projects/413SereneGlow.md": "./package/md/projects/413SereneGlow.md",
+		"./md/projects/grandmaPOS.md": "./package/md/projects/grandmaPOS.md",
+		"./md/projects/Instaprint.md": "./package/md/projects/Instaprint.md",
+		"./md/projects/MolleyBolley.md": "./package/md/projects/MolleyBolley.md",
+		"./md/projects/SimpleVanillaLogin.md": "./package/md/projects/SimpleVanillaLogin.md",
+		"./md/sample/CentralizedDashboard.svelte": {
+			"types": "./package/md/sample/CentralizedDashboard.svelte.d.ts",
+			"svelte": "./package/md/sample/CentralizedDashboard.svelte",
+			"default": "./package/md/sample/CentralizedDashboard.svelte"
+		},
+		"./md/sample": {
+			"types": "./package/md/sample/index.d.ts",
+			"svelte": "./package/md/sample/index.js",
+			"default": "./package/md/sample/index.js"
+		},
+		"./md/sample/MedicJi.svelte": {
+			"types": "./package/md/sample/MedicJi.svelte.d.ts",
+			"svelte": "./package/md/sample/MedicJi.svelte",
+			"default": "./package/md/sample/MedicJi.svelte"
+		},
+		"./md/sample/MonetasCalculator.svelte": {
+			"types": "./package/md/sample/MonetasCalculator.svelte.d.ts",
+			"svelte": "./package/md/sample/MonetasCalculator.svelte",
+			"default": "./package/md/sample/MonetasCalculator.svelte"
+		},
+		"./md/sample/ShippingPlatform.svelte": {
+			"types": "./package/md/sample/ShippingPlatform.svelte.d.ts",
+			"svelte": "./package/md/sample/ShippingPlatform.svelte",
+			"default": "./package/md/sample/ShippingPlatform.svelte"
+		},
+		"./md/sample/ZiteAndBrevoApi.svelte": {
+			"types": "./package/md/sample/ZiteAndBrevoApi.svelte.d.ts",
+			"svelte": "./package/md/sample/ZiteAndBrevoApi.svelte",
+			"default": "./package/md/sample/ZiteAndBrevoApi.svelte"
+		},
+		"./md/svelte.md": "./package/md/svelte.md",
+		"./md/test.html": "./package/md/test.html",
+		"./params": {
+			"types": "./package/params.d.ts",
+			"default": "./package/params.js"
+		},
+		"./projects.params": {
+			"types": "./package/projects.params.d.ts",
+			"default": "./package/projects.params.js"
+		},
+		"./skills.params": {
+			"types": "./package/skills.params.d.ts",
+			"default": "./package/skills.params.js"
+		},
+		"./stores/theme": {
+			"types": "./package/stores/theme.d.ts",
+			"default": "./package/stores/theme.js"
+		},
+		"./types": {
+			"types": "./package/types.d.ts",
+			"default": "./package/types.js"
+		},
+		"./utils/helpers": {
+			"types": "./package/utils/helpers.d.ts",
+			"default": "./package/utils/helpers.js"
+		},
+		"./utils": {
+			"types": "./package/utils/index.d.ts",
+			"svelte": "./package/utils/index.js",
+			"default": "./package/utils/index.js"
+		}
+	},
+	"files": [
+		"package"
+	],
+	"svelte": "./package/index.js",
+	"typesVersions": {
+		">4.0": {
+			"components/Banner/Banner.svelte": [
+				"./package/components/Banner/Banner.svelte.d.ts"
+			],
+			"components/Card/Card.svelte": [
+				"./package/components/Card/Card.svelte.d.ts"
+			],
+			"components/Card/CardDivider.svelte": [
+				"./package/components/Card/CardDivider.svelte.d.ts"
+			],
+			"components/Card/CardLink.svelte": [
+				"./package/components/Card/CardLink.svelte.d.ts"
+			],
+			"components/Card/CardLogo.svelte": [
+				"./package/components/Card/CardLogo.svelte.d.ts"
+			],
+			"components/Card/CardTitle.svelte": [
+				"./package/components/Card/CardTitle.svelte.d.ts"
+			],
+			"components/Carrousel/Carrousel.svelte": [
+				"./package/components/Carrousel/Carrousel.svelte.d.ts"
+			],
+			"components/Chip/Chip.svelte": [
+				"./package/components/Chip/Chip.svelte.d.ts"
+			],
+			"components/Chip/ChipIcon.svelte": [
+				"./package/components/Chip/ChipIcon.svelte.d.ts"
+			],
+			"components/CommonPage.svelte": [
+				"./package/components/CommonPage.svelte.d.ts"
+			],
+			"components/ExperienceCard/ExperienceCard.svelte": [
+				"./package/components/ExperienceCard/ExperienceCard.svelte.d.ts"
+			],
+			"components/Floaters/ScrollToTop.svelte": [
+				"./package/components/Floaters/ScrollToTop.svelte.d.ts"
+			],
+			"components/Icon/Icon.svelte": [
+				"./package/components/Icon/Icon.svelte.d.ts"
+			],
+			"components/Icon/Icons": [
+				"./package/components/Icon/Icons.d.ts"
+			],
+			"components/Icon/UIcon.svelte": [
+				"./package/components/Icon/UIcon.svelte.d.ts"
+			],
+			"components/Image/ImagePreview.svelte": [
+				"./package/components/Image/ImagePreview.svelte.d.ts"
+			],
+			"components/Input/Input.svelte": [
+				"./package/components/Input/Input.svelte.d.ts"
+			],
+			"components/MainTitle/MainTitle.svelte": [
+				"./package/components/MainTitle/MainTitle.svelte.d.ts"
+			],
+			"components/Markdown.svelte": [
+				"./package/components/Markdown.svelte.d.ts"
+			],
+			"components/NavMenu/NavMenu.svelte": [
+				"./package/components/NavMenu/NavMenu.svelte.d.ts"
+			],
+			"components/ProjectCard/ProjectCard.svelte": [
+				"./package/components/ProjectCard/ProjectCard.svelte.d.ts"
+			],
+			"components/SearchPage.svelte": [
+				"./package/components/SearchPage.svelte.d.ts"
+			],
+			"components/TabTitle.svelte": [
+				"./package/components/TabTitle.svelte.d.ts"
+			],
+			"data/assets": [
+				"./package/data/assets.d.ts"
+			],
+			"experiences.params": [
+				"./package/experiences.params.d.ts"
+			],
+			"index.d.ts": [
+				"./package/index.d.ts"
+			],
+			"md/sample/CentralizedDashboard.svelte": [
+				"./package/md/sample/CentralizedDashboard.svelte.d.ts"
+			],
+			"md/sample": [
+				"./package/md/sample/index.d.ts"
+			],
+			"md/sample/MedicJi.svelte": [
+				"./package/md/sample/MedicJi.svelte.d.ts"
+			],
+			"md/sample/MonetasCalculator.svelte": [
+				"./package/md/sample/MonetasCalculator.svelte.d.ts"
+			],
+			"md/sample/ShippingPlatform.svelte": [
+				"./package/md/sample/ShippingPlatform.svelte.d.ts"
+			],
+			"md/sample/ZiteAndBrevoApi.svelte": [
+				"./package/md/sample/ZiteAndBrevoApi.svelte.d.ts"
+			],
+			"params": [
+				"./package/params.d.ts"
+			],
+			"projects.params": [
+				"./package/projects.params.d.ts"
+			],
+			"skills.params": [
+				"./package/skills.params.d.ts"
+			],
+			"stores/theme": [
+				"./package/stores/theme.d.ts"
+			],
+			"types": [
+				"./package/types.d.ts"
+			],
+			"utils/helpers": [
+				"./package/utils/helpers.d.ts"
+			],
+			"utils": [
+				"./package/utils/index.d.ts"
+			]
+		}
 	}
 }
