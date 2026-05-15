@@ -1,7 +1,11 @@
 <script lang="ts">
-	import { writable, derived } from 'svelte/store';
+	import { theme, toggleTheme } from '$lib/stores/theme';
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
+	onMount(() => {
+		theme.set(false);
+	});
 	// ─── AUTH ────────────────────────────────────────────────────────────────────
 	let showApp = false;
 	let showLoginDialog = false;
@@ -531,7 +535,7 @@
 							bind:value={loginUsername}
 							type="text"
 							placeholder="admin"
-							class="px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+							class="text-black px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							on:keydown={(e) => e.key === 'Enter' && handleLogin()}
 						/>
 					</div>
@@ -543,7 +547,7 @@
 							bind:value={loginPassword}
 							type="password"
 							placeholder="••••••••"
-							class="px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+							class="text-black px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							on:keydown={(e) => e.key === 'Enter' && handleLogin()}
 						/>
 					</div>
@@ -737,20 +741,20 @@
 								<input
 									bind:value={contactSearch}
 									placeholder="Search name, source, email..."
-									class="pl-10 pr-4 py-2.5 border border-stone-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 w-full"
+									class="text-black pl-10 pr-4 py-2.5 border border-stone-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 w-full"
 								/>
 							</div>
 						</div>
 						<div class=" w-full justify-start">
 							<select
 								bind:value={contactStatusFilter}
-								class="border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
+								class="text-black border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
 							>
 								{#each STATUS_LIST as s}<option>{s}</option>{/each}
 							</select>
 							<select
 								bind:value={contactSort}
-								class="border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
+								class="text-black border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
 							>
 								{#each CONTACT_SORTS as s}<option value={s.value}>{s.label}</option>{/each}
 							</select>
@@ -863,20 +867,20 @@
 								<input
 									bind:value={mktSearch}
 									placeholder="Search name, source, email..."
-									class="pl-10 pr-4 py-2.5 border border-stone-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 w-full"
+									class="text-black pl-10 pr-4 py-2.5 border border-stone-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 w-full"
 								/>
 							</div>
 						</div>
 						<div class=" w-full justify-start">
 							<select
 								bind:value={mktTypeFilter}
-								class="border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
+								class="text-black border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
 							>
 								{#each TYPE_LIST as s}<option>{s}</option>{/each}
 							</select>
 							<select
 								bind:value={mktSort}
-								class="border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
+								class="text-black border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
 							>
 								{#each MKT_SORTS as s}<option value={s.value}>{s.label}</option>{/each}
 							</select>
@@ -985,20 +989,20 @@
 								<input
 									bind:value={calSearch}
 									placeholder="Search name, source, email..."
-									class="pl-10 pr-4 py-2.5 border border-stone-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 w-full"
+									class="text-black pl-10 pr-4 py-2.5 border border-stone-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 w-full"
 								/>
 							</div>
 						</div>
 						<div class=" w-full justify-start">
 							<select
 								bind:value={calTypeFilter}
-								class="border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
+								class="text-black border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
 							>
 								{#each EVENT_TYPES as s}<option>{s}</option>{/each}
 							</select>
 							<select
 								bind:value={calSort}
-								class="border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
+								class="text-black border border-stone-200 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 cursor-pointer"
 							>
 								{#each CAL_SORTS as s}<option value={s.value}>{s.label}</option>{/each}
 							</select>
@@ -1121,7 +1125,7 @@
 							<input
 								type="text"
 								bind:value={editingContact.name}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
@@ -1129,7 +1133,7 @@
 							<input
 								type="text"
 								bind:value={editingContact.phone}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
@@ -1137,7 +1141,7 @@
 							<input
 								type="email"
 								bind:value={editingContact.email}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
@@ -1146,7 +1150,7 @@
 							<input
 								type="text"
 								bind:value={editingContact.source}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
@@ -1154,7 +1158,7 @@
 							>
 							<select
 								bind:value={editingContact.status}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
 							>
 								{#each STATUS_LIST.filter((s) => s !== 'All') as status}
 									<option>{status}</option>
@@ -1168,7 +1172,7 @@
 							<input
 								type="date"
 								bind:value={editingContact.date}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
@@ -1176,7 +1180,7 @@
 							<textarea
 								bind:value={editingContact.notes}
 								rows="4"
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none text-sm"
 							></textarea>
 						</div>
 					</div>
@@ -1222,14 +1226,14 @@
 							<input
 								type="text"
 								bind:value={editingActivity.place}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
 							<label class="text-xs font-bold text-stone-500 uppercase tracking-wider">Type</label>
 							<select
 								bind:value={editingActivity.type}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
 							>
 								{#each TYPE_LIST.filter((t) => t !== 'All') as type}
 									<option>{type}</option>
@@ -1243,7 +1247,7 @@
 							<input
 								type="date"
 								bind:value={editingActivity.date}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
@@ -1253,7 +1257,7 @@
 							<input
 								type="text"
 								bind:value={editingActivity.contact}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
@@ -1262,7 +1266,7 @@
 							<textarea
 								bind:value={editingActivity.result}
 								rows="4"
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none text-sm"
 							></textarea>
 						</div>
 						<div class="flex flex-col gap-1.5">
@@ -1272,7 +1276,7 @@
 							<input
 								type="date"
 								bind:value={editingActivity.followUp}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 					</div>
@@ -1320,7 +1324,7 @@
 							<input
 								type="text"
 								bind:value={editingEvent.title}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
@@ -1328,7 +1332,7 @@
 							<input
 								type="date"
 								bind:value={editingEvent.date}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
@@ -1336,14 +1340,14 @@
 							<input
 								type="time"
 								bind:value={editingEvent.time}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 							/>
 						</div>
 						<div class="flex flex-col gap-1.5">
 							<label class="text-xs font-bold text-stone-500 uppercase tracking-wider">Type</label>
 							<select
 								bind:value={editingEvent.type}
-								class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
+								class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
 							>
 								{#each EVENT_TYPES.filter((t) => t !== 'All') as type}
 									<option>{type}</option>
@@ -1356,7 +1360,7 @@
 							<input
 								type="checkbox"
 								bind:checked={editingEvent.reminder}
-								class="rounded w-4 h-4 accent-teal-600"
+								class="text-black rounded w-4 h-4 accent-teal-600"
 							/>
 							Enable reminder
 							<span class="i-carbon-notification w-4 h-4 text-amber-400"></span>
@@ -1404,7 +1408,7 @@
 						type="text"
 						bind:value={contactForm.name}
 						placeholder="e.g. Maria Santos"
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
@@ -1413,7 +1417,7 @@
 						type="text"
 						bind:value={contactForm.phone}
 						placeholder="512-555-0000"
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
@@ -1422,7 +1426,7 @@
 						type="email"
 						bind:value={contactForm.email}
 						placeholder="email@example.com"
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
@@ -1433,14 +1437,14 @@
 						type="text"
 						bind:value={contactForm.source}
 						placeholder="e.g. St. David's Hospital"
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
 					<label class="text-xs font-bold text-stone-500 uppercase tracking-wider">Status</label>
 					<select
 						bind:value={contactForm.status}
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
 					>
 						{#each STATUS_LIST.filter((s) => s !== 'All') as s}<option>{s}</option>{/each}
 					</select>
@@ -1450,7 +1454,7 @@
 					<input
 						type="date"
 						bind:value={contactForm.date}
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
@@ -1459,7 +1463,7 @@
 						bind:value={contactForm.notes}
 						rows="3"
 						placeholder="Any additional notes..."
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none text-sm"
 					></textarea>
 				</div>
 			</div>
@@ -1500,14 +1504,14 @@
 						type="text"
 						bind:value={mktForm.place}
 						placeholder="e.g. Baylor Scott & White"
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
 					<label class="text-xs font-bold text-stone-500 uppercase tracking-wider">Type</label>
 					<select
 						bind:value={mktForm.type}
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
 					>
 						{#each TYPE_LIST.filter((t) => t !== 'All') as t}<option>{t}</option>{/each}
 					</select>
@@ -1519,7 +1523,7 @@
 					<input
 						type="date"
 						bind:value={mktForm.date}
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
@@ -1530,7 +1534,7 @@
 						type="text"
 						bind:value={mktForm.contact}
 						placeholder="e.g. Nurse Manager - Joyce"
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
@@ -1541,7 +1545,7 @@
 						bind:value={mktForm.result}
 						rows="3"
 						placeholder="What happened? How many interested?"
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none text-sm"
 					></textarea>
 				</div>
 				<div class="flex flex-col gap-1.5">
@@ -1551,7 +1555,7 @@
 					<input
 						type="date"
 						bind:value={mktForm.followUp}
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 			</div>
@@ -1592,7 +1596,7 @@
 						type="text"
 						bind:value={calForm.title}
 						placeholder="e.g. Visit Memorial Hermann"
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
@@ -1600,7 +1604,7 @@
 					<input
 						type="date"
 						bind:value={calForm.date}
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
@@ -1608,14 +1612,14 @@
 					<input
 						type="time"
 						bind:value={calForm.time}
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all text-sm"
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
 					<label class="text-xs font-bold text-stone-500 uppercase tracking-wider">Type</label>
 					<select
 						bind:value={calForm.type}
-						class="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
+						class="text-black w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all cursor-pointer text-sm"
 					>
 						{#each EVENT_TYPES.filter((t) => t !== 'All') as t}<option>{t}</option>{/each}
 					</select>
@@ -1624,7 +1628,7 @@
 					<input
 						type="checkbox"
 						bind:checked={calForm.reminder}
-						class="rounded w-4 h-4 accent-teal-600"
+						class="text-black rounded w-4 h-4 accent-teal-600"
 					/>
 					Enable reminder
 					<span class="i-carbon-notification w-4 h-4 text-amber-400"></span>
