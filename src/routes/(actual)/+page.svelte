@@ -90,10 +90,10 @@
 			badge.addEventListener('click', handleClick);
 		});
 	});
-	$: origin = $page.url.origin;
-	$: currentUrl = $page.url.href;
-	$: ogImage = `${origin}/og-image.png`;
-	$: fullTitle = useTitle(title, TITLE_SUFFIX);
+	let origin = $derived($page.url.origin);
+	let currentUrl = $derived($page.url.href);
+	let ogImage = $derived(`${origin}/og-image.png`);
+	let fullTitle = $derived(useTitle(title, TITLE_SUFFIX));
 </script>
 
 <svelte:head>

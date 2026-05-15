@@ -14,17 +14,21 @@
 	import CardDivider from '$lib/components/Card/CardDivider.svelte';
 	import ImagePreview from '$lib/components/Image/ImagePreview.svelte';
 
-	export let data: { project?: Project };
+	interface Props {
+		data: { project?: Project };
+	}
+
+	let { data }: Props = $props();
 
 	const { title } = PROJECTS;
 
 	const screenshots = data.project?.screenshots ?? [];
-	let onGridView: boolean;
-	$: onGridView = true;
+	let onGridView: boolean = $state(true);
+	
 	function toggleGridView() {
 		onGridView = !onGridView;
 	}
-	$: computedTitle = data.project ? `${data.project.name} - ${title}` : title;
+	let computedTitle = $derived(data.project ? `${data.project.name} - ${title}` : title);
 </script>
 
 <TabTitle
@@ -99,7 +103,7 @@
 						<div>
 							<button
 								class="bg-transparent border-none p-0 m-0 cursor-pointer"
-								on:click={toggleGridView}
+								onclick={toggleGridView}
 							>
 								<UIcon
 									icon="i-carbon-grid"
@@ -108,7 +112,7 @@
 							</button>
 							<button
 								class="bg-transparent border-none p-0 m-0 cursor-pointer"
-								on:click={toggleGridView}
+								onclick={toggleGridView}
 							>
 								<UIcon
 									icon="i-carbon-center-square"

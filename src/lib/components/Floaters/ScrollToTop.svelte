@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { preventDefault, stopPropagation } from 'svelte/legacy';
+
 	import { goto } from '$app/navigation';
 	import UIcon from '../Icon/UIcon.svelte';
 </script>
@@ -11,7 +13,7 @@
      "
 	aria-label="Scroll to top"
 	role="button"
-	on:click|preventDefault|stopPropagation={() => goto('#nav-menu')}
+	onclick={stopPropagation(preventDefault(() => goto('#nav-menu')))}
 	><UIcon icon="i-carbon-chevron-up text-1.5em" />
 </a>
 

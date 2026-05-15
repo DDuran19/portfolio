@@ -1,23 +1,36 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { createEventDispatcher, onMount } from 'svelte';
 	import CommonPage from './CommonPage.svelte';
 	import Input from './Input/Input.svelte';
 	import { browser } from '$app/environment';
 
-	export let title = 'Title';
-	export let search = '';
-	export let description = '';
-	export let image = '';
+	interface Props {
+		title?: string;
+		search?: string;
+		description?: string;
+		image?: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		title = $bindable('Title'),
+		search = $bindable(''),
+		description = $bindable(''),
+		image = $bindable(''),
+		children
+	}: Props = $props();
 
 	const dispatch = createEventDispatcher();
 
-	let mounted = false;
+	let mounted = $state(false);
 
-	$: {
+	run(() => {
 		dispatch('search', { search: search.trim().toLowerCase() });
-	}
+	});
 
-	$: {
+	run(() => {
 		if (browser && mounted) {
 			let searchParams = new URLSearchParams(window.location.search);
 
@@ -31,7 +44,7 @@
 
 			window.history.replaceState(state, '', url);
 		}
-	}
+	});
 
 	onMount(() => {
 		let searchParams = new URLSearchParams(window.location.search);
@@ -46,6 +59,6 @@
 		<Input bind:value={search} placeholder={'Search...'} />
 	</div>
 	<div class="w-100% col flex-1">
-		<slot />
+		{@render children?.()}
 	</div>
 </CommonPage>

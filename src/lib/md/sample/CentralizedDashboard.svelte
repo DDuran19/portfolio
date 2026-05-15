@@ -1,4 +1,6 @@
 <script>
+	import { preventDefault } from 'svelte/legacy';
+
 	/**
 	 * Svelte 4 Prototype: Central Dashboard vs Mock Browser
 	 * Updated: Strict Login Validation + Error States
@@ -52,16 +54,16 @@
 
 	// --- 2. STATE ---
 
-	let browserTabs = businesses.map((b) => ({
+	let browserTabs = $state(businesses.map((b) => ({
 		...b,
 		isLoggedIn: false,
 		currentUser: null,
 		currentRole: null,
 		loginError: null // Tracks error message for this specific tab
-	}));
+	})));
 
-	let activeTabIndex = 0;
-	let notification = null;
+	let activeTabIndex = $state(0);
+	let notification = $state(null);
 
 	// --- 3. LOGIC ---
 
@@ -188,7 +190,7 @@
 						</div>
 
 						<button
-							on:click={() => dashboardAutoLogin(i)}
+							onclick={() => dashboardAutoLogin(i)}
 							class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded shadow-lg shadow-indigo-900/20 active:scale-95 transition-all flex items-center gap-2"
 						>
 							Login & Open
@@ -218,7 +220,7 @@
 			<div class="flex gap-1 overflow-x-auto no-scrollbar">
 				{#each browserTabs as tab, i}
 					<button
-						on:click={() => (activeTabIndex = i)}
+						onclick={() => (activeTabIndex = i)}
 						class={`
 							px-4 py-2 rounded-t-lg text-xs font-medium flex items-center gap-2 min-w-[140px] transition-colors relative
 							${
@@ -289,7 +291,7 @@
 										</div>
 									</div>
 									<button
-										on:click={() => logout(activeTabIndex)}
+										onclick={() => logout(activeTabIndex)}
 										class="bg-black/20 hover:bg-black/40 px-3 py-1.5 rounded text-xs transition"
 										>Sign Out</button
 									>
@@ -339,12 +341,12 @@
 								<p class="text-slate-400 text-sm mb-8 mt-2">Secure Employee Access</p>
 
 								<form
-									on:submit|preventDefault={(e) =>
+									onsubmit={preventDefault((e) =>
 										manualBrowserLogin(
 											activeTabIndex,
 											e.target.username.value,
 											e.target.password.value
-										)}
+										))}
 									class="space-y-4 text-left"
 								>
 									<div>

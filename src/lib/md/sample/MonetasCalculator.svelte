@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { page } from '$app/stores';
 	import { onMount, onDestroy } from 'svelte';
 
@@ -72,7 +74,7 @@
 		[key: string]: unknown;
 	}
 
-	let analyticsLog: AnalyticsEvent[] = [];
+	let analyticsLog: AnalyticsEvent[] = $state([]);
 
 	function fireEvent(eventName: string, payload: Record<string, unknown> = {}) {
 		if (typeof window !== 'undefined') {
@@ -112,26 +114,26 @@
 	// ─────────────────────────────────────────────
 	// STATE
 	// ─────────────────────────────────────────────
-	let loanRaw = '500,000';
-	let termValue = 25;
-	let result: CalcResult | null = calculate(500000, 25);
+	let loanRaw = $state('500,000');
+	let termValue = $state(25);
+	let result: CalcResult | null = $state(calculate(500000, 25));
 
-	let loanError = '';
-	let termError = '';
-	let showBreakdown = false;
+	let loanError = $state('');
+	let termError = $state('');
+	let showBreakdown = $state(false);
 	let hasInteracted = false;
 	let ctaClicked = false;
 	let visibilityFired = false;
-	let showLog = false;
-	let showEmbedSection = false;
-	let copied = false;
+	let showLog = $state(false);
+	let showEmbedSection = $state(false);
+	let copied = $state(false);
 
 	let calcDebounce: ReturnType<typeof setTimeout> | null = null;
 	let abandonTimer: ReturnType<typeof setTimeout> | null = null;
 	let observer: IntersectionObserver | null = null;
-	let cardEl: HTMLElement;
-	let logEl: HTMLElement;
-	let dialogEl: HTMLDialogElement;
+	let cardEl: HTMLElement = $state();
+	let logEl: HTMLElement = $state();
+	let dialogEl: HTMLDialogElement = $state();
 
 	// ─────────────────────────────────────────────
 	// EMBED SNIPPET
@@ -300,11 +302,13 @@
 		if (typeof window !== 'undefined') window.removeEventListener('beforeunload', onBeforeUnload);
 	});
 
-	$: if (analyticsLog.length && logEl) {
-		setTimeout(() => {
-			logEl.scrollTop = logEl.scrollHeight;
-		}, 10);
-	}
+	run(() => {
+		if (analyticsLog.length && logEl) {
+			setTimeout(() => {
+				logEl.scrollTop = logEl.scrollHeight;
+			}, 10);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -320,9 +324,9 @@
 	/>
 </svelte:head>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<dialog bind:this={dialogEl} class="tc-dialog" on:click={onDialogClick}>
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+<dialog bind:this={dialogEl} class="tc-dialog" onclick={onDialogClick}>
 	<div class="tc-inner">
 		<div class="tc-icon">🧪</div>
 		<h2>This is a sample demo</h2>
@@ -340,7 +344,7 @@
 			<a href={PORTFOLIO_URL} target="_blank" rel="noopener" class="tc-btn-primary">
 				View full portfolio →
 			</a>
-			<button class="tc-btn-ghost" on:click={closeTcDialog}>Got it, close</button>
+			<button class="tc-btn-ghost" onclick={closeTcDialog}>Got it, close</button>
 		</div>
 	</div>
 </dialog>
@@ -368,7 +372,7 @@
 					aria-describedby="loan-hint loan-err"
 					class:error={loanError}
 					value={loanRaw}
-					on:input={onLoanInput}
+					oninput={onLoanInput}
 				/>
 			</div>
 			<p class="hint" id="loan-hint">Min $100,000 · Max $5,000,000</p>
@@ -390,7 +394,7 @@
 					aria-describedby="term-err"
 					class:error={termError}
 					bind:value={termValue}
-					on:input={onTermInput}
+					oninput={onTermInput}
 				/>
 				<span class="suffix">yrs</span>
 			</div>
@@ -400,7 +404,7 @@
 				max="30"
 				aria-label="Loan term slider"
 				bind:value={termValue}
-				on:input={onTermInput}
+				oninput={onTermInput}
 				class="slider"
 			/>
 			<div class="slider-labels"><span>1 yr</span><span>30 yrs</span></div>
@@ -433,7 +437,7 @@
 					class="breakdown-btn"
 					aria-expanded={showBreakdown}
 					aria-controls="breakdown"
-					on:click={onBreakdownToggle}
+					onclick={onBreakdownToggle}
 				>
 					View breakdown
 					<svg
@@ -476,13 +480,13 @@
 			</div>
 		{/if}
 
-		<button class="cta" aria-label="Find my exact savings" on:click={onCta}>
+		<button class="cta" aria-label="Find my exact savings" onclick={onCta}>
 			Find my exact savings →
 		</button>
 
 		<p class="footnote">
 			*Estimates are illustrative only. &nbsp;
-			<button class="tc-link" on:click={() => dialogEl.showModal()}>
+			<button class="tc-link" onclick={() => dialogEl.showModal()}>
 				Sample demo — see disclaimer
 			</button>
 		</p>
@@ -491,7 +495,7 @@
 	<div class="section-card">
 		<button
 			class="section-toggle"
-			on:click={() => (showEmbedSection = !showEmbedSection)}
+			onclick={() => (showEmbedSection = !showEmbedSection)}
 			aria-expanded={showEmbedSection}
 		>
 			<span class="arrow" class:open={showEmbedSection}>▶</span>
@@ -507,7 +511,7 @@
 
 				<div class="snippet-wrap">
 					<pre class="snippet">{embedSnippet}</pre>
-					<button class="copy-btn" on:click={copyEmbed} aria-label="Copy embed code">
+					<button class="copy-btn" onclick={copyEmbed} aria-label="Copy embed code">
 						{copied ? '✅ Copied!' : '📋 Copy'}
 					</button>
 				</div>
@@ -521,7 +525,7 @@
 	</div>
 
 	<div class="section-card">
-		<button class="section-toggle" on:click={() => (showLog = !showLog)}>
+		<button class="section-toggle" onclick={() => (showLog = !showLog)}>
 			<span class="arrow" class:open={showLog}>▶</span>
 			🔍 &nbsp;GTM / GA4 Analytics Events (demo transparency)
 		</button>

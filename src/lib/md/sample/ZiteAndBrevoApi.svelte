@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { theme } from '$lib/stores/theme';
 	import { tick } from 'svelte';
 
@@ -50,43 +52,34 @@
 	] as const;
 
 	// ─── State ───────────────────────────────────────────────────────────────────
-	let name = 'Ana Reyes';
-	let email = 'ana@example.com';
-	let phone = '+63 917 123 4567';
-	let address = '42 Katipunan Ave, QC';
-	let deliveryType: 'standard' | 'express' | 'pickup' = 'standard';
-	let paymentMethod: PaymentMethod = 'gcash';
-	let freePack = false;
-	let isGift = false; // Add this
-	let recipientName = 'John Doe'; // Add this
-	let recipientPhone = '+63 917 999 0000'; // Add this
+	let name = $state('Ana Reyes');
+	let email = $state('ana@example.com');
+	let phone = $state('+63 917 123 4567');
+	let address = $state('42 Katipunan Ave, QC');
+	let deliveryType: 'standard' | 'express' | 'pickup' = $state('standard');
+	let paymentMethod: PaymentMethod = $state('gcash');
+	let freePack = $state(false);
+	let isGift = $state(false); // Add this
+	let recipientName = $state('John Doe'); // Add this
+	let recipientPhone = $state('+63 917 999 0000'); // Add this
 
-	let flowStep = 0;
-	let running = false;
-	let phase: 'idle' | 'submitted' | 'paid' = 'idle';
+	let flowStep = $state(0);
+	let running = $state(false);
+	let phase: 'idle' | 'submitted' | 'paid' = $state('idle');
 
-	let serverLogs: LogEntry[] = [];
-	let brevoApiLogs: LogEntry[] = [];
-	let ziteApiLogs: LogEntry[] = [];
-	let activePayload: object | null = null;
-	let activePanel: 'server' | 'brevo' | 'zite' | null = null;
+	let serverLogs: LogEntry[] = $state([]);
+	let brevoApiLogs: LogEntry[] = $state([]);
+	let ziteApiLogs: LogEntry[] = $state([]);
+	let activePayload: object | null = $state(null);
+	let activePanel: 'server' | 'brevo' | 'zite' | null = $state(null);
 
-	let brevoContacts: BrevoContact[] = [];
-	let brevoEmails: BrevoEmail[] = [];
-	let ziteRecords: ZiteRecord[] = [];
+	let brevoContacts: BrevoContact[] = $state([]);
+	let brevoEmails: BrevoEmail[] = $state([]);
+	let ziteRecords: ZiteRecord[] = $state([]);
 
 	let recordId = '';
 	let paymentId = '';
 
-	// ─── Derived ─────────────────────────────────────────────────────────────────
-	$: deliveryFee = deliveryType === 'express' ? 120 : deliveryType === 'pickup' ? 0 : 80;
-	$: subtotal = 470;
-	$: total = subtotal + deliveryFee;
-	$: orderItems = [
-		{ name: 'Green Tea Matcha', qty: 2, price: 140 },
-		{ name: 'Jasmine Mist', qty: 1, price: 190 },
-		...(freePack ? [{ name: 'Free sample pack', qty: 1, price: 0 }] : [])
-	];
 
 	// ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -320,11 +313,6 @@
 		paymentId = '';
 	}
 
-	// ─── Auto-Scroll Logic ───────────────────────────────────────────────────────
-	// 1. Svelte tracks the variables here inside the reactive block
-	$: if (activePanel !== undefined || phase !== undefined) {
-		doScroll();
-	}
 
 	// 2. The function no longer requires arguments
 	async function doScroll() {
@@ -338,6 +326,22 @@
 			});
 		}
 	}
+	// ─── Derived ─────────────────────────────────────────────────────────────────
+	let deliveryFee = $derived(deliveryType === 'express' ? 120 : deliveryType === 'pickup' ? 0 : 80);
+	
+	let total = $derived(subtotal + deliveryFee);
+	let orderItems = $derived([
+		{ name: 'Green Tea Matcha', qty: 2, price: 140 },
+		{ name: 'Jasmine Mist', qty: 1, price: 190 },
+		...(freePack ? [{ name: 'Free sample pack', qty: 1, price: 0 }] : [])
+	]);
+	// ─── Auto-Scroll Logic ───────────────────────────────────────────────────────
+	// 1. Svelte tracks the variables here inside the reactive block
+	run(() => {
+		if (activePanel !== undefined || phase !== undefined) {
+			doScroll();
+		}
+	});
 </script>
 
 <div class="zb-preface">
@@ -356,7 +360,7 @@
 	<!-- Header -->
 	<div class="zb-header">
 		<span class="zb-title">Brevo + Zite DB — integration flow</span>
-		<button class="zb-reset" on:click={reset}>↺ Reset</button>
+		<button class="zb-reset" onclick={reset}>↺ Reset</button>
 	</div>
 
 	<!-- Flow steps -->
@@ -458,7 +462,7 @@
 						class="zb-pm"
 						class:zb-pm-active={paymentMethod === value}
 						disabled={phase !== 'idle'}
-						on:click={() => (paymentMethod = value)}
+						onclick={() => (paymentMethod = value)}
 					>
 						{label}
 					</button>
@@ -466,11 +470,11 @@
 			</div>
 
 			{#if phase === 'idle'}
-				<button class="zb-action" disabled={running} on:click={startFlow}>
+				<button class="zb-action" disabled={running} onclick={startFlow}>
 					{running ? 'Processing…' : 'Place order →'}
 				</button>
 			{:else if phase === 'submitted'}
-				<button class="zb-action zb-action-pay" disabled={running} on:click={simulatePayment}>
+				<button class="zb-action zb-action-pay" disabled={running} onclick={simulatePayment}>
 					{running
 						? 'Processing...'
 						: paymentMethod === 'cod'

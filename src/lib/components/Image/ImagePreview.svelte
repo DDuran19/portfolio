@@ -1,22 +1,20 @@
 <script lang="ts">
+	import { createBubbler, stopPropagation } from 'svelte/legacy';
+
+	const bubble = createBubbler();
 	import { browser } from '$app/environment';
 
-	export let item: {
-		label: string;
-		src: string;
-		static?: string;
-	};
 
 	// Modal state
-	let showModal = false;
-	let scale = 1;
-	let position = { x: 0, y: 0 };
-	let isDragging = false;
+	let showModal = $state(false);
+	let scale = $state(1);
+	let position = $state({ x: 0, y: 0 });
+	let isDragging = $state(false);
 	let startX = 0;
 	let startY = 0;
 	let startOffsetX = 0;
 	let startOffsetY = 0;
-	let modalImg: HTMLImageElement;
+	let modalImg: HTMLImageElement = $state();
 
 	// Function to open the modal
 	function openModal() {
@@ -90,6 +88,15 @@
 
 	// Add event listeners when component mounts
 	import { onMount, onDestroy } from 'svelte';
+	interface Props {
+		item: {
+		label: string;
+		src: string;
+		static?: string;
+	};
+	}
+
+	let { item }: Props = $props();
 	onMount(() => {
 		if (!browser) return;
 		window.addEventListener('keydown', handleKey);
@@ -116,8 +123,8 @@
 	data-image-preview-container
 >
 	{#if item.static}
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<img
 			alt={item.label}
 			class="w-100% max-h-300px object-contain cursor-pointer"
@@ -125,10 +132,10 @@
 			title={item.label}
 			loading="lazy"
 			data-image-src
-			on:click={openModal}
+			onclick={openModal}
 		/>
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<img
 			alt={item.label}
 			class="w-100% max-h-300px object-contain cursor-pointer"
@@ -136,18 +143,18 @@
 			title={item.label}
 			loading="lazy"
 			data-image-static
-			on:click={openModal}
+			onclick={openModal}
 		/>
 	{:else}
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<img
 			alt={item.label}
 			class="w-100% max-h-300px object-contain cursor-pointer"
 			src={item.src}
 			title={item.label}
 			loading="lazy"
-			on:click={openModal}
+			onclick={openModal}
 		/>
 	{/if}
 
@@ -155,21 +162,21 @@
 </div>
 
 {#if showModal}
-	<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<div
 		role="dialog"
 		tabindex="0"
 		class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4 cursor-grab"
-		on:click={close}
-		on:wheel={handleWheel}
+		onclick={close}
+		onwheel={handleWheel}
 	>
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="relative w-full h-full flex items-center justify-center" on:click|stopPropagation>
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div class="relative w-full h-full flex items-center justify-center" onclick={stopPropagation(bubble('click'))}>
 			<button
 				class="absolute top-4 right-4 bg-black bg-opacity-50 text-white rounded-full p-2 cursor-pointer z-10"
-				on:click={close}
+				onclick={close}
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -189,7 +196,7 @@
 
 			<button
 				class="absolute top-4 left-4 bg-black bg-opacity-50 text-white rounded-full p-2 cursor-pointer z-10"
-				on:click={resetModal}
+				onclick={resetModal}
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -212,7 +219,7 @@
 				style="transform: translate({position.x}px, {position.y}px) scale({scale}); transform-origin: center; transition: {isDragging
 					? 'none'
 					: 'transform 0.1s ease'};"
-				on:mousedown={handleStart}
+				onmousedown={handleStart}
 			>
 				<img
 					bind:this={modalImg}

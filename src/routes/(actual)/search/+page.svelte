@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import { SEARCH } from '$lib/params';
@@ -18,9 +20,9 @@
 		to: string;
 	};
 
-	let query = '';
+	let query = $state('');
 	// let mounted = false;
-	let result: Array<Item> = [];
+	let result: Array<Item> = $state([]);
 
 	onMount(() => {
 		let searchParams = new URLSearchParams(window.location.search);
@@ -29,7 +31,7 @@
 		// mounted = true;
 	});
 
-	$: {
+	run(() => {
 		result = [];
 
 		// filter
@@ -67,11 +69,11 @@
 				to: `experience/${data.slug}`
 			}))
 		);
-	}
+	});
 </script>
 
 <SearchPage {title} on:search={(e) => (query = e.detail.search)}>
-	<div class="flex flex-col items-stretch gap-10 p-2" />
+	<div class="flex flex-col items-stretch gap-10 p-2"></div>
 	{#if !query}
 		<div class="flex-1 self-center col-center m-t-10 gap-5 font-300 text-[var(--accent-text)]">
 			<UIcon icon="i-carbon-search-locate-mirror" classes="text-2em" />

@@ -10,12 +10,16 @@
 	import { page } from '$app/stores';
 	import { get } from 'svelte/store';
 
-	let container: HTMLDivElement;
+	let container: HTMLDivElement = $state();
 
-	export let content: string;
-	export let filename: string = 'document';
+	interface Props {
+		content: string;
+		filename?: string;
+	}
 
-	let isExporting = false;
+	let { content, filename = 'document' }: Props = $props();
+
+	let isExporting = $state(false);
 	function findSafeSliceY(fullCanvas: HTMLCanvasElement, rawY: number): number {
 		const ctx = fullCanvas.getContext('2d')!;
 		const scanBand = Math.round(20 * 1.5);
@@ -177,13 +181,13 @@
 </script>
 
 <button
-	on:click={downloadAsPdf}
+	onclick={downloadAsPdf}
 	disabled={isExporting}
 	class="sticky top-4 float-right z-50 w-48 cursor-pointer rounded-full bg-gray-900 px-4 py-2 text-sm text-white shadow-lg transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
 >
 	{isExporting ? 'Exporting...' : '⬇ Download as PDF'}
 </button>
-<div bind:this={container} class="markdown-container" />
+<div bind:this={container} class="markdown-container"></div>
 
 <style>
 	:global(.markdown-container img) {

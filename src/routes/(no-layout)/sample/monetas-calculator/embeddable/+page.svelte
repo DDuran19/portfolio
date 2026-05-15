@@ -95,22 +95,22 @@
 	// ─────────────────────────────────────────────
 	// STATE
 	// ─────────────────────────────────────────────
-	let loanRaw = '500,000';
-	let termValue = 25;
-	let result: CalcResult | null = calculate(500000, 25);
+	let loanRaw = $state('500,000');
+	let termValue = $state(25);
+	let result: CalcResult | null = $state(calculate(500000, 25));
 
-	let loanError = '';
-	let termError = '';
-	let showBreakdown = false;
+	let loanError = $state('');
+	let termError = $state('');
+	let showBreakdown = $state(false);
 	let hasInteracted = false;
 	let ctaClicked = false;
 	let visibilityFired = false;
-	let isIframe = true;
+	let isIframe = $state(true);
 
 	let calcDebounce: ReturnType<typeof setTimeout> | null = null;
 	let abandonTimer: ReturnType<typeof setTimeout> | null = null;
 	let observer: IntersectionObserver | null = null;
-	let cardEl: HTMLElement;
+	let cardEl: HTMLElement = $state();
 
 	// ─────────────────────────────────────────────
 	// VALIDATION
@@ -277,7 +277,7 @@
 						aria-describedby="loan-hint loan-err"
 						class:error={loanError}
 						value={loanRaw}
-						on:input={onLoanInput}
+						oninput={onLoanInput}
 					/>
 				</div>
 				<p class="hint" id="loan-hint">Min $100k · Max $5M</p>
@@ -299,7 +299,7 @@
 						aria-describedby="term-err"
 						class:error={termError}
 						bind:value={termValue}
-						on:input={onTermInput}
+						oninput={onTermInput}
 					/>
 					<span class="suffix">yrs</span>
 				</div>
@@ -309,7 +309,7 @@
 					max="30"
 					aria-label="Loan term slider"
 					bind:value={termValue}
-					on:input={onTermInput}
+					oninput={onTermInput}
 					class="slider"
 				/>
 				<div class="slider-labels"><span>1 yr</span><span>30 yrs</span></div>
@@ -341,7 +341,7 @@
 						class="breakdown-btn"
 						aria-expanded={showBreakdown}
 						aria-controls="breakdown"
-						on:click={onBreakdownToggle}
+						onclick={onBreakdownToggle}
 					>
 						View breakdown
 						<svg
@@ -384,7 +384,7 @@
 				</div>
 			{/if}
 
-			<button class="cta" aria-label="Find my exact savings" on:click={onCta}>
+			<button class="cta" aria-label="Find my exact savings" onclick={onCta}>
 				Find my exact savings >
 			</button>
 		</div>

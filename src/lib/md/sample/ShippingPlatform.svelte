@@ -30,24 +30,24 @@
 	}
 
 	// ── Form state ───────────────────────────────────────────────────────────
-	let region: Region = 'MY';
-	let orderType: OrderType = 'me';
+	let region: Region = $state('MY');
+	let orderType: OrderType = $state('me');
 
-	let senderName = 'Denver Duran';
-	let senderPhone = '+60 11-222 3333';
+	let senderName = $state('Denver Duran');
+	let senderPhone = $state('+60 11-222 3333');
 
 	// Defaulting to 'me' state
-	let recipientName = senderName;
-	let recipientPhone = senderPhone;
-	let recipientAddr = '18 Jalan Bukit Bintang, KL';
+	let recipientName = $state(senderName);
+	let recipientPhone = $state(senderPhone);
+	let recipientAddr = $state('18 Jalan Bukit Bintang, KL');
 
-	let paymentMethod = 'Credit card';
-	let amount = '89.00';
+	let paymentMethod = $state('Credit card');
+	let amount = $state('89.00');
 
 	// ── DB + log state ───────────────────────────────────────────────────────
 	let orderCounter = 41;
 
-	let orders: OrderRow[] = [
+	let orders: OrderRow[] = $state([
 		{
 			id: 'ORD-0041',
 			recipient: 'Ahmad Razif',
@@ -78,9 +78,9 @@
 			payment: 'pending',
 			courier: '—'
 		}
-	];
+	]);
 
-	let logs: LogEntry[] = [
+	let logs: LogEntry[] = $state([
 		{
 			time: '14:02:30',
 			step: 'quote',
@@ -194,11 +194,11 @@
 			orderId: 'ORD-0039',
 			expanded: false
 		}
-	];
+	]);
 
 	// ── Derived stats ────────────────────────────────────────────────────────
-	$: dispatched = orders.filter((o) => o.payment === 'paid').length;
-	$: awaitingPayment = orders.filter((o) => o.payment === 'pending').length;
+	let dispatched = $derived(orders.filter((o) => o.payment === 'paid').length);
+	let awaitingPayment = $derived(orders.filter((o) => o.payment === 'pending').length);
 
 	// ── Helpers ──────────────────────────────────────────────────────────────
 	function setOrderType(type: OrderType) {
@@ -393,14 +393,14 @@
 					<button
 						class="toggle-btn"
 						class:active={region === 'MY'}
-						on:click={() => setRegion('MY')}
+						onclick={() => setRegion('MY')}
 					>
 						<span class="i-carbon-location" aria-hidden="true"></span> Malaysia (domestic)
 					</button>
 					<button
 						class="toggle-btn"
 						class:active={region === 'SG'}
-						on:click={() => setRegion('SG')}
+						onclick={() => setRegion('SG')}
 					>
 						<span class="i-carbon-airport-01" aria-hidden="true"></span> Singapore (international)
 					</button>
@@ -413,14 +413,14 @@
 					<button
 						class="toggle-btn"
 						class:active={orderType === 'me'}
-						on:click={() => setOrderType('me')}
+						onclick={() => setOrderType('me')}
 					>
 						<span class="i-carbon-user" aria-hidden="true"></span> For me
 					</button>
 					<button
 						class="toggle-btn"
 						class:active={orderType === 'friend'}
-						on:click={() => setOrderType('friend')}
+						onclick={() => setOrderType('friend')}
 					>
 						<span class="i-carbon-group" aria-hidden="true"></span> For a friend
 					</button>
@@ -486,7 +486,7 @@
 				</div>
 			</div>
 
-			<button class="place-btn" on:click={placeOrder}>
+			<button class="place-btn" onclick={placeOrder}>
 				<span class="i-carbon-flash" aria-hidden="true"></span> Pay & place order
 			</button>
 		</div>
@@ -604,7 +604,7 @@
 						</span>
 
 						{#if log.payload}
-							<button class="log-toggle" on:click={() => toggleLog(i)}>
+							<button class="log-toggle" onclick={() => toggleLog(i)}>
 								{log.expanded ? 'hide' : 'show'} req / res
 							</button>
 						{/if}

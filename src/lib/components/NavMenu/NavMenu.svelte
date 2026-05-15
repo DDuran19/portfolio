@@ -14,7 +14,7 @@
 		{ title: NavBar.resume, to: '/resume', icon: 'i-carbon-result' }
 	];
 
-	$: currentPage = $page.url.pathname;
+	let currentPage = $derived($page.url.pathname);
 </script>
 
 <div class="nav-menu" id="nav-menu">
@@ -50,7 +50,7 @@
 			</a>
 			<button
 				class="bg-transparent text-1em border-none cursor-pointer hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)] px-2"
-				on:click={() => toggleTheme()}
+				onclick={() => toggleTheme()}
 			>
 				{#if $theme}
 					<UIcon icon="i-carbon-moon" classes="text-1.5em md:text-1.3em " />

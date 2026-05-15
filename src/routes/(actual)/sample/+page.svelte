@@ -8,12 +8,12 @@
 	const description =
 		'Interactive demos by Denver Duran — embeddable widgets, shipping integrations, multi-tenant dashboards, and more. Built with SvelteKit and TypeScript.';
 
-	let search = '';
+	let search = $state('');
 
-	$: displayed = sampleComponents.filter((s) => {
+	let displayed = $derived(sampleComponents.filter((s) => {
 		const q = search.trim().toLowerCase();
 		return q.length === 0 || s.name.toLowerCase().includes(q) || s.description.toLowerCase().includes(q);
-	});
+	}));
 
 	const onSearch = (e: CustomEvent<{ search: string }>) => {
 		search = e.detail.search;
