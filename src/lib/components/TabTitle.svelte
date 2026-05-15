@@ -9,16 +9,20 @@
 		image?: string;
 	}
 
-	let { title, description = 'Solo full-stack developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps. Custom POS systems, multi-tenant platforms, and edge-deployed applications.', image = '' }: Props = $props();
+	let {
+		title = $bindable(),
+		description = $bindable(
+			'Solo full-stack developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps. Custom POS systems, multi-tenant platforms, and edge-deployed applications.'
+		),
+		image = $bindable('')
+	}: Props = $props();
 
 	let fullTitle = $derived(useTitle(title, TITLE_SUFFIX));
 	let origin = $derived(page.url.origin);
 	let currentUrl = $derived(page.url.href);
-	let ogImage = $derived(image
-		? image.startsWith('http')
-			? image
-			: `${origin}${image}`
-		: `${origin}/og-image.png`);
+	let ogImage = $derived(
+		image ? (image.startsWith('http') ? image : `${origin}${image}`) : `${origin}/og-image.png`
+	);
 </script>
 
 <svelte:head>

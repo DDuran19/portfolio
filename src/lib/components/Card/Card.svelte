@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 	import type { MouseEventHandler } from 'svelte/elements';
 
-	let el: HTMLElement = $state();
+	let el: HTMLElement | undefined = $state();
 
 	interface Props {
 		color?: string;
@@ -41,6 +41,7 @@
 
 	// svelte typing is broken...
 	const onHover: MouseEventHandler<HTMLDivElement> = (ev) => {
+		if (!el) return;
 		const target = ev.currentTarget;
 
 		const rect = target.getBoundingClientRect();
@@ -68,8 +69,8 @@
 	};
 
 	onMount(() => {
-		el.style.setProperty('margin', margin);
-		el.style.setProperty('--bg-img', bgImg ? `url(${bgImg})` : '');
+		el?.style.setProperty('margin', margin);
+		el?.style.setProperty('--bg-img', bgImg ? `url(${bgImg})` : '');
 	});
 </script>
 

@@ -110,7 +110,7 @@
 	let calcDebounce: ReturnType<typeof setTimeout> | null = null;
 	let abandonTimer: ReturnType<typeof setTimeout> | null = null;
 	let observer: IntersectionObserver | null = null;
-	let cardEl: HTMLElement = $state();
+	let cardEl: HTMLElement | undefined = $state();
 
 	// ─────────────────────────────────────────────
 	// VALIDATION

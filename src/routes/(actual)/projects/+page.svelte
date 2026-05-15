@@ -16,9 +16,11 @@
 
 	const { items, title } = PROJECTS;
 
-	let filters: Array<SkillFilter> = $state(MY_SKILLS.filter((it) => {
-		return items.some((project) => project.skills.some((skill) => skill.slug === it.slug));
-	}));
+	let filters: Array<SkillFilter> = $state(
+		MY_SKILLS.filter((it) => {
+			return items.some((project) => project.skills.some((skill) => skill.slug === it.slug));
+		})
+	);
 
 	let search = $state('');
 	let displayed: Array<Project> = $state([]);
@@ -77,7 +79,7 @@
 <SearchPage {title} {description} on:search={onSearch}>
 	<div class="projects-filters">
 		{#each filters as tech}
-			<Chip active={tech.isSelected} classes={'text-0.8em'} on:click={() => onSelected(tech.slug)}
+			<Chip active={tech.isSelected} classes={'text-0.8em'} onclick={() => onSelected(tech.slug)}
 				>{tech.name}</Chip
 			>
 		{/each}

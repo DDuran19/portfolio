@@ -2,8 +2,7 @@
 	import type { Icons } from '$lib/utils';
 	import { viewBox } from './Icons';
 
-	let el: SVGElement = $state();
-
+	let el: SVGElement | undefined = $state();
 
 	interface Props {
 		size?: string;

@@ -80,7 +80,6 @@
 	let recordId = '';
 	let paymentId = '';
 
-
 	// ─── Helpers ─────────────────────────────────────────────────────────────────
 
 	/** Called at push-time so the timestamp is always a real string, never undefined */
@@ -313,7 +312,6 @@
 		paymentId = '';
 	}
 
-
 	// 2. The function no longer requires arguments
 	async function doScroll() {
 		await tick();
@@ -327,14 +325,22 @@
 		}
 	}
 	// ─── Derived ─────────────────────────────────────────────────────────────────
-	let deliveryFee = $derived(deliveryType === 'express' ? 120 : deliveryType === 'pickup' ? 0 : 80);
-	
-	let total = $derived(subtotal + deliveryFee);
+
+	// orderItems must NOT reference subtotal (circular). subtotal is derived FROM orderItems.
 	let orderItems = $derived([
 		{ name: 'Green Tea Matcha', qty: 2, price: 140 },
 		{ name: 'Jasmine Mist', qty: 1, price: 190 },
 		...(freePack ? [{ name: 'Free sample pack', qty: 1, price: 0 }] : [])
 	]);
+
+	let subtotal = $derived(orderItems.reduce((sum, i) => sum + i.price * i.qty, 0));
+
+	// Cast deliveryType to string to avoid the TS overlap error on literal comparisons
+	let deliveryFee = $derived(
+		(deliveryType as string) === 'express' ? 120 : (deliveryType as string) === 'pickup' ? 0 : 80
+	);
+
+	let total = $derived(subtotal + deliveryFee);
 	// ─── Auto-Scroll Logic ───────────────────────────────────────────────────────
 	// 1. Svelte tracks the variables here inside the reactive block
 	run(() => {
@@ -478,8 +484,8 @@
 					{running
 						? 'Processing...'
 						: paymentMethod === 'cod'
-						  ? 'Simulate Delivery & Pay (Admin) ↗'
-						  : 'Simulate Webhook Payment ↗'}
+							? 'Simulate Delivery & Pay (Admin) ↗'
+							: 'Simulate Webhook Payment ↗'}
 				</button>
 			{:else}
 				<button class="zb-action zb-action-done" disabled>✓ Order complete</button>

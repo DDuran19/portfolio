@@ -10,7 +10,7 @@
 	import { page } from '$app/stores';
 	import { get } from 'svelte/store';
 
-	let container: HTMLDivElement = $state();
+	let container: HTMLDivElement | undefined = $state();
 
 	interface Props {
 		content: string;
@@ -39,6 +39,7 @@
 		return rawY;
 	}
 	async function downloadAsPdf() {
+		if (!container) return;
 		isExporting = true;
 		try {
 			const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
@@ -166,14 +167,14 @@
 		}
 	}
 
-	onMount(() => {
+	onMount(async () => {
 		marked.use(gfmHeadingId());
 		marked.use(mangle());
 
 		const sanitizer = createSanitizer(window);
 
-		if (window) {
-			const parsed = marked.parse(content);
+		if (window && container) {
+			const parsed = await marked.parse(content);
 			container.innerHTML = sanitizer.sanitize(parsed);
 			Prism.highlightAllUnder(container);
 		}

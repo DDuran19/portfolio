@@ -14,7 +14,7 @@
 	let { items = [] }: Props = $props();
 	const delay = 2000;
 
-	let element: HTMLElement = $state();
+	let element: HTMLElement | undefined = $state();
 
 	let timeout: unknown;
 	let index = $state(0);

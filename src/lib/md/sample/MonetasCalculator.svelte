@@ -131,9 +131,9 @@
 	let calcDebounce: ReturnType<typeof setTimeout> | null = null;
 	let abandonTimer: ReturnType<typeof setTimeout> | null = null;
 	let observer: IntersectionObserver | null = null;
-	let cardEl: HTMLElement = $state();
-	let logEl: HTMLElement = $state();
-	let dialogEl: HTMLDialogElement = $state();
+	let cardEl: HTMLElement | undefined = $state();
+	let logEl: HTMLElement | undefined = $state();
+	let dialogEl: HTMLDialogElement | undefined = $state();
 
 	// ─────────────────────────────────────────────
 	// EMBED SNIPPET
@@ -256,13 +256,13 @@
 		ctaClicked = true;
 		fireEvent('cta_clicked', { loan_amount: parseLoan(loanRaw), loan_term: termValue });
 		if (firstTime) {
-			dialogEl.showModal();
+			dialogEl?.showModal();
 			firstTime = false;
 		}
 	}
 
 	function closeTcDialog() {
-		dialogEl.close();
+		dialogEl?.close();
 	}
 
 	function onDialogClick(e: MouseEvent) {
@@ -305,6 +305,7 @@
 	run(() => {
 		if (analyticsLog.length && logEl) {
 			setTimeout(() => {
+				if (!logEl) return;
 				logEl.scrollTop = logEl.scrollHeight;
 			}, 10);
 		}
@@ -486,7 +487,7 @@
 
 		<p class="footnote">
 			*Estimates are illustrative only. &nbsp;
-			<button class="tc-link" onclick={() => dialogEl.showModal()}>
+			<button class="tc-link" onclick={() => dialogEl?.showModal()}>
 				Sample demo — see disclaimer
 			</button>
 		</p>

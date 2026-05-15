@@ -4,7 +4,7 @@
 	const bubble = createBubbler();
 	import { onMount } from 'svelte';
 
-	let el: HTMLElement = $state();
+	let el: HTMLElement | undefined = $state();
 
 	interface Props {
 		active?: boolean;
@@ -13,6 +13,7 @@
 		href?: string;
 		target?: string | undefined;
 		children?: import('svelte').Snippet;
+		onclick?: Function;
 	}
 
 	let {
@@ -24,14 +25,16 @@
 		children
 	}: Props = $props();
 
-	let className = $derived(`row-center cursor-pointer py-[5px] px-[15px] m-[2.5px] decoration-none inline-block border-[1px] border-solid border-[var(--border)] rounded-[20px] tracking-wider text-[0.9em] text-[var(--tertiary-text)] duration-[150ms] font-light  ${
-		active
-			? 'bg-[var(--accent)] hover:bg-[var(--accent-hover)]'
-			: 'bg-transparent hover:bg-[var(--main-hover)]'
-	} ${classes}`);
+	let className = $derived(
+		`row-center cursor-pointer py-[5px] px-[15px] m-[2.5px] decoration-none inline-block border-[1px] border-solid border-[var(--border)] rounded-[20px] tracking-wider text-[0.9em] text-[var(--tertiary-text)] duration-[150ms] font-light  ${
+			active
+				? 'bg-[var(--accent)] hover:bg-[var(--accent-hover)]'
+				: 'bg-transparent hover:bg-[var(--main-hover)]'
+		} ${classes}`
+	);
 
 	onMount(() => {
-		el.style.setProperty('--size', size);
+		el?.style.setProperty('--size', size);
 	});
 </script>
 
