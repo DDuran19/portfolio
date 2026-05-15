@@ -35,7 +35,7 @@
 	{:else}
 		<div class="samples-list mt-5">
 			{#each displayed as sample (sample.slug)}
-				<a href={resolve('/sample/{sample.slug}')} class="sample-card decoration-none">
+				<a href={resolve(`/sample/${sample.slug}`)} class="sample-card decoration-none">
 					<div class="sample-card-icon">
 						<UIcon icon="i-carbon-application" classes="text-1.5em" />
 					</div>
