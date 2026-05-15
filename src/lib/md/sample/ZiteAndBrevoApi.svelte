@@ -3,6 +3,7 @@
 
 	import { theme } from '$lib/stores/theme';
 	import { tick } from 'svelte';
+	import { browser } from '$app/environment';
 
 	// ─── Types ───────────────────────────────────────────────────────────────────
 	type PaymentMethod = 'gcash' | 'billplz' | 'cod';
@@ -314,6 +315,7 @@
 
 	// 2. The function no longer requires arguments
 	async function doScroll() {
+		if (!browser) return;
 		await tick();
 		const activeEl = document.querySelector('.zb-panel-active');
 

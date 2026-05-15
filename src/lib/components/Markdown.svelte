@@ -9,6 +9,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { get } from 'svelte/store';
+	import { browser } from '$app/environment';
 
 	let container: HTMLDivElement | undefined = $state();
 
@@ -39,7 +40,7 @@
 		return rawY;
 	}
 	async function downloadAsPdf() {
-		if (!container) return;
+		if (!container || !browser) return;
 		isExporting = true;
 		try {
 			const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
