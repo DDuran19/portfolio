@@ -5,7 +5,7 @@
 	import { onHydrated, theme } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { quadInOut } from 'svelte/easing';
 	import ScrollToTop from '$lib/components/Floaters/ScrollToTop.svelte';
     interface Props {
@@ -13,7 +13,7 @@
     }
 
     let { children }: Props = $props();
-	let currentPage = $derived($page.url.pathname);
+	let currentPage = $derived(page.url.pathname);
 
 	onMount(() => onHydrated());
 </script>

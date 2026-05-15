@@ -4,7 +4,7 @@
 
 	import { base } from '$app/paths';
 	import UIcon from '../Icon/UIcon.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	const items = [
 		{ title: NavBar.skills, to: '/skills', icon: 'i-carbon-software-resource-cluster' },
@@ -14,7 +14,7 @@
 		{ title: NavBar.resume, to: '/resume', icon: 'i-carbon-result' }
 	];
 
-	let currentPage = $derived($page.url.pathname);
+	let currentPage = $derived(page.url.pathname);
 </script>
 
 <div class="nav-menu" id="nav-menu">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import Carrousel from '$lib/components/Carrousel/Carrousel.svelte';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
@@ -90,8 +90,8 @@
 			badge.addEventListener('click', handleClick);
 		});
 	});
-	let origin = $derived($page.url.origin);
-	let currentUrl = $derived($page.url.href);
+	let origin = $derived(page.url.origin);
+	let currentUrl = $derived(page.url.href);
 	let ogImage = $derived(`${origin}/og-image.png`);
 	let fullTitle = $derived(useTitle(title, TITLE_SUFFIX));
 </script>

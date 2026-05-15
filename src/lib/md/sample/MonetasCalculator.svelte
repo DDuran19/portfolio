@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { run } from 'svelte/legacy';
 
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { onMount, onDestroy } from 'svelte';
 
 	// ─────────────────────────────────────────────
@@ -138,8 +138,8 @@
 	// ─────────────────────────────────────────────
 	// EMBED SNIPPET
 	// ─────────────────────────────────────────────
-	const PORTFOLIO_URL = $page.url.origin;
-	const DEMO_URL = $page.url.pathname;
+	const PORTFOLIO_URL = page.url.origin;
+	const DEMO_URL = page.url.pathname;
 
 	const embedSnippet = `<iframe
   src="${DEMO_URL}/embeddable"

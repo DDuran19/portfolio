@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { TITLE_SUFFIX } from '$lib/params';
 	import { useTitle } from '$lib/utils/helpers';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	interface Props {
 		title: string;
@@ -12,8 +12,8 @@
 	let { title, description = 'Solo full-stack developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps. Custom POS systems, multi-tenant platforms, and edge-deployed applications.', image = '' }: Props = $props();
 
 	let fullTitle = $derived(useTitle(title, TITLE_SUFFIX));
-	let origin = $derived($page.url.origin);
-	let currentUrl = $derived($page.url.href);
+	let origin = $derived(page.url.origin);
+	let currentUrl = $derived(page.url.href);
 	let ogImage = $derived(image
 		? image.startsWith('http')
 			? image
