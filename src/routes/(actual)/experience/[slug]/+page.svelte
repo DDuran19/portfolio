@@ -23,6 +23,7 @@
 	const { title } = EXPERIENCES;
 
 	let computedTitle = $derived(data.experience ? `${data.experience.name} - ${title}` : title);
+	let scrollContainer: HTMLDivElement | undefined = $state();
 </script>
 
 <TabTitle
@@ -39,7 +40,7 @@
 		</div>
 	{:else}
 		<div class="flex flex-col items-center overflow-x-hidden">
-			<Banner img={getAssetURL(data.experience.logo)}>
+			<Banner img={getAssetURL(data.experience.logo)} name={data.experience.name}>
 				<div class="col-center p-y-20">
 					<div class="text-0.9em">
 						<MainTitle>{data.experience.name}</MainTitle>
@@ -82,12 +83,13 @@
 					</div>
 				</div>
 			</Banner>
-			<div class="pt-3 pb-1 overflow-x-hidden w-full">
+			<div bind:this={scrollContainer} class="pt-3 pb-1 overflow-x-hidden w-full">
 				<div class="px-10px m-y-5">
 					{#if data.experience.description}
 						<Markdown
 							content={data.experience.description ?? 'This place is yet to be filled...'}
 							filename={data.experience.name}
+							{scrollContainer}
 						/>
 					{:else}
 						<div class="p-5 col-center gap-3 m-y-auto text-[var(--border)]">

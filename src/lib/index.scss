@@ -50,19 +50,20 @@
 	--text-f: 'Montserrat', sans-serif;
 	--title-f: 'Montserrat', sans-serif;
 
-	overflow-y: scroll;
+	// overflow-y: scroll;
 }
-html {
-	scroll-behavior: smooth;
+* {
+	scroll-behavior: smooth !important;
 }
+
 body {
 	margin: 0px;
 }
 
 * {
 	transition-duration: 200ms;
-	transition-property: background, border-color, opacity, box-shadow, top, bottom, left, margin,
-		right;
+	transition-property:
+		background, border-color, opacity, box-shadow, top, bottom, left, margin, right;
 }
 
 :root[data-theme='dark'] {
@@ -163,24 +164,14 @@ body {
 }
 
 .container {
+	width: 100%;
 	max-width: 1200px;
-	min-width: 1200px;
-	margin: 0px auto;
-
-	@media (max-width: 1350px) {
-		& {
-			max-width: 1000px;
-			min-width: 1000px;
-		}
-	}
+	margin: 0 auto;
+	padding: 0 1.5rem;
+	box-sizing: border-box;
 
 	@media (max-width: 1075px) {
-		& {
-			max-width: -webkit-fill-available;
-			min-width: -webkit-fill-available;
-			max-width: -moz-available;
-			min-width: -moz-available;
-		}
+		padding: 0 1rem;
 	}
 }
 

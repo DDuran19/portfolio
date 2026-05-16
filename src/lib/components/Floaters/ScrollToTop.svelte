@@ -1,21 +1,22 @@
 <script lang="ts">
-	import { preventDefault, stopPropagation } from 'svelte/legacy';
+	import { getScrollContext } from '$lib/stores/contexts/scroll.svelte';
 
-	import { goto } from '$app/navigation';
+	const scrollContext = getScrollContext();
 	import UIcon from '../Icon/UIcon.svelte';
 </script>
 
-<a
-	href="#nav-menu"
-	class="fixed bottom-10 right-10 rounded-full bg-transparent p-1 cursor-pointer hover:bg-[color:var(--main-hover)]
+{#key scrollContext.topId}
+	<a
+		href={scrollContext.topId}
+		class="fixed bottom-10 right-10 rounded-full bg-transparent p-1 cursor-pointer hover:bg-[color:var(--main-hover)]
      border-1px border-solid border-[var(--dark-0-60)] hover:border-[var(--border)]
      block
      "
-	aria-label="Scroll to top"
-	role="button"
-	onclick={stopPropagation(preventDefault(() => goto('#nav-menu')))}
-	><UIcon icon="i-carbon-chevron-up text-1.5em" />
-</a>
+		aria-label="Scroll to top"
+		role="button"
+		><UIcon icon="i-carbon-chevron-up text-1.5em" />
+	</a>
+{/key}
 
 <style lang="scss">
 	a {

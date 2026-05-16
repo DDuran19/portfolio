@@ -2,7 +2,6 @@
 	import Markdown from '$lib/components/Markdown.svelte';
 	import TabTitle from '$lib/components/TabTitle.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
-	import Chip from '$lib/components/Chip/Chip.svelte';
 	import type { BlogPost } from '$lib/types';
 	import { resolve } from '$app/paths';
 
@@ -20,7 +19,9 @@
 
 <TabTitle title={post?.title ?? 'Blog'} description={post?.description ?? ''} />
 
-<div class="pb-10 col flex-1 overflow-x-hidden">
+<div class="pb-10 col flex-1">
+	<span id="__top__" class="h-0 w-0"></span>
+
 	{#if !post}
 		<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)]">
 			<UIcon icon="i-carbon-document" classes="text-3.5em" />
@@ -29,12 +30,12 @@
 	{:else}
 		<!-- Cover -->
 		{#if post.coverImage}
-			<div class="w-full max-h-[360px] overflow-hidden">
+			<div class="w-full overflow-hidden">
 				<img src={post.coverImage} alt={post.coverImageAlt} class="w-full h-full object-cover" />
 			</div>
 		{/if}
 
-		<div class="px-10px max-w-[860px] w-full mx-auto">
+		<div class="px-10px mx-auto">
 			<!-- Header -->
 			<div class="flex items-center gap-4 text-xs text-[var(--secondary-text)]">
 				<span class="flex items-center gap-1">

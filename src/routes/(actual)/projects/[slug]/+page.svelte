@@ -30,6 +30,7 @@
 		onGridView = !onGridView;
 	}
 	let computedTitle = $derived(data.project ? `${data.project.name} - ${title}` : title);
+	let scrollContainer: HTMLDivElement | undefined = $state();
 </script>
 
 <TabTitle
@@ -46,7 +47,7 @@
 		</div>
 	{:else}
 		<div class="flex flex-col items-center overflow-x-hidden">
-			<Banner img={getAssetURL(data.project.logo)}>
+			<Banner img={getAssetURL(data.project.logo)} name={data.project.name}>
 				<div class="col-center p-y-20">
 					<div class="text-0.9em">
 						<MainTitle>{data.project.name}</MainTitle>
@@ -84,10 +85,14 @@
 					</div>
 				</div>
 			</Banner>
-			<div class="pt-3 pb-1 overflow-x-hidden w-full">
+			<div bind:this={scrollContainer} class="pt-3 pb-1 overflow-x-hidden w-full">
 				<div class="px-10px m-y-5">
 					{#if data.project.description}
-						<Markdown content={data.project.description} filename={data.project.name} />
+						<Markdown
+							content={data.project.description}
+							filename={data.project.name}
+							{scrollContainer}
+						/>
 					{:else}
 						<div class="p-5 col-center gap-3 m-y-auto text-[var(--border)]">
 							<UIcon icon="i-carbon-text-font" classes="text-3.5em" />

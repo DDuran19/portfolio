@@ -69,6 +69,7 @@
 	let computedTitle = $derived(data.skill ? `${data.skill.name} - ${title}` : title);
 
 	let related = $derived(data.skill ? getRelatedProjects() : []);
+	let scrollContainer: HTMLDivElement | undefined = $state();
 </script>
 
 <TabTitle
@@ -85,15 +86,16 @@
 		</div>
 	{:else}
 		<div class="flex flex-col items-center overflow-x-hidden">
-			<Banner img={getAssetURL(data.skill.logo)}>
+			<Banner img={getAssetURL(data.skill.logo)} name={data.skill.name}>
 				<MainTitle>{data.skill.name}</MainTitle>
 			</Banner>
-			<div class="pt-3 pb-1 overflow-x-hidden w-full">
+			<div bind:this={scrollContainer} class="pt-3 pb-1 overflow-x-hidden w-full">
 				<div class="px-10px m-y-5">
 					{#if data.skill.description}
 						<Markdown
 							content={data.skill.description ?? 'This place is yet to be filled...'}
 							filename={data.skill.name}
+							{scrollContainer}
 						/>
 					{:else}
 						<div class="p-5 col-center gap-3 m-y-auto text-[var(--border)]">
