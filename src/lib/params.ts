@@ -8,10 +8,12 @@ import {
 	type ExperiencePageParams,
 	type SkillsPageParams,
 	type ResumePageParams,
-	type SearchPageParams
+	type SearchPageParams,
+	type BlogPageParams
 } from './types';
 import { Icons } from './utils';
 import resume from '$lib/md/denver-james-duran-resume.pdf';
+import BLOG_POSTS from './blogs.params';
 
 export const TITLE_SUFFIX = 'Software developer';
 
@@ -21,7 +23,8 @@ export const NavBar = {
 	personal: 'Projects',
 	career: 'Experiences',
 	resume: 'Resume',
-	skills: 'Skills'
+	skills: 'Skills',
+	blogs: 'Blogs'
 };
 
 export const getPlatfromIcon = (platform: Platform): Icons => {
@@ -89,3 +92,8 @@ export const RESUME: ResumePageParams = {
 export const SEARCH: SearchPageParams = {
 	title: 'Search'
 };
+
+export const BLOGS: BlogPageParams = {
+	title: 'Blogs',
+	items: BLOG_POSTS
+}

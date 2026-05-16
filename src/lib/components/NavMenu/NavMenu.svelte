@@ -12,6 +12,7 @@
 		{ title: NavBar.personal, to: '/projects', icon: 'i-carbon-cube' },
 		{ title: NavBar.sample, to: '/sample', icon: 'i-carbon-application' },
 		{ title: NavBar.career, to: '/experience', icon: 'i-carbon-development' },
+		{ title: NavBar.blogs, to: '/blogs', icon: 'i-carbon-blog' },
 		{ title: NavBar.resume, to: '/resume', icon: 'i-carbon-result' }
 	];
 

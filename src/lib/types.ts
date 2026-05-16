@@ -91,3 +91,19 @@ export type SkillsPageParams = PageWithSearchParams<Skill>;
 export interface ResumePageParams extends PageParams {
 	item: string;
 }
+
+export interface BlogPost {
+	slug: string;
+	title: string;
+	description: string;
+	coverImage: string;
+	coverImageAlt: string;
+	date: string;
+	lastUpdated: string;
+	author: string;
+	tags: string[];
+	content: string;
+	excerpt: string;
+}
+
+export type BlogPageParams = PageWithSearchParams<BlogPost>;

@@ -10,15 +10,17 @@
 	import { page } from '$app/stores';
 	import { get } from 'svelte/store';
 	import { browser } from '$app/environment';
+	import { resolveImage } from '$lib/blogs.params';
 
 	let container: HTMLDivElement | undefined = $state();
 
 	interface Props {
 		content: string;
 		filename?: string;
+		slug?: string;
 	}
 
-	let { content, filename = 'document' }: Props = $props();
+	let { content, filename = 'document', slug = '' }: Props = $props();
 
 	let isExporting = $state(false);
 	function findSafeSliceY(fullCanvas: HTMLCanvasElement, rawY: number): number {
@@ -172,8 +174,18 @@
 		marked.use(gfmHeadingId());
 		marked.use(mangle());
 
-		const sanitizer = createSanitizer(window);
+		// Rewrite image paths before parsing
+		marked.use({
+			renderer: {
+				image({ href, title, text }) {
+					const resolvedHref = slug ? resolveImage(slug, href) : href;
+					const titleAttr = title ? ` title="${title}"` : '';
+					return `<img src="${resolvedHref}" alt="${text}"${titleAttr} />`;
+				}
+			}
+		});
 
+		const sanitizer = createSanitizer(window);
 		if (window && container) {
 			const parsed = await marked.parse(content);
 			container.innerHTML = sanitizer.sanitize(parsed);
