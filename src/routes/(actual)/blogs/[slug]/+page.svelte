@@ -4,7 +4,16 @@
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import type { BlogPost } from '$lib/types';
 	import { resolve } from '$app/paths';
+	import { getScrollContext } from '$lib/stores/contexts/scroll.svelte';
 
+	const scrollCtx = getScrollContext();
+	scrollCtx.setTopId('__top__');
+	$effect(() => {
+		scrollCtx.setTopId('__top__');
+		return () => {
+			scrollCtx.resetTopId();
+		};
+	});
 	interface Props {
 		data: {
 			post?: BlogPost;

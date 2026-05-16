@@ -1,7 +1,16 @@
 <script lang="ts">
 	import MainTitle from './MainTitle/MainTitle.svelte';
 	import TabTitle from './TabTitle.svelte';
+	import { getScrollContext } from '$lib/stores/contexts/scroll.svelte';
 
+	const scrollCtx = getScrollContext();
+	scrollCtx.setTopId('__top__');
+	$effect(() => {
+		scrollCtx.setTopId('__top__');
+		return () => {
+			scrollCtx.resetTopId();
+		};
+	});
 	interface Props {
 		title?: string;
 		description?: string;

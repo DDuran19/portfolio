@@ -3,7 +3,7 @@ import { setContext, getContext } from "svelte";
 const key = Symbol('scroll')
 
 class ScrollContext {
-    topId = $state('#__top__');
+    topId = $state('#nav-menu');
     markdownVisible = $state(false);
     constructor() {
     }
@@ -13,7 +13,10 @@ class ScrollContext {
     }
 
     setTopId(id: string) {
-        this.topId = id;
+        this.topId = `#${id}`;
+    }
+    resetTopId() {
+        this.topId = '#nav-menu';
     }
 }
 
