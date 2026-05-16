@@ -1,7 +1,4 @@
 <script lang="ts">
-	import { createBubbler } from 'svelte/legacy';
-
-	const bubble = createBubbler();
 	import { onMount } from 'svelte';
 
 	let el: HTMLElement | undefined = $state();
@@ -13,7 +10,10 @@
 		href?: string;
 		target?: string | undefined;
 		children?: import('svelte').Snippet;
-		onclick?: Function;
+		onclick?: () => void;
+		onkeydown?: () => void;
+		onkeypress?: () => void;
+		onkeyup?: () => void;
 	}
 
 	let {
@@ -22,6 +22,10 @@
 		classes = '',
 		href = '',
 		target = undefined,
+		onclick,
+		onkeydown,
+		onkeypress,
+		onkeyup,
 		children
 	}: Props = $props();
 
@@ -45,10 +49,10 @@
 	bind:this={el}
 	{href}
 	class={className}
-	onclick={bubble('click')}
-	onkeydown={bubble('keydown')}
-	onkeypress={bubble('keypress')}
-	onkeyup={bubble('keyup')}
+	{onclick}
+	{onkeydown}
+	{onkeypress}
+	{onkeyup}
 >
 	{@render children?.()}
 </svelte:element>
