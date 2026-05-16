@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Poor Communication Between Development Teams: The Hidden Cost of Misalignment"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["team communication", "collaboration", "project management", "software development"]
 ---
 # Poor Communication Between Development Teams: The Cost of Misalignment

@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Lack of Proper Analytics and Performance Monitoring: The Data-Driven Blind Spot"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["analytics", "monitoring", "performance", "web analytics", "data insights"]
 ---
 # Lack of Proper Analytics and Performance Monitoring: The Data-Driven Blind Spot

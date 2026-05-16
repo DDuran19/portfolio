@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Security Vulnerabilities in Web Applications: A 2026 Guide to Protection"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["security", "vulnerabilities", "web applications", "cybersecurity"]
 ---
 # Security Vulnerabilities in Web Applications: Protecting Your Business in 2026

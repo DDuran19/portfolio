@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Version Control and Deployment Errors: Mastering CI/CD Pipelines in 2026"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["version control", "deployment", "CI/CD", "DevOps"]
 ---
 # Version Control and Deployment Errors: Building Reliable CI/CD Pipelines

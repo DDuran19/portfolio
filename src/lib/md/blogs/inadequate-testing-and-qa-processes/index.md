@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Inadequate Testing and QA Processes: The Hidden Cost of Poor Quality Assurance"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["testing", "QA", "software quality", "bug prevention"]
 ---
 # Inadequate Testing and QA Processes: The Cost of Bugs in Production

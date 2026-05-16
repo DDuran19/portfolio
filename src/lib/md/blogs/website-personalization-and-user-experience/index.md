@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Website Personalization and User Experience: The Personalization Imperative"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["personalization", "user experience", "website design", "customer engagement"]
 ---
 # Website Personalization and User Experience: The Personalization Imperative

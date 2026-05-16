@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Performance Bottlenecks and Slow Load Times: How to Identify and Fix Website Speed Issues"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["performance", "optimization", "web development"]
 ---
 # Why Your Website Is Slow: Identifying and Fixing Performance Bottlenecks

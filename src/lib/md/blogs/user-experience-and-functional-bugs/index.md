@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: User Experience (UX) and Functional Bugs: The Hidden Cost of Poor Design"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["user experience", "UX", "functional bugs", "web design", "customer retention"]
 ---
 # User Experience (UX) and Functional Bugs: The Hidden Cost of Poor Design

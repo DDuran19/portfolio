@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Third-Party Dependencies and Integration Challenges: Building Resilient Systems"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["third-party", "integration", "dependencies", "resilience", "api management"]
 ---
 # Third-Party Dependencies and Integration Challenges: Building Resilient Systems

@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Database-Related Performance Issues: Optimizing Web Application Data Layers in 2026"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["database", "performance", "optimization", "web applications"]
 ---
 # Database Performance Issues: Why Your Web Application Is Slow

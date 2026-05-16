@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Cross-Browser and Cross-Device Compatibility: The Complete 2026 Guide to Web Development Consistency"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["cross-browser", "compatibility", "web development", "responsive design"]
 ---
 ---

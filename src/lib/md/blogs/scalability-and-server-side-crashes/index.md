@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Scalability and Server-Side Crashes: Building Resilient Web Applications in 2026"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["scalability", "performance", "infrastructure", "web applications"]
 ---
 # Scalability and Server-Side Crashes: Building Web Applications That Grow With Your Business

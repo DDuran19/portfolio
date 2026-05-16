@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: API Integration Failures: How to Handle Third-Party Service Disruptions in 2026"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["API", "integration", "third-party", "reliability"]
 ---
 # API Integration Failures: Building Resilient Systems in 2026

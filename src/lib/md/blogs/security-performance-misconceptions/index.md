@@ -5,7 +5,7 @@ coverImage: "./images/cover.webp"
 coverImageAlt: "Cover image for: Security and Performance Misconceptions: Debunking Web Development Myths"
 date: "2026-05-16"
 lastUpdated: "2026-05-16"
-author: "Claude Code"
+author: "Denvie AI"
 tags: ["security", "performance", "web development", "best practices"]
 ---
 # Security and Performance Misconceptions: Debunking Web Development Myths
