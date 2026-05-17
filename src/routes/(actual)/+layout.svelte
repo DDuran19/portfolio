@@ -82,6 +82,24 @@
 			"description": "Solo full-stack developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps. Builds custom POS systems, multi-tenant platforms, and edge-deployed applications independently from requirements to production."
 		}
 	</script>
+	<!-- Open Graph -->
+	<meta property="og:title" content="Denver James Duran | Software Developer" />
+	<meta
+		property="og:description"
+		content="Solo full-stack developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps."
+	/>
+	<meta property="og:image" content={`${page.url.origin}/og-image.png`} />
+	<meta property="og:url" content={`${page.url.origin}${page.url.pathname}`} />
+	<meta property="og:type" content="website" />
+
+	<!-- Twitter/X card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Denver James Duran | Software Developer" />
+	<meta
+		name="twitter:description"
+		content="Solo full-stack developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps."
+	/>
+	<meta name="twitter:image" content={`${page.url.origin}/og-image.png`} />
 </svelte:head>
 
 <div class={`body contents ${$theme ? 'theme-dark' : 'theme-light'}`}>
