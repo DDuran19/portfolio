@@ -91,8 +91,6 @@
 		});
 	});
 	let origin = $derived(page.url.origin);
-	let currentUrl = $derived(page.url.href);
-	let ogImage = $derived(`${origin}/og-image.png`);
 	let fullTitle = $derived(useTitle(title, TITLE_SUFFIX));
 </script>
 
@@ -103,15 +101,15 @@
 	<!-- Open Graph -->
 	<meta property="og:title" content={fullTitle} />
 	<meta property="og:description" content={description} />
-	<meta property="og:image" content={ogImage} />
-	<meta property="og:url" content={currentUrl} />
+	<meta property="og:image" content="https://denvie.online/og-image.png" />
+	<meta property="og:url" content="https://denvie.online" />
 	<meta property="og:type" content="website" />
 
 	<!-- Twitter/X -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={fullTitle} />
 	<meta name="twitter:description" content={description} />
-	<meta name="twitter:image" content={ogImage} />
+	<meta name="twitter:image" content="https://denvie.online/og-image.png" />
 </svelte:head>
 <div
 	class="col self-center flex-1 md:flex-row md:slef-stretch justify-center lg:justify-between items-center p-y-0px p-x-10px"

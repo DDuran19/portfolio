@@ -18,11 +18,13 @@
 	}: Props = $props();
 
 	let fullTitle = $derived(useTitle(title, TITLE_SUFFIX));
-	let origin = $derived(page.url.origin);
-	let currentUrl = $derived(page.url.href);
+	const ORIGIN = 'https://denvie.online';
+
 	let ogImage = $derived(
-		image ? (image.startsWith('http') ? image : `${origin}${image}`) : `${origin}/og-image.png`
+		image ? (image.startsWith('http') ? image : `${ORIGIN}${image}`) : `${ORIGIN}/og-image.png`
 	);
+
+	let currentUrl = $derived(`${ORIGIN}${page.url.pathname}`);
 </script>
 
 <svelte:head>
