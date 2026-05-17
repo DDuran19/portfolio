@@ -79,8 +79,8 @@
 		property="og:description"
 		content="Solo full-stack developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps."
 	/>
-	<meta property="og:image" content={`${page.url.origin}/og-image.png`} />
-	<meta property="og:url" content={`${page.url.origin}${page.url.pathname}`} />
+	<meta property="og:image" content="https://denvie.online/og-image.png" />
+	<meta property="og:url" content="https://denvie.online" />
 	<meta property="og:type" content="website" />
 
 	<!-- Twitter/X card -->
@@ -90,7 +90,7 @@
 		name="twitter:description"
 		content="Solo full-stack developer specializing in SvelteKit, TypeScript, and Cloudflare-native web apps."
 	/>
-	<meta name="twitter:image" content={`${page.url.origin}/og-image.png`} />
+	<meta name="twitter:image" content="https://denvie.online/og-image.png" />
 </svelte:head>
 
 {@render children?.()}
