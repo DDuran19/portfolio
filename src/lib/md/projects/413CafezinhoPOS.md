@@ -1,8 +1,7 @@
 # 413 Cafezinho - Point of Sales System
 
 **Role:** Solo Full-Stack Developer  
-**Stack:** SvelteKit · TypeScript · DaisyUI · TailwindCSS · Cloudflare D1 · R2 · Cloudflare Workers  
-**Deployment:** [413 Cafezinho POS](https://413cafezinho.denvie.online/)
+**Stack:** SvelteKit · TypeScript · DaisyUI · TailwindCSS · Cloudflare D1 · R2 · Cloudflare Workers
 
 ---
 
@@ -13,22 +12,22 @@ A Point of Sale system specifically designed for a coffee shop named 413 Cafezin
 ## Customer-Facing Online Order System
 
 ![Homepage](/images/projects/413cafezinho-pos/homepage.png)
-*Mobile-first homepage with hero banner, order CTA, and clean navigation.*
+_Mobile-first homepage with hero banner, order CTA, and clean navigation._
 
 ![Featured Specials](/images/projects/413cafezinho-pos/homepage-featured.png)
-*Featured Specials section showcasing promotional items with vivid product imagery.*
+_Featured Specials section showcasing promotional items with vivid product imagery._
 
 ![Menu Page](/images/projects/413cafezinho-pos/homepage-menu.png)
-*Category-filtered menu grid with product cards and quick add-to-cart buttons.*
+_Category-filtered menu grid with product cards and quick add-to-cart buttons._
 
 ![Product Details](/images/projects/413cafezinho-pos/product-details.png)
-*Product detail page with size variants, quantity selector, and special instructions.*
+_Product detail page with size variants, quantity selector, and special instructions._
 
 ![Cart & Delivery Details](/images/projects/413cafezinho-pos/cart-details.png)
-*Cart summary with item breakdown, quantity editing, and delivery form.*
+_Cart summary with item breakdown, quantity editing, and delivery form._
 
 ![Login Screen](/images/projects/413cafezinho-pos/login-screen.png)
-*Employee login screen with session feedback and auto-redirect on success.*
+_Employee login screen with session feedback and auto-redirect on success._
 
 - **Mobile-First Approach**: Ensures optimal responsiveness and usability across different screen sizes, prioritizing mobile devices.
 - **Minimalistic and Clean UI**: Features are categorized for easy customer navigation and order creation.
@@ -43,52 +42,52 @@ A Point of Sale system specifically designed for a coffee shop named 413 Cafezin
 ### Admin Dashboard
 
 ![Dashboard Overview](/images/projects/413cafezinho-pos/employee/dashboard.png)
-*Main dashboard showing active shift timer, shift activity feed, and key metrics.*
+_Main dashboard showing active shift timer, shift activity feed, and key metrics._
 
 ![Dashboard Top Bar](/images/projects/413cafezinho-pos/employee/dashboard-topbar.png)
-*Top bar with branch selector and shift selector for multi-branch report viewing.*
+_Top bar with branch selector and shift selector for multi-branch report viewing._
 
 ![Performance Metrics](/images/projects/413cafezinho-pos/employee/dashboard-performance-matrix.png)
-*Performance metrics: financials, top products, top categories, and recent orders.*
+_Performance metrics: financials, top products, top categories, and recent orders._
 
 ![Quick Lookups](/images/projects/413cafezinho-pos/employee/dashboard-quick-lookups.png)
-*Recent activity feed with order list and sub-category sales rankings.*
+_Recent activity feed with order list and sub-category sales rankings._
 
 ![Shift Logs](/images/projects/413cafezinho-pos/employee/dashboard-shift-logs.png)
-*Shift activity log showing cash events, expenses, breaks, and timestamps.*
+_Shift activity log showing cash events, expenses, breaks, and timestamps._
 
 ![EOD Report - Part 1](/images/projects/413cafezinho-pos/employee/dashboard-running-eod-report.png)
-*End-of-day report: shift info, sales breakdown by payment method and discounts.*
+_End-of-day report: shift info, sales breakdown by payment method and discounts._
 
 ![EOD Report - Part 2](/images/projects/413cafezinho-pos/employee/dashboard-running-eod-report-2.png)
-*EOD report continued: cash drawer movement, performance metrics, and invoice range.*
+_EOD report continued: cash drawer movement, performance metrics, and invoice range._
 
 ### Main POS Interface
 
 ![Main POS Interface](/images/projects/413cafezinho-pos/employee/pos/actual-pos.png)
-*POS interface split into order queue, product list, cart, and payment controls.*
+_POS interface split into order queue, product list, cart, and payment controls._
 
 ![Break Mode](/images/projects/413cafezinho-pos/employee/pos/break-mode.png)
-*Break mode overlay with live timer, cash-in-drawer field, and end break button.*
+_Break mode overlay with live timer, cash-in-drawer field, and end break button._
 
 ![Receipt Preview](/images/projects/413cafezinho-pos/employee/receipt-preview.png)
-*Order receipt with itemized billing, VAT breakdown, and order status controls.*
+_Order receipt with itemized billing, VAT breakdown, and order status controls._
 
 ### Product & Inventory Management
 
 ![Products Management](/images/projects/413cafezinho-pos/employee/products-management.png)
-*Products list with stock status, recipe configuration badge, and availability dots.*
+_Products list with stock status, recipe configuration badge, and availability dots._
 
 ![Tags Management](/images/projects/413cafezinho-pos/employee/tags-management.png)
-*Tags management table with category hierarchy, product count, and CRUD actions.*
+_Tags management table with category hierarchy, product count, and CRUD actions._
 
 ![Ingredients Management](/images/projects/413cafezinho-pos/employee/Ingredients-management.png)
-*Ingredients list with unit, low-stock threshold, status filter, and edit actions.*
+_Ingredients list with unit, low-stock threshold, status filter, and edit actions._
 
 ### Documentation
 
 ![In-App Guide](/images/projects/413cafezinho-pos/employee/docs.png)
-*Built-in documentation covering shift management and order workflows step by step.*
+_Built-in documentation covering shift management and order workflows step by step._
 
 ---
 
